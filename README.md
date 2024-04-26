@@ -11,7 +11,7 @@ _Apoyo comunitario: Ofrecemos ayuda y recursos a [nombre de la comunidad o grupo
 
 _Desarrollo personal: Brindamos oportunidades para que los voluntarios desarrollen habilidades, conocimientos y competencias._
 
-_Impacto positivo: Nuestro objetivo es generar un impacto positivo en la comunidad y promover el bienestar de sus miembros.
+_Impacto positivo: Nuestro objetivo es generar un impacto positivo en la comunidad y promover el bienestar de sus miembros._
 
 
 # Funcionalidades
@@ -21,10 +21,14 @@ Comunicación: Se proporcionan herramientas para facilitar la comunicación entr
 Seguimiento de actividades: Se realiza un seguimiento de las actividades realizadas por los voluntarios y se generan informes periódicos sobre el progreso del proyecto.
 
 # Tecnologías utilizadas
-Frontend: HTML, CSS, JavaScript, React.js
-Backend: Node.js, Express.js, MongoDB
-Herramientas de colaboración: Git, GitHub
-Herramientas de comunicación: Slack, correo electrónico
+
+_Frontend: HTML, CSS, JavaScript, React.js_
+
+_Backend: Spring Boot, Java, MySQL_
+
+_Herramientas de colaboración: Git, GitHub_
+
+_Herramientas de comunicación: , correo electrónico_
 
 # Instalación y configuración
 Clona el repositorio desde GitHub: git clone https://github.com/tu-usuario/nombre-del-proyecto.git
