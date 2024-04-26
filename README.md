@@ -7,9 +7,11 @@ El proyecto de voluntariado "Nombre del Proyecto" tiene como objetivo principal 
 
 # Características principales
 
-Apoyo comunitario: Ofrecemos ayuda y recursos a [nombre de la comunidad o grupo objetivo]._
-Desarrollo personal: Brindamos oportunidades para que los voluntarios desarrollen habilidades, conocimientos y competencias._
-Impacto positivo: Nuestro objetivo es generar un impacto positivo en la comunidad y promover el bienestar de sus miembros.
+_Apoyo comunitario: Ofrecemos ayuda y recursos a [nombre de la comunidad o grupo objetivo]._
+
+_Desarrollo personal: Brindamos oportunidades para que los voluntarios desarrollen habilidades, conocimientos y competencias._
+
+_Impacto positivo: Nuestro objetivo es generar un impacto positivo en la comunidad y promover el bienestar de sus miembros.
 
 
 # Funcionalidades
