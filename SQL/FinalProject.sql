@@ -35,3 +35,6 @@ CREATE TABLE IF NOT EXISTS UserHasEvents (
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+INSERT INTO User VALUES
+(NULL,'David','Baeza Castillo', 'davidbc_98@hotmail.com', 'M@icol89', 'death_angel',NULL,'Bezoya S.L')
+
