@@ -12,7 +12,7 @@ Desarrollo personal: Brindamos oportunidades para que los voluntarios desarrolle
 Impacto positivo: Nuestro objetivo es generar un impacto positivo en la comunidad y promover el bienestar de sus miembros.
 
 
-Funcionalidades
+# Funcionalidades
 Registro de voluntarios: Los voluntarios pueden registrarse en el proyecto proporcionando información básica sobre ellos mismos.
 Gestión de eventos: Los coordinadores pueden crear y administrar eventos de voluntariado, incluida la asignación de tareas y la gestión de horarios.
 Comunicación: Se proporcionan herramientas para facilitar la comunicación entre voluntarios, coordinadores y miembros de la comunidad.
