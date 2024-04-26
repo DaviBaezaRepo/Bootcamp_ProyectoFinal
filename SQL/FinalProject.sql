@@ -36,5 +36,17 @@ CREATE TABLE IF NOT EXISTS UserHasEvents (
 );
 
 INSERT INTO User VALUES
-(NULL,'David','Baeza Castillo', 'davidbc_98@hotmail.com', 'M@icol89', 'death_angel',NULL,'Bezoya S.L')
+(NULL,'David','Baeza Castillo', 'davidbc_98@hotmail.com', 'M@icol89', 'death_angel',NULL,'Bezoya S.L'),
+(NULL,'Thirza','Visser', 'thirzavisser95@gmail.com', 'D@vid8765', 'thirza_visser98',NULL,'Grupo Castilla S.L'),
+(NULL,'Sara','Didouh', 'saradidouh22@gmail.com', 'M@llorca2024', 'SaraDidouh21',NULL,'TSystems S.L'),
+(NULL,'Alex','Marco Mesa', 'alexeitor@gmail.com', 'Se@at2987', 'alexeitor309',NULL,'Fundacion Esplai S.L'),
+(NULL,'Sheerezade','Gomez Roig', 'Sheerezita@gmail.com', 'Sheerecita1995', 'Gominolita87',NULL,'Wingardium S.L'),
+(NULL,'Albert','Fernandez Morata', 'Albertitu@hotmail.com', 'Pyth@onMolaM@s', 'Wormgate87',NULL,'Amazon S.L'),
+(NULL,'Adrian','Milan', 'adrimilan@hotmail.com', 'Viv@J@v@', 'TuGatito98',NULL,'Sony S.L'),
+(NULL,'Moha','Kebdani Ghazi', 'Mohammito@gmail.com', 'M@handoC@fe', 'Mohhamedkeb',NULL,'Genetic UI S.L'),
+(NULL,'Sergio','Robla', 'SergioFrontend@hotmail.com', 'Fr@ntendM@la', 'SergioROBLA76',NULL,'Architects World S.L'),
+(NULL,'Sergi','Florensa Montagut', 'Segiflorensa@hotmail.com', 'S@yM@delo', 'Sergielmodelo37',NULL,'Future Tecnologies IA S.L'),
+(NULL,'Dani','Uribe', 'Danimetal@hotmail.com', 'Viv@elmetal98767', 'DaniUribe32',NULL,'OpenAI S.L'),
+(NULL,'Eric','Alcantara Valenzuela', 'ericalcantaravalen@hotmail.com', 'P@kerF@ace', 'EricAlcantara95',NULL,'Meta S.L'),
+(NULL,'Aitor','Lardin', 'Aitormenta@hotmail.com', 'InL0veBBD', 'Aitorlardin',NULL,'Microsoft S.L')
 
