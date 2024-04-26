@@ -20,5 +20,18 @@ CREATE TABLE IF NOT EXISTS Event (
     image VARCHAR(255),
     location VARCHAR(255) NOT NULL,
     duration VARCHAR(255) NOT NULL,
-    dateandtime DATETIME NOT NULL
+    dateandtime DATETIME NOT NULL,
+    categories VARCHAR(155)
 );
+
+CREATE TABLE IF NOT EXISTS UserHasEvents (
+    id_user INT UNSIGNED,
+    id_event INT UNSIGNED,
+    CONSTRAINT fk_id_user FOREIGN KEY (id_user)
+        REFERENCES User (id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_id_event FOREIGN KEY (id_event)
+        REFERENCES Event (id)
+        ON DELETE CASCADE ON UPDATE CASCADE
+);
+
