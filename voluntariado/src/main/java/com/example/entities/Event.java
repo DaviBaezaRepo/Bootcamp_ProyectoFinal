@@ -24,5 +24,5 @@ public class Event {
     private LocalDateTime dateandtime;
     private String categories;
 
-    // Constructors, getters, and setters
+    // Constructors, getters, and setters with Lombok
 }
