@@ -1,9 +1,9 @@
-# ProyectoFinal BetterWorld
+# ProyectoFinal NexoFusionCreativa
 
-Proyecto Voluntariado "www.BetterWorld.com"
+Proyecto Voluntariado "www.NexoFusionCreativa.com"
 
 # Descripción 👀
-El proyecto de voluntariado "BetterWorld" tiene como objetivo principal proporcionar apoyo y asistencia a [grupo objetivo o comunidad beneficiaria]. Este proyecto surge de la necesidad de [explicar el problema o la situación que motiva el proyecto] y busca [objetivo general del proyecto].
+El proyecto de voluntariado "NexoFusionCreativa" tiene como objetivo principal proporcionar apoyo y asistencia a [grupo objetivo o comunidad beneficiaria]. Este proyecto surge de la necesidad de [explicar el problema o la situación que motiva el proyecto] y busca [objetivo general del proyecto].
 
 # Características principales ❗
 
