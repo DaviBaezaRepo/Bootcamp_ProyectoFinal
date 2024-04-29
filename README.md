@@ -3,11 +3,11 @@
 Proyecto Voluntariado "www.NexoFusionCreativa.com"
 
 # Descripción 👀
-El proyecto de voluntariado "NexoFusionCreativa" tiene como objetivo principal proporcionar apoyo y asistencia a [grupo objetivo o comunidad beneficiaria]. Este proyecto surge de la necesidad de [explicar el problema o la situación que motiva el proyecto] y busca [objetivo general del proyecto].
+El proyecto de voluntariado "NexoFusionCreativa" tiene como objetivo principal proporcionar apoyo y asistencia a todas las necesidades de asosiaciones. Este proyecto surge de la necesidad de [explicar el problema o la situación que motiva el proyecto] y busca [objetivo general del proyecto].
 
 # Características principales ❗
 
-_Apoyo comunitario: Ofrecemos ayuda y recursos a [nombre de la comunidad o grupo objetivo]._
+_Apoyo comunitario: Ofrecemos ayuda y recursos a todo tipo de ascociacion._
 
 _Desarrollo personal: Brindamos oportunidades para que los voluntarios desarrollen habilidades, conocimientos y competencias._
 
@@ -22,16 +22,14 @@ Seguimiento de actividades: Se realiza un seguimiento de las actividades realiza
 
 # Tecnologías utilizadas ⌨
 
-_Frontend: HTML, CSS, JavaScript, React.js_
+_Frontend: HTML, CSS, TypeScript, React.js_
 
 _Backend: Spring Boot, Java, MySQL_
 
-_Herramientas de colaboración: Git, GitHub_
-
-_Herramientas de comunicación: , correo electrónico_
+_Herramientas de colaboración: Git, GitHub, Scrum_
 
 # Instalación y configuración 🛠
-Clona el repositorio desde GitHub: git clone https://github.com/tu-usuario/nombre-del-proyecto.git
+Clona el repositorio desde GitHub: git clone https://github.com/DaviBaezaRepo/Bootcamp_ProyectoFinal.git 
 Instala las dependencias del frontend y del backend utilizando npm: npm install en las carpetas frontend y backend.
 Configura el archivo de entorno .env con las variables necesarias (por ejemplo, la URL de la base de datos).
 Inicia el servidor backend con el comando npm start en la carpeta backend.
@@ -50,7 +48,6 @@ Realiza un pull request en GitHub.
 # Contacto 📫
 Para más información sobre el proyecto, contáctanos a través de:
 
-Correo electrónico: [correo electrónico]
-Sitio web: [sitio web del proyecto]
-Redes sociales: [enlaces a redes sociales del proyecto]
+Correo electrónico: NFCreativo@gmail.com
+Sitio web: NexoFusionCreativo.com
 ¡Gracias por tu interés en nuestro proyecto de voluntariado!
