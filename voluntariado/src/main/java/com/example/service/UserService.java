@@ -18,9 +18,30 @@ public class UserService {
 		return userRepository.findAll()	;
 	}
     
-	
     public Optional<User> getById(Long id) {
         return userRepository.findById(id);
     }
-
+    
+    public User saveUser(User user) {
+    	return userRepository.save(user);
+    }
+    
+    public User updateById(User request, Long id) {
+    	User user = userRepository.findById(id).get();
+    	user.setName(request.getName());
+    	user.setSurname(request.getSurname());
+    	user.setEmail(request.getEmail());
+    	user.setUsername(request.getUsername());
+    	user.setPassword(request.getPassword());
+    	return user;
+    }
+    
+    public Boolean deleteUser(Long id) {
+    	try {
+    		userRepository.deleteById(id);
+    		return true;
+    	} catch (Exception e) {
+    		return false;
+    	}
+    }
 }
