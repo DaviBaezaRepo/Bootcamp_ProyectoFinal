@@ -26,7 +26,7 @@ public class UserController {
 	
 	@GetMapping("/users/{id}")
 	public Optional<User> getById(@PathVariable Long id) {
-		return userService.getUserById(id);
+		return userService.getById(id);
 //        
 //        if (user != null) {
 //            return ResponseEntity.ok(user);

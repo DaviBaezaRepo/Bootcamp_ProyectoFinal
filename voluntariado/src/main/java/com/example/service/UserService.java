@@ -19,7 +19,7 @@ public class UserService {
 	}
 	
 
-	public Optional <User> getUserById(Long id) {
+	public Optional <User> getById(Long id) {
 		// TODO Auto-generated method stub
 		return userRepository.findById(id);
 	}
