@@ -16,4 +16,10 @@ public class UserService {
 	public List<User> findAllUsers() {
 		return userRepository.findAll()	;
 	}
+	
+
+	public User getUserById(int id) {
+		// TODO Auto-generated method stub
+		return userRepository.findById(id);
+	}
 }
