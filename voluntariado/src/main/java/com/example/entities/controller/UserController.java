@@ -1,9 +1,9 @@
 package com.example.entities.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,22 +17,22 @@ import com.example.service.UserService;
 public class UserController {
 	
 	@Autowired
-	UserService userService;
+	private UserService userService;
 	
 	@GetMapping("/users")
 	public List<User> getUsers() {
 		return userService.findAllUsers();
 	}
 	
-	@GetMapping(value="/user/{id}")
-	public ResponseEntity<User> getUserById(@PathVariable int id) {
-		User user = userService.getUserById(id);
-        
-        if (user != null) {
-            return ResponseEntity.ok(user);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+	@GetMapping("/users/{id}")
+	public Optional<User> getById(@PathVariable Long id) {
+		return userService.getUserById(id);
+//        
+//        if (user != null) {
+//            return ResponseEntity.ok(user);
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
     }
 	
 	
