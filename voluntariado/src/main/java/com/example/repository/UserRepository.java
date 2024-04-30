@@ -7,7 +7,7 @@ import com.example.entities.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
-	
+//	 Optional<User> getUserById(Long id);
 }
 
 	
