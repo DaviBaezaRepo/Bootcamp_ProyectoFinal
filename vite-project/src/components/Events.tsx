@@ -7,7 +7,7 @@ function Events(){
         {
             title: "Plantar árboles",
             desc: "Jornada de Reforestación en el Parque Nacional de Teide, Tenerife, donde voluntarios se unen para plantar árboles autóctonos y restaurar áreas degradadas, contribuyendo a la conservación de la biodiversidad y la protección del medio ambiente",
-            img: "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+            img: "../src/assets/planting-trees.jpg",
             authorLogo: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
             authorName: "Mariano Rajoy",
             date: "May 3 2024",
@@ -16,7 +16,7 @@ function Events(){
         {
             title: "Actividades con ancianos",
             desc: "Visita al Hogar de Ancianos 'La Esperanza' en Madrid para compartir una tarde de música en vivo y juegos de mesa con los residentes, llevando alegría y compañía a nuestros mayores",
-            img: "https://images.unsplash.com/photo-1620287341056-49a2f1ab2fdc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+            img: "../src/assets/old-people-playing.jpg",
             authorLogo: "https://api.uifaces.co/our-content/donated/FJkauyEa.jpg",
             authorName: "La Rosalia",
             date: "May 4 2024",
@@ -25,7 +25,7 @@ function Events(){
         {
             title: "Recogida de alimentos",
             desc: "Recogida de Alimentos en el Mercado Central de Valencia para apoyar a los comedores sociales locales y familias necesitadas durante la temporada navideña",
-            img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+            img: "../src/assets/food-donations.jpg",
             authorLogo: "https://randomuser.me/api/portraits/men/46.jpg",
             authorName: "Lluís Gibert",
             date: "May 4 2022",
