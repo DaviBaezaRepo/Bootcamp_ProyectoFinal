@@ -5,7 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @Data
@@ -26,14 +25,5 @@ public class User {
     private Boolean organizer;
     private String entity;
     
-    
-
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		this.password = encoder.encode(password);
-	}
-    
+   
 }
