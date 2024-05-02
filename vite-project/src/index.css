@@ -19,11 +19,11 @@
 
 a {
   font-weight: 500;
-  color: #009E60;
+  color: #374151;
   text-decoration: inherit;
 }
 a:hover {
-  color: #017547;
+  color: #009E60;
 }
 
 body {
@@ -39,11 +39,19 @@ h1 {
 }
 
 h3 {
-  color: #017547;
+  color: #017547 !important;
 }
 
 .green-text {
   color: #009E60;
+}
+
+.green-hover:hover {
+  color: #009E60;
+}
+
+.border-green {
+  --tw-border-opacity: 1;
 }
 
 .button {
@@ -56,6 +64,16 @@ h3 {
 }
 .button:active {
   background-color: #017547 !important;
+}
+
+
+.button2 {
+  background-color: #017547 !important;
+  color: #ffffff;
+}
+.button2:hover {
+  background-color: #009E60 !important;
+  color: #ffffff;
 }
 
 button {
