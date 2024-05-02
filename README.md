@@ -1,9 +1,9 @@
-# ProyectoFinal NexoFusionCreativa
+# ProyectoFinal _BetterWorld_
 
-Proyecto Voluntariado "www.NexoFusionCreativa.com"
+Proyecto Voluntariado "www.BetterWorld.com"
 
 # Descripción 👀
-El proyecto de voluntariado "NexoFusionCreativa" tiene como objetivo principal proporcionar apoyo y asistencia a todas las necesidades de asosiaciones. Este proyecto surge de la necesidad de [explicar el problema o la situación que motiva el proyecto] y busca [objetivo general del proyecto].
+El proyecto de voluntariado _BetterWorld_ tiene como objetivo principal proporcionar apoyo y asistencia a todas las necesidades de asosiaciones. Este proyecto surge de la necesidad de [explicar el problema o la situación que motiva el proyecto] y busca [objetivo general del proyecto].
 
 # Características principales ❗
 
@@ -48,6 +48,6 @@ Realiza un pull request en GitHub.
 # Contacto 📫
 Para más información sobre el proyecto, contáctanos a través de:
 
-Correo electrónico: NFCreativo@gmail.com
-Sitio web: NexoFusionCreativo.com
+Correo electrónico: BetWorld@gmail.com
+Sitio web: BetterWorld.com
 ¡Gracias por tu interés en nuestro proyecto de voluntariado!
