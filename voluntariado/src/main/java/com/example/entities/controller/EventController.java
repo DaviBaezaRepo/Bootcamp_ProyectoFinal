@@ -20,6 +20,8 @@ import com.example.service.EventService;
 @RequestMapping()
 public class EventController {
 	
+	
+	  
 	@Autowired
 	private EventService eventService;
 	
@@ -27,6 +29,7 @@ public class EventController {
 	public List<Event> getEvents() {
 		return eventService.findAllEvents();
 	}
+	
 	
 	@GetMapping(path = "/events/{id}")
     public Optional<Event> getEventById(@PathVariable Long id) {

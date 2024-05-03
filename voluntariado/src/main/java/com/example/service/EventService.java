@@ -1,10 +1,15 @@
 package com.example.service;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import com.example.entities.Event;
 import com.example.repository.EventRepository;
@@ -13,10 +18,26 @@ import com.example.repository.EventRepository;
 public class EventService {
 	@Autowired
 	EventRepository eventRepository;
+	  @Autowired
+	    RestTemplate restTemplate;
 	
 	public List<Event> findAllEvents() {
 		return eventRepository.findAll()	;
 	}
+	
+	public List<Event> getEvents() {
+	    ResponseEntity<Event[]> response = restTemplate.getForEntity(
+	            "http://services-events/api/events/",
+	            Event[].class);
+
+	    if (response.getStatusCode() == HttpStatus.OK) {
+	        return Arrays.asList(response.getBody());
+	    } else {
+	        // Handle error cases here
+	        return Collections.emptyList(); // or throw an exception
+	    }
+	}
+
 	 public Optional<Event> getById(Long id) {
 	        return eventRepository.findById(id);
 	    }
