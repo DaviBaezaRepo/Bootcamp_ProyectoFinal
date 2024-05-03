@@ -45,15 +45,19 @@ INSERT INTO User VALUES
 (NULL,'Adrian','Milan', 'adrimilan@hotmail.com', 'Viv@J@v@', 'TuGatito98',NULL,'Sony S.L'),
 (NULL,'Moha','Kebdani Ghazi', 'Mohammito@gmail.com', 'M@handoC@fe', 'Mohhamedkeb',NULL,'Genetic UI S.L'),
 (NULL,'Sergio','Robla', 'SergioFrontend@hotmail.com', 'Fr@ntendM@la', 'SergioROBLA76',NULL,'Architects World S.L'),
-(NULL,'Sergi','Florensa Montagut', 'Segiflorensa@hotmail.com', 'S@yM@delo', 'Sergielmodelo37',NULL,NULL),
-(NULL,'Dani','Uribe', 'Danimetal@hotmail.com', 'Viv@elmetal98767', 'DaniUribe32',NULL,NULL),
-(NULL,'Eric','Alcantara Valenzuela', 'ericalcantaravalen@hotmail.com', 'P@kerF@ace', 'EricAlcantara95',NULL,NULL),
-(NULL,'Aitor','Lardin', 'Aitormenta@hotmail.com', 'InL0veBBD', 'Aitorlardin',NULL,NULL);
+(NULL,'Sergi','Florensa Montagut', 'Segiflorensa@hotmail.com', 'S@yM@delo', 'Sergielmodelo37',NULL,'Future Tecnologies IA S.L'),
+(NULL,'Dani','Uribe', 'Danimetal@hotmail.com', 'Viv@elmetal98767', 'DaniUribe32',NULL,'OpenAI S.L'),
+(NULL,'Eric','Alcantara Valenzuela', 'ericalcantaravalen@hotmail.com', 'P@kerF@ace', 'EricAlcantara95',NULL,'Meta S.L'),
+(NULL,'Aitor','Lardin', 'Aitormenta@hotmail.com', 'InL0veBBD', 'Aitorlardin',NULL,'Microsoft S.L');
 
 
 INSERT INTO Event VALUES 
+(NULL, "Se busca voluntariado para una asociacion de animales","¡Únete y haz la diferencia! Únete a nuestro equipo de voluntarios en la Asociación de Rescate Animal Patas Felices",NULL,"Tarragona El Vendrell", "2-3 horas","2024-04-26 14:30:00","Animales, Medio Ambiente"),
 (NULL, "Se busca voluntariado para una asociacion de animales","¡Únete y haz la diferencia! Únete a nuestro equipo de voluntarios en la Asociación de Rescate Animal Patas Felices",NULL,"Tarragona El Vendrell", "2-3 horas","2024-04-26 14:30:00","Animales, Medio Ambiente");
 
+INSERT INTO UserHasEvents VALUES
+(1,1);
 
+SELECT * FROM UserHasEvents 
 
 
