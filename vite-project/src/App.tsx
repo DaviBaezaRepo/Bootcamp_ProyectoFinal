@@ -6,6 +6,7 @@ import AboutUs from './components/AboutUs'
 import Events from './components/Events'
 import Login from './components/Login'
 import AboutProject from './components/AboutProject'
+import PrivacyPolicy from "./components/PrivacyPolicy"
 import './index.css'
 import './App.css'
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/AboutProject" element={ <AboutProject/> } />
           <Route path="/Events" element={ <Events /> } />
           <Route path="/Login" element={ <Login /> } />
+          <Route path="/PrivacyPolicy" element={ <PrivacyPolicy /> } />
         </Routes>
       </main>
       <Footer />

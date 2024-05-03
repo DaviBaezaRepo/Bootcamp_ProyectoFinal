@@ -9,9 +9,7 @@ interface NavigationItem {
 
 const navigation: NavigationItem[] = [
     { title: "Home", path: "./" },
-    { title: "Eventos", path: "./Events" },
-    { title: "Sobre nosotros", path: "./AboutUs" }
-];
+    { title: "Eventos", path: "./Events" },];
 
 export default () => {
     const [state, setState] = useState(false);
@@ -35,6 +33,7 @@ export default () => {
                             alt="App-logo"
                         />
                     </a>
+                    {/* Ficar marge baix del botó de sign in quan es fa el menú desplegable!!! */}
                     <div className="md:hidden">
                         <button className="menu-btn text-gray-500 hover:text-gray-800"
                             onClick={() => setState(!state)}

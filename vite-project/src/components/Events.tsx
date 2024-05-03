@@ -1,5 +1,4 @@
-import React from 'react'
-
+import { useEffect } from "react";
 
 function Events(){
 
@@ -32,6 +31,18 @@ function Events(){
             href: "javascript:void(0)"
         },
     ]
+
+    {/* Set the maximum length shown of the description */}
+    useEffect(() => {
+        const descriptionElements = document.querySelectorAll('#description');
+        descriptionElements.forEach(element => {
+            const text = element?.textContent; // Use optional chaining here
+            const maxLength = 130;
+            if (text && text.length > maxLength) { // Check if text is not null
+                element.textContent = text.slice(0, maxLength) + '...';
+            }
+        });
+    }, []);
     
     return (
         <section className="mt-12 mx-auto px-4 max-w-screen-xl md:px-8">
@@ -62,7 +73,7 @@ function Events(){
                                     <h3 className="text-xl text-gray-900">
                                         {items.title}
                                     </h3>
-                                    <p className="text-gray-400 text-sm mt-1">{items.desc}</p>
+                                    <p className="text-gray-400 text-sm mt-1 font-normal" id='description'>{items.desc}</p>
                                 </div>
                             </a>
                         </article>
