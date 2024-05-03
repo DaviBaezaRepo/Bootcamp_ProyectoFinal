@@ -54,6 +54,11 @@ h3 {
   --tw-border-opacity: 1;
 }
 
+.bg-green {
+  background-color: #009E60;
+  color: white;
+}
+
 .button {
   background-color: #009E60 !important;
   color: #ffffff;
