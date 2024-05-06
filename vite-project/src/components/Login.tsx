@@ -18,7 +18,7 @@ function Login() {
                     {/* Canviar color border!!! */}
                     <div>
                         <label className="font-medium">
-                            Usuario o correo electónico
+                            Correo electónico
                         </label>
                         <input
                             type="email"
