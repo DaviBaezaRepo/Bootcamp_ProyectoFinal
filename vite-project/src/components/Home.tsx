@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link } from 'react-router-dom';
-import Events from "./Events"
+import Events from "./EventsCards"
 
 function Home() {
     const numberOfEventsToShow = 3; // Define the number of events to show
