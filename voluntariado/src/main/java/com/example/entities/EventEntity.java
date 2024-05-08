@@ -26,7 +26,6 @@ public class EventEntity {
     private LocalDateTime dateandtime;
     private String categories;
     private String organizer;
-    private Boolean favorite;
     
     
     // Constructors, getters, and setters with Lombok
