@@ -28,7 +28,7 @@ public class User {
     private String email;
     private String password;
     private String username;
-    private Boolean organizer;
+    private String image;
     private String entity;
     
    

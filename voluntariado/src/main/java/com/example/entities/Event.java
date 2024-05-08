@@ -23,6 +23,8 @@ public class Event {
     private String duration;
     private LocalDateTime dateandtime;
     private String categories;
+    private String organizer;
+    private Boolean favorite;
     
     
     // Constructors, getters, and setters with Lombok
