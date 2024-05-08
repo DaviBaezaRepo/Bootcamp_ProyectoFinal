@@ -20,17 +20,7 @@ public class VoluntariadoApplication {
 		SpringApplication.run(VoluntariadoApplication.class, args);
 	}
 	
-	@Configuration
-	public class WebConfig implements WebMvcConfigurer {
-
-	    @Override
-	    public void addCorsMappings(CorsRegistry registry) {
-	        registry.addMapping("/**")
-	                .allowedOrigins("*") // Permitir solicitudes desde cualquier origen
-	                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Métodos permitidos
-	                .allowedHeaders("*"); // Cabeceras permitidas
-	    }
-	}
+	
 
 	} 
 
