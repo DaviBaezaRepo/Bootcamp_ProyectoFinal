@@ -66,6 +66,9 @@ function Home() {
 
             {/* Next events section */}
             <section>
+                <h2 className="font-semibold">
+                    Próximos eventos
+                </h2>
                 {/* Render the Events component and pass the numberOfEventsToShow as prop */}
                 <Events numberOfEvents={numberOfEventsToShow} />
             </section>
