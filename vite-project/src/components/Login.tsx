@@ -8,7 +8,7 @@ function Login() {
                     <img src="../src/assets/better-world-logo1.png" width={200} className="mx-auto" />
                     <div className="space-y-2">
                         <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">Iniciar sesión</h3>
-                        <p className="">¿Aún no tienes una cuenta? <a href="javascript:void(0)" className="font-medium text-indigo-600 hover:text-indigo-500">Regístrate</a></p>
+                        <p className="">¿Aún no tienes una cuenta? <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">Regístrate</a></p>
                     </div>
                 </div>
                 <form
@@ -42,7 +42,7 @@ function Login() {
                         Entrar
                     </button>
                     <div className="text-center">
-                        <a href="javascript:void(0)" className="green-hover">¿Has olvidado tu conraseña?</a>
+                        <a href="#" className="green-hover">¿Has olvidado tu conraseña?</a>
                     </div>
                 </form>
             </div>
