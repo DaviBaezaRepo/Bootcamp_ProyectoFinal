@@ -25,8 +25,4 @@ public class EventEntity {
     private String duration;
     private LocalDateTime dateandtime;
     private String categories;
-    private String organizer;
-    
-    
-    // Constructors, getters, and setters with Lombok
 }
