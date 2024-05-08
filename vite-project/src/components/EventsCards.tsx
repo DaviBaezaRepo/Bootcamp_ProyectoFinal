@@ -9,7 +9,20 @@ interface Event {
     duration: string;
     dateandtime: string;
     categories: string;
+    organizer: number;
 }
+
+interface UserData {
+    id: number;
+    name: string;
+    surname: string;
+    email: string;
+    password: string;
+    username: string;
+    image: string | null;
+    entity: string;
+}
+
 function EventsCards({ numberOfEvents }: { numberOfEvents: number }) {
     const [events, setEvents] = useState<Event[]>([]);
 

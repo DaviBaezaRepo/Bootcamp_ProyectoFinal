@@ -28,7 +28,6 @@ public class UserDTO {
 	private String email;
 	private String password;
 	private String username;
-	private Boolean organizer;
 	private String entity;
 
 	@ManyToMany
