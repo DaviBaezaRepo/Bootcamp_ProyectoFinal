@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS User (
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     username VARCHAR(255) UNIQUE NOT NULL,
-    organizer BOOLEAN,
+    image VARCHAR(150),
     entity VARCHAR(255)
 );
 
@@ -21,11 +21,12 @@ CREATE TABLE IF NOT EXISTS Event (
     location VARCHAR(255) NOT NULL,
     duration VARCHAR(255) NOT NULL,
     dateandtime DATETIME NOT NULL,
-    categories VARCHAR(155)
+    categories VARCHAR(155),
+    organizer VARCHAR(150),
+    favorite boolean
 );
 
 CREATE TABLE IF NOT EXISTS UserHasEvents (
-	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     id_user INT UNSIGNED,
     id_event INT UNSIGNED,
     CONSTRAINT fk_id_user FOREIGN KEY (id_user)
@@ -53,13 +54,26 @@ INSERT INTO User VALUES
 
 
 INSERT INTO Event VALUES 
-(NULL, "Se busca voluntariado para una asociacion de animales","¡Únete y haz la diferencia! Únete a nuestro equipo de voluntarios en la Asociación de Rescate Animal Patas Felices",NULL,"Tarragona El Vendrell", "2-3 horas","2024-04-26 14:30:00","Animales, Medio Ambiente"),
-(NULL, "Se busca voluntariado para una asociacion de animales","¡Únete y haz la diferencia! Únete a nuestro equipo de voluntarios en la Asociación de Rescate Animal Patas Felices",NULL,"Tarragona El Vendrell", "2-3 horas","2024-04-26 14:30:00","Animales, Medio Ambiente");
+(NULL, "Plantar arboles","Jornada de Reforestación en el Parque Nacional de Teide, Tenerife, donde voluntarios se unen para plantar árboles autóctonos y restaurar áreas degradadas, contribuyendo a la conservación de la biodiversidad y la protección del medio ambiente","../src/assets/planting-trees.jpg","Tarragona El Vendrell", "2-3 horas","2024-04-03 14:30:00","Animales, Medio Ambiente",NULL,NULL),
+(NULL, "Actividades con ancianos","Visita al Hogar de Ancianos 'La Esperanza' en Madrid para compartir una tarde de música en vivo y juegos de mesa con los residentes, llevando alegría y compañía a nuestros mayores","../src/assets/old-people-playing.jpg","Reus", "4 horas","2024-06-30 09:30:00","Cuidados, Ciudadania",NULL,NULL),
+(NULL, "Recogida de alimentos","Recogida de Alimentos en el Mercado Central de Valencia para apoyar a los comedores sociales locales y familias necesitadas durante la temporada navideña","../src/assets/food-donations.jpg","Barcelona", "5-6 horas","2024-10-05 10:30:00","Alimentos, Social",NULL,NULL),
+(NULL, "Playa Limpia","Limpieza de la playa de San Sebastián para preservar la belleza natural y proteger la vida marina. ¡Únete y haz la diferencia!","../src/assets/beach-cleanup.jpg","Torredembarra", "5 horas","2024-08-15 10:30:00","VidaMarina,EcoSistema",NULL,NULL),
+(NULL, "Campaña de Donación de Sangre","Campaña de donación de sangre en el Hospital General de Valencia. ¡Tu donación puede salvar vidas!","../src/assets/blood-donation.jpg","Vila Seca", "7 horas","2024-09-20 10:30:00","Donaciones",NULL,NULL);
+
 
 INSERT INTO UserHasEvents VALUES
-(NULL, 1, 1),
-(NULL, 2, 1);
+(1,1),
+(1,2),
+(1,4),
+(2,1),
+(3,4),
+(4,2),
+(5,3),
+(4,1),
+(6,4),
+(7,5),
+(8,3),
+(9,2);
 
 SELECT * FROM UserHasEvents 
-
 

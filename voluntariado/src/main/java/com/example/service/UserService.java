@@ -33,6 +33,7 @@ public class UserService {
 		user.setEmail(request.getEmail());
 		user.setUsername(request.getUsername());
 		user.setPassword(request.getPassword());
+    	user.setImage(request.getImage());
 		return user;
 	}
 
