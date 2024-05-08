@@ -3,10 +3,11 @@ import Home from './components/Home'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import AboutUs from './components/AboutUs'
-import Events from './components/Events'
+import Events from './components/EventsCards'
 import Login from './components/Login'
 import AboutProject from './components/AboutProject'
 import PrivacyPolicy from "./components/PrivacyPolicy"
+import EventDetails from "./components/EventDetails"
 import './index.css'
 import './App.css'
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/Events" element={ <Events numberOfEvents={0} /> } />
           <Route path="/Login" element={ <Login /> } />
           <Route path="/PrivacyPolicy" element={ <PrivacyPolicy /> } />
+          <Route path="/Event" element={ <EventDetails event={{title: "", desc: ""}} /> } />
         </Routes>
       </main>
       <Footer />
