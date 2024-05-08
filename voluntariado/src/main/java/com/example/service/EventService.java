@@ -11,59 +11,58 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.example.entities.Event;
+import com.example.entities.EventEntity;
 import com.example.repository.EventRepository;
 
 @Service
 public class EventService {
 	@Autowired
 	EventRepository eventRepository;
-	  @Autowired
-	    RestTemplate restTemplate;
-	
-	public List<Event> findAllEvents() {
-		return eventRepository.findAll()	;
-	}
-	
-	public List<Event> getEvents() {
-	    ResponseEntity<Event[]> response = restTemplate.getForEntity(
-	            "http://services-events/api/events/",
-	            Event[].class);
+	@Autowired
+	RestTemplate restTemplate;
 
-	    if (response.getStatusCode() == HttpStatus.OK) {
-	        return Arrays.asList(response.getBody());
-	    } else {
-	        // Handle error cases here
-	        return Collections.emptyList(); // or throw an exception
-	    }
+	public List<EventEntity> findAllEvents() {
+		return eventRepository.findAll();
 	}
 
-	 public Optional<Event> getById(Long id) {
-	        return eventRepository.findById(id);
-	    }
-	 
-	 public Event saveEvent(Event event) {
-	    	return eventRepository.save(event);
-	    }
-	 
-	 public Event updateById(Event request, Long id) {
-	    	Event event = eventRepository.findById(id).get();
-	    	event.setTitle(request.getTitle());
-	    	event.setDescription(request.getDescription());
-	    	event.setImage(request.getImage());
-	    	event.setLocation(request.getLocation());
-	    	event.setDuration(request.getDuration());
-	    	event.setDateandtime(request.getDateandtime());
-	    	event.setCategories(request.getCategories());
-	    	return event;
-	    }
-	  
-	    public Boolean deleteEvent(Long id) {
-	    	try {
-	    		eventRepository.deleteById(id);
-	    		return true;
-	    	} catch (Exception e) {
-	    		return false;
-	    	}
-	    }
+	public List<EventEntity> getEvents() {
+		ResponseEntity<EventEntity[]> response = restTemplate.getForEntity("http://services-events/api/events/",
+				EventEntity[].class);
+
+		if (response.getStatusCode() == HttpStatus.OK) {
+			return Arrays.asList(response.getBody());
+		} else {
+			// Handle error cases here
+			return Collections.emptyList(); // or throw an exception
+		}
+	}
+
+	public Optional<EventEntity> getById(Long id) {
+		return eventRepository.findById(id);
+	}
+
+	public EventEntity saveEvent(EventEntity event) {
+		return eventRepository.save(event);
+	}
+
+	public EventEntity updateById(EventEntity request, Long id) {
+		EventEntity event = eventRepository.findById(id).get();
+		event.setTitle(request.getTitle());
+		event.setDescription(request.getDescription());
+		event.setImage(request.getImage());
+		event.setLocation(request.getLocation());
+		event.setDuration(request.getDuration());
+		event.setDateandtime(request.getDateandtime());
+		event.setCategories(request.getCategories());
+		return event;
+	}
+
+	public Boolean deleteEvent(Long id) {
+		try {
+			eventRepository.deleteById(id);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 }

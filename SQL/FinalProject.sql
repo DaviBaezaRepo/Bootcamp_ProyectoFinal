@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS Event (
 );
 
 CREATE TABLE IF NOT EXISTS UserHasEvents (
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     id_user INT UNSIGNED,
     id_event INT UNSIGNED,
     CONSTRAINT fk_id_user FOREIGN KEY (id_user)
@@ -56,7 +57,8 @@ INSERT INTO Event VALUES
 (NULL, "Se busca voluntariado para una asociacion de animales","¡Únete y haz la diferencia! Únete a nuestro equipo de voluntarios en la Asociación de Rescate Animal Patas Felices",NULL,"Tarragona El Vendrell", "2-3 horas","2024-04-26 14:30:00","Animales, Medio Ambiente");
 
 INSERT INTO UserHasEvents VALUES
-(1,1);
+(NULL, 1, 1),
+(NULL, 2, 1);
 
 SELECT * FROM UserHasEvents 
 
