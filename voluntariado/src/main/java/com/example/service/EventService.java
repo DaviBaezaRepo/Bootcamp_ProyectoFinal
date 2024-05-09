@@ -48,7 +48,7 @@ public class EventService {
 	public EventEntity updateById(EventEntity request, Long id) {
 		EventEntity event = eventRepository.findById(id).get();
 		event.setTitle(request.getTitle());
-		event.setDescription(request.getDescription());
+		event.setExplanation(request.getExplanation());
 		event.setImage(request.getImage());
 		event.setLocation(request.getLocation());
 		event.setDuration(request.getDuration());

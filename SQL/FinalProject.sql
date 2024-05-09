@@ -2,20 +2,20 @@ DROP SCHEMA IF EXISTS FinalProject;
 CREATE SCHEMA IF NOT EXISTS FinalProject;
 USE FinalProject;
 
-CREATE TABLE IF NOT EXISTS User (
+CREATE TABLE IF NOT EXISTS enduser (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
+    firstname VARCHAR(255) NOT NULL,
     surname VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
+    newpassword VARCHAR(255) NOT NULL,
     image VARCHAR(255),
     entity VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS Event (
+CREATE TABLE IF NOT EXISTS activity (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
-    description VARCHAR(255) NOT NULL,
+    explanation VARCHAR(255) NOT NULL,
     image VARCHAR(255),
     location VARCHAR(255) NOT NULL,
     duration VARCHAR(255) NOT NULL,
@@ -25,17 +25,17 @@ CREATE TABLE IF NOT EXISTS Event (
 );
 
 CREATE TABLE IF NOT EXISTS UserHasEvents (
-    id_user INT UNSIGNED,
-    id_event INT UNSIGNED,
-    CONSTRAINT fk_id_user FOREIGN KEY (id_user)
-        REFERENCES User (id)
+    id_enduser INT UNSIGNED,
+    id_activity INT UNSIGNED,
+    CONSTRAINT fk_id_enduser FOREIGN KEY (id_enduser)
+        REFERENCES enduser (id)
         ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT fk_id_event FOREIGN KEY (id_event)
-        REFERENCES Event (id)
+    CONSTRAINT fk_id_activity FOREIGN KEY (id_activity)
+        REFERENCES activity (id)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-INSERT INTO User VALUES
+INSERT INTO enduser VALUES
 (NULL,'David','Baeza Castillo', 'davidbc_98@hotmail.com', 'M@icol89',"https://randomuser.me/api/portraits/men/64.jpg",'Bezoya S.L'),
 (NULL,'Thirza','Visser', 'thirzavisser95@gmail.com', 'D@vid8765', "https://randomuser.me/api/portraits/women/10.jpg",'Grupo Castilla S.L'),
 (NULL,'Sara','Didouh', 'saradidouh22@gmail.com', 'M@llorca2024',"https://randomuser.me/api/portraits/women/45.jpg",'TSystems S.L'),
@@ -51,7 +51,7 @@ INSERT INTO User VALUES
 (NULL,'Aitor','Lardin', 'Aitormenta@hotmail.com', 'InL0veBBD', "https://randomuser.me/api/portraits/men/10.jpg",'Microsoft S.L');
 
 
-INSERT INTO Event VALUES 
+INSERT INTO activity VALUES 
 (NULL, "Plantar arboles","Jornada de Reforestación en el Parque Nacional de Teide, Tenerife, donde voluntarios se unen para plantar árboles autóctonos y restaurar áreas degradadas, contribuyendo a la conservación de la biodiversidad y la protección del medio ambiente","../src/assets/planting-trees.jpg","Tarragona El Vendrell", "2-3 horas","2024-04-03 14:30:00","Animales, Medio Ambiente","2"),
 (NULL, "Actividades con ancianos","Visita al Hogar de Ancianos 'La Esperanza' en Madrid para compartir una tarde de música en vivo y juegos de mesa con los residentes, llevando alegría y compañía a nuestros mayores","../src/assets/old-people-playing.jpg","Reus", "4 horas","2024-06-30 09:30:00","Cuidados, Ciudadania","1"),
 (NULL, "Recogida de alimentos","Recogida de Alimentos en el Mercado Central de Valencia para apoyar a los comedores sociales locales y familias necesitadas durante la temporada navideña","../src/assets/food-donations.jpg","Barcelona", "5-6 horas","2024-10-05 10:30:00","Alimentos, Social","3"),

@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "event")
+@Table(name = "activity")
 public class EventEntity {
 
     @Id
@@ -19,10 +19,11 @@ public class EventEntity {
     private Long id;
 
     private String title;
-    private String description;
+    private String explanation;
     private String image;
     private String location;
     private String duration;
     private LocalDateTime dateandtime;
     private String categories;
+    private String organizer;
 }

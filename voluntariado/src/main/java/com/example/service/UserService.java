@@ -28,10 +28,10 @@ public class UserService {
 
 	public UserEntity updateById(UserEntity request, Long id) {
 		UserEntity user = userRepository.findById(id).get();
-		user.setName(request.getName());
+		user.setFirstname(request.getFirstname());
 		user.setSurname(request.getSurname());
 		user.setEmail(request.getEmail());
-		user.setPassword(request.getPassword());
+		user.setNewpassword(request.getNewpassword());
     	user.setImage(request.getImage());
 		return user;
 	}
