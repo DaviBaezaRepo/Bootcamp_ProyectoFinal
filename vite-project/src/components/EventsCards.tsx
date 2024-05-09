@@ -99,17 +99,17 @@ function EventsCards({ numberOfEvents }: { numberOfEvents: number }) {
                             <img src={item.image} loading="lazy" alt={item.title} className="w-full h-48 rounded-t-md" />
                             <div className="flex items-center mt-2 pt-3 ml-4 mr-2">
                                 <div className="flex-none w-10 h-10 rounded-full">
-                                    <img src={item.organizerData.image || ''} className="w-full h-full rounded-full" alt={item.organizerData.name} />
+                                    <img src={item.organizerData.image || ''} className="w-full h-full rounded-full" alt={item.organizerData.firstname} />
                                 </div>
                                 <div className="ml-3">
-                                    <span className="block text-gray-900">{item.organizerData.name} {item.organizerData.surname}</span>
+                                    <span className="block text-gray-900">{item.organizerData.firstname} {item.organizerData.surname}</span>
                                     <span className="block text-gray-400 text-sm">{item.dateandtime}</span>
                                 </div>
                             </div>
                             <div className="pt-3 ml-4 mr-2 mb-3">
                                 <h3 className="text-xl text-gray-900">{item.title}</h3>
                                 <p className="text-gray-400 text-sm mt-1 font-normal description">
-                                    {truncateDescription(item.description, 130)}
+                                    {truncateDescription(item.explanation, 130)}
                                 </p>
                             </div>
                         {/*</a>*/}

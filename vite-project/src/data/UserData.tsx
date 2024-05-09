@@ -1,10 +1,9 @@
 export interface UserData {
     id: number;
-    name: string;
+    firstname: string;
     surname: string;
     email: string;
-    password: string;
-    username: string;
+    newpassword: string;
     image: string | null;
     entity: string;
 }
