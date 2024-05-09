@@ -31,7 +31,6 @@ public class UserService {
 		user.setName(request.getName());
 		user.setSurname(request.getSurname());
 		user.setEmail(request.getEmail());
-		user.setUsername(request.getUsername());
 		user.setPassword(request.getPassword());
     	user.setImage(request.getImage());
 		return user;

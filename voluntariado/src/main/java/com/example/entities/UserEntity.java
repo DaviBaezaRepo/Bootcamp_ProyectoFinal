@@ -20,7 +20,6 @@ public class UserEntity {
 	private String surname;
 	private String email;
 	private String password;
-	private String username;
 	private String image;
 	private String entity;
 }
