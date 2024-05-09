@@ -20,8 +20,8 @@ CREATE TABLE IF NOT EXISTS Event (
     location VARCHAR(255) NOT NULL,
     duration VARCHAR(255) NOT NULL,
     dateandtime DATETIME NOT NULL,
-    categories VARCHAR(155),
-    organizer VARCHAR(150)
+    categories VARCHAR(255),
+    organizer VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS UserHasEvents (
@@ -40,7 +40,7 @@ INSERT INTO User VALUES
 (NULL,'Thirza','Visser', 'thirzavisser95@gmail.com', 'D@vid8765', "https://randomuser.me/api/portraits/women/10.jpg",'Grupo Castilla S.L'),
 (NULL,'Sara','Didouh', 'saradidouh22@gmail.com', 'M@llorca2024',"https://randomuser.me/api/portraits/women/45.jpg",'TSystems S.L'),
 (NULL,'Alex','Marco Mesa', 'alexeitor@gmail.com', 'Se@at2987',"https://randomuser.me/api/portraits/men/50.jpg",'Fundacion Esplai S.L'),
-(NULL,'Sheerezade','Gomez Roig', 'Sheerezita@gmail.com', "https://randomuser.me/api/portraits/women/40.jpg",'Wingardium S.L'),
+(NULL,'Sheerezade','Gomez Roig', 'Sheerezita@gmail.com', 'Gominolita87', "https://randomuser.me/api/portraits/women/40.jpg",'Wingardium S.L'),
 (NULL,'Albert','Fernandez Morata', 'Albertitu@hotmail.com', 'Pyth@onMolaM@s',"https://randomuser.me/api/portraits/men/30.jpg",'Amazon S.L'),
 (NULL,'Adrian','Milan', 'adrimilan@hotmail.com', 'Viv@J@v@', "https://randomuser.me/api/portraits/men/60.jpg",'Sony S.L'),
 (NULL,'Moha','Kebdani Ghazi', 'Mohammito@gmail.com', 'M@handoC@fe',"https://randomuser.me/api/portraits/men/70.jpg",'Genetic UI S.L'),
