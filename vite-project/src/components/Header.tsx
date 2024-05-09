@@ -8,8 +8,8 @@ interface NavigationItem {
 }
 
 const navigation: NavigationItem[] = [
-    { title: "Home", path: "./" },
-    { title: "Eventos", path: "./Events" },];
+    { title: "Home", path: "/" },
+    { title: "Eventos", path: "/Events" },];
 
 export default () => {
     const [state, setState] = useState(false);
@@ -25,7 +25,7 @@ export default () => {
         <nav className={`bg-white md:text-sm ${state ? "shadow-lg rounded-xl border mx-2 mt-2 md:shadow-none md:border-none d:mx-2m md:mt-0" : ""}`}>
             <div className="gap-x-14 items-center max-w-screen-xl mx-auto px-4 md:flex md:px-8">
                 <div className="flex items-center justify-between md:block">
-                    <a href="./">
+                    <a href="/">
                         <img
                             src="../src/assets/better-world-logo1.png"
                             width={80}
@@ -63,10 +63,10 @@ export default () => {
                         ))}
                     </ul>
                     <div className="flex-1 gap-x-6 items-center justify-end mt-6 space-y-6 md:flex md:space-y-0 md:mt-0">
-                        <a href="./Login" className="block">
+                        <a href="/Login" className="block">
                             Log in
                         </a>
-                        <a href="./Signin" className="flex header-button items-center justify-center gap-x-1 py-2 px-4 text-white font-medium rounded-full button md:inline-flex">
+                        <a href="/Signin" className="flex header-button items-center justify-center gap-x-1 py-2 px-4 text-white font-medium rounded-full button md:inline-flex">
                             Sign in
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
                                 <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
