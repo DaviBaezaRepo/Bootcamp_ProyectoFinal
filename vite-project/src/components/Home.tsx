@@ -46,16 +46,16 @@ function Home() {
             {/* Collab. section */}
             <section>
             <div className="md:px-8 py-10 bg-white">
-                    <p className="text-center text-sm text-gray-700 font-semibold">Nuestros colaboradores principales</p>
+                    <p className="font-semibold text-sm text-gray-600 text-center">NUESTROS PRINCIPALES COLABORADORES</p>
                     <div className="flex justify-center items-center flex-wrap gap-x-12 gap-y-6 mt-6">
                     <svg width="150" height="50" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <image xlinkHref="src/assets/fundacion-rosa-maria-vivar.png" width="190" height="33" />
                     </svg>       
                     <svg width="150" height="50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <image xlinkHref="src/assets/nou-refugi-baix-camp-logo.png" width="190" height="33" />
+                        <image xlinkHref="src/assets/xplora-logo.png" width="190" height="33" />
                     </svg>                  
                     <svg width="150" height="50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <image xlinkHref="src/assets/fundacion-rosa-maria-vivar.png" width="190" height="33" />
+                        <image xlinkHref="src/assets/asnet-logo-white.png" width="190" height="33" />
                     </svg>   
                     <svg width="150" height="50" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <image xlinkHref="src/assets/nou-refugi-baix-camp-logo.png" width="190" height="33" />
@@ -66,9 +66,9 @@ function Home() {
 
             {/* Next events section */}
             <section>
-                <h2 className="font-semibold">
+                <h3 className="text-3xl font-semibold sm:text-4xl mb-7 mt-7">
                     Próximos eventos
-                </h2>
+                </h3>
                 {/* Render the Events component and pass the numberOfEventsToShow as prop */}
                 <Events numberOfEvents={numberOfEventsToShow} />
             </section>
