@@ -15,6 +15,9 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+// Cogemos los datos de usuario que nos interesan para enseñarlos junto con el evento que corresponde
+
+
 @Data // Creates getters and setters automatically
 @Entity
 @Table(name = "enduser")
@@ -29,6 +32,8 @@ public class EventUserDTO {
 
 	@ManyToMany
 	@JsonIgnore
-	@JoinTable(name = "userhasevents", joinColumns = @JoinColumn(name = "id_enduser"), inverseJoinColumns = @JoinColumn(name = "id_activity"))
+	@JoinTable(name = "userhasevents", 
+		joinColumns = @JoinColumn(name = "id_enduser"), 
+		inverseJoinColumns = @JoinColumn(name = "id_activity"))
 	List<EventDTO> eventList = new ArrayList<>();
 }

@@ -1,5 +1,7 @@
 package com.example.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,6 +21,7 @@ public class UserEntity {
 	private String firstname;
 	private String surname;
 	private String email;
+	@JsonIgnore
 	private String newpassword;
 	private String image;
 	private String entity;

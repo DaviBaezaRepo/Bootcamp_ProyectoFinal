@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.entities.UserDTO;
 import com.example.entities.UserEntity;
+import com.example.repository.UserDtoRepository;
 import com.example.service.UserService;
 
 @RestController
@@ -25,6 +27,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private UserDtoRepository userDtoRepository;
 
 	@GetMapping(path = "/{id}")
 	public Optional<UserEntity> getUserById(@PathVariable Long id) {
@@ -36,10 +41,15 @@ public class UserController {
 		return userService.findAllUsers();
 	}
 	
-//	@GetMapping("/dto")
-//	public List<EventDTO> getEventsDTO() {
-//		return eventDtoRepository.findAll();
-//	}
+	@GetMapping("/dto")
+	public List<UserDTO> getEventsDTO() {
+		return userDtoRepository.findAll();
+	}
+	
+	@GetMapping("/dto/{id}")
+	public Optional<UserDTO> getEventsByIdDTO(@PathVariable Long id) {
+		return userDtoRepository.findById(id);
+	}
 
 	@PostMapping
 	public UserEntity saveUser(@RequestBody UserEntity user) {

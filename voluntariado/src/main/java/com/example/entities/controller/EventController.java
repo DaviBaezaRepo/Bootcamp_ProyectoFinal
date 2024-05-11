@@ -40,6 +40,11 @@ public class EventController {
 	public List<EventDTO> getEventsDTO() {
 		return eventDtoRepository.findAll();
 	}
+	
+	@GetMapping("/dto/{id}")
+	public Optional<EventDTO> getEventsByIdDTO(@PathVariable Long id) {
+		return eventDtoRepository.findById(id);
+	}
 
 	@GetMapping(path = "/{id}")
 	public Optional<EventEntity> getEventById(@PathVariable Long id) {
