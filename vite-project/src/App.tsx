@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import AboutUs from './components/AboutUs'
 import EventsCards from "./components/EventsCards";
 import Login from './components/Login'
+import SignUp from "./components/SignUp"
 import AboutProject from './components/AboutProject'
 import PrivacyPolicy from "./components/PrivacyPolicy"
 import EventDetails from "./components/EventDetails"
@@ -23,6 +24,7 @@ function App() {
           <Route path="/AboutProject" element={ <AboutProject/> } />
           <Route path="/Events" element={<EventsCards numberOfEvents={0} />} />
           <Route path="/Login" element={ <Login /> } />
+          <Route path="/Signup" element={ <SignUp/> } />
           <Route path="/PrivacyPolicy" element={ <PrivacyPolicy /> } />
           <Route path="/Event" element={ <EventDetails event={{title: "", desc: ""}} /> } />
         </Routes>
