@@ -7,12 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.entities.UserEntity;
+import com.example.repository.UserDtoRepository;
 import com.example.repository.UserRepository;
 
 @Service
 public class UserService {
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired UserDtoRepository userDtoRepository;
 
 	public List<UserEntity> findAllUsers() {
 		return userRepository.findAll();
@@ -21,7 +24,7 @@ public class UserService {
 	public Optional<UserEntity> getById(Long id) {
 		return userRepository.findById(id);
 	}
-
+	
 	public UserEntity saveUser(UserEntity user) {
 		return userRepository.save(user);
 	}

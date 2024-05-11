@@ -45,6 +45,11 @@ public class UserController {
 	public List<UserDTO> getEventsDTO() {
 		return userDtoRepository.findAll();
 	}
+	
+	@GetMapping("/dto/{id}")
+	public Optional<UserDTO> getEventsByIdDTO(@PathVariable Long id) {
+		return userDtoRepository.findById(id);
+	}
 
 	@PostMapping
 	public UserEntity saveUser(@RequestBody UserEntity user) {
