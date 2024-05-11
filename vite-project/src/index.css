@@ -55,6 +55,14 @@ h3 {
   color: white;
 }
 
+.border-color {
+
+}
+
+.border-color:focus {
+  border-color: #017547;
+}
+
 .button {
   background-color: #009E60 !important;
   color: #ffffff;
