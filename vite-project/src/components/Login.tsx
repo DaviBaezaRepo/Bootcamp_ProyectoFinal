@@ -1,12 +1,15 @@
 import { useState } from "react"
-
+import { useCookies } from "react-cookie";
+import { Navigate } from 'react-router-dom';
 
 
 function Login() {
-    let alert;
+    const [alert, setAlert] = useState('');
         const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const [cookies, setCookie] = useCookies(['token']);
+    const [redirects, setredirects] = useState(false);
+    
     const handleSubmit = async (e:any) => {
         e.preventDefault();
         
@@ -21,18 +24,25 @@ function Login() {
         }).then(r => r.json());
             
         if (response.status == "success") {
+            const expirationDate = new Date();
+            expirationDate.setTime(expirationDate.getTime() + (30 * 60  * 1000));
             // Manejar la respuesta exitosa, por ejemplo, redirigir a otra página
+            setCookie('token', response.token, { path: '/' });
             console.log(response);
+            setredirects(true);
         } else {
             // Manejar la respuesta de error
-            alert = <div className="bg-red-300 rounded-md p-2"> 
-                {response.message}
-            </div>
+            setAlert(response.message);
         }
         } catch (error) {
         console.error('Error en la solicitud:', error);
         }
     };
+
+
+    if (redirects) {
+        return <Navigate replace to="/home" />
+}
 
 
     return (
@@ -74,7 +84,7 @@ function Login() {
                             className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                         />
                     </div>
-                    {alert ? alert : ""}
+                    {alert && <div className="bg-red-300 rounded-md p-2">{alert}</div>}
                     <button
                         className="w-full px-4 py-2 text-white button2 rounded-lg duration-150"
                     >
