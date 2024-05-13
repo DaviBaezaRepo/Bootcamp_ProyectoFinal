@@ -17,9 +17,19 @@ function SignUp () {
                     >
                         <div>
                             <label className="font-medium">
-                                Name
+                                Nombre
                             </label>
-                            <input
+                            <input  
+                                type="text"
+                                required
+                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                            />
+                        </div>
+                        <div>
+                            <label className="font-medium">
+                                Apellidos
+                            </label>
+                            <input  
                                 type="text"
                                 required
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
@@ -32,12 +42,12 @@ function SignUp () {
                             <input
                                 type="email"
                                 required
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-color shadow-sm rounded-lg"
                             />
                         </div>
                         <div>
                             <label className="font-medium">
-                                Password
+                                Contraseña
                             </label>
                             <input
                                 type="password"
@@ -47,7 +57,7 @@ function SignUp () {
                         </div>
                         <button
                             className="w-full px-4 py-2 text-white button2 rounded-lg duration-150">
-                            Regístrate
+                            Crear cuenta
                         </button>
                     </form>
                 </div>
