@@ -21,7 +21,7 @@ function ResetPassword() {
                 // Redirect to another route if email exists
                 window.location.href = '/ResetCode';
             } else {
-                setError('Email not found. Please try again.');
+                setError('Email no encontrado. Por favor, inténtelo de nuevo.');
             }
         } catch (error) {
             console.error('Error fetching users:', error);
@@ -38,7 +38,7 @@ function ResetPassword() {
                         <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">¿Has olvidado tu contraseña?</h3>
                     </div>
                 </div>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="mb-12">
                     <div>
                         <label className="font-medium">Email</label>
                         <input
@@ -53,7 +53,7 @@ function ResetPassword() {
                     <p className="my-4">Enviaremos un código de verificación a este email si coincide con una cuenta de BetterWorld existente.</p>
                     <button type="submit" className="w-full px-4 pt-2 text-white button2 rounded-lg duration-150">Enviar</button>
                 </form>
-                <a href="/Login" className="w-full flex mt-0 items-center justify-center gap-x-3 py-2.5 border-bn rounded-lg text-sm duration-150 hover:bg-gray-100">Volver</a>
+                <a href="/Login" className="w-full flex btn-margin items-center justify-center gap-x-3 py-2.5 border-bn rounded-lg text-sm duration-150 hover:bg-gray-100">Volver</a>
             </div>
         </main>
     );

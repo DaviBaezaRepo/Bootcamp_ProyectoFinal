@@ -10,6 +10,7 @@ import AboutProject from './components/AboutProject'
 import PrivacyPolicy from "./components/PrivacyPolicy"
 import EventDetails from "./components/EventDetails"
 import ResetPassword from "./components/ResetPassword"
+import ResetCode from "./components/ResetCode"
 import './index.css'
 import './App.css'
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/Signup" element={ <SignUp /> } />
           <Route path="/PrivacyPolicy" element={ < PrivacyPolicy /> } />
           <Route path="/ResetPassword" element={ < ResetPassword /> } />
+          <Route path="/ResetCode" element={ < ResetCode /> } />
           <Route path="/Event" element={ <EventDetails event={{title: "", desc: ""}} /> } />
         </Routes>
       </main>
