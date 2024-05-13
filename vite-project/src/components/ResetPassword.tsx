@@ -31,7 +31,7 @@ function ResetPassword() {
 
     return (
         <main className="w-full flex flex-col items-center justify-center px-4 pt-3">
-            <div className="max-w-sm w-full text-gray-600 space-y-8">
+            <div className="max-w-sm w-full text-gray-600 space-y-8 mb-7">
                 <div className="text-center">
                     <img src="../src/assets/better-world-logo1.png" width={200} className="mx-auto" />
                     <div className="space-y-2">
@@ -50,7 +50,7 @@ function ResetPassword() {
                         />
                     </div>
                     {error && <p className="text-red-500">{error}</p>}
-                    <p className="my-4">Enviaremos un código de verificación a este email o número de teléfono si coincide con una cuenta de BetterWorld existente.</p>
+                    <p className="my-4">Enviaremos un código de verificación a este email si coincide con una cuenta de BetterWorld existente.</p>
                     <button type="submit" className="w-full px-4 pt-2 text-white button2 rounded-lg duration-150">Enviar</button>
                 </form>
                 <a href="/Login" className="w-full flex mt-0 items-center justify-center gap-x-3 py-2.5 border-bn rounded-lg text-sm duration-150 hover:bg-gray-100">Volver</a>
