@@ -24,10 +24,28 @@ public class UserService {
 	public Optional<UserEntity> getById(Long id) {
 		return userRepository.findById(id);
 	}
+
+	// a ver si se hace de front o back, depende de eso si necesito el código más adelante
+//    public void createUser(CreateUserDTO request) {
+//        // Crear una nueva entidad de usuario a partir del DTO
+//        UserEntity newUser = new UserEntity();
+//        newUser.setFirstname(request.getFirstname());
+//        newUser.setSurname(request.getSurname());
+//        newUser.setEmail(request.getEmail());
+//        newUser.setNewpassword(request.getNewpassword()); // Nota: el nombre del campo es diferente en el DTO
+//        newUser.setIsentity(request.isIsentity()); // Nota: el nombre del campo es diferente en el DTO
+//        if (request.isIsentity()) { // Nota: el nombre del campo es diferente en el DTO
+//            newUser.setEntity(request.getEntity()); // Nota: el nombre del campo es diferente en el DTO
+//        }
+//
+//        // Guardar el usuario en la base de datos
+//        userRepository.save(newUser);
+//    }
 	
-	public UserEntity saveUser(UserEntity user) {
-		return userRepository.save(user);
-	}
+// @POSTmapping antiguo
+//	public UserEntity saveUser(UserEntity user) {
+//		return userRepository.save(user);
+//	}
 
 	public UserEntity updateById(UserEntity request, Long id) {
 		UserEntity user = userRepository.findById(id).get();

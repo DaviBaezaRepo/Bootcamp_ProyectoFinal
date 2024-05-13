@@ -68,7 +68,7 @@ export default () => {
                         ))}
                     </ul>
                     <div className="flex-1 gap-x-6 items-center justify-end mt-6 space-y-6 md:flex md:space-y-0 md:mt-0">
-                    /* Funcion para saber si el usuario esta logueado muestre lo siguiente */
+                    
                     {isLogged() ? (
                         <a href="/Profile" className="block">
                             Profile
