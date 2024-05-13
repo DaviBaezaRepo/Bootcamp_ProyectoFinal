@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS enduser (
     email VARCHAR(255) UNIQUE NOT NULL,
     newpassword VARCHAR(255) NOT NULL,
     image VARCHAR(255),
+    isentity BOOLEAN,
     entity VARCHAR(255)
 );
 
@@ -36,19 +37,19 @@ CREATE TABLE IF NOT EXISTS UserHasEvents (
 );
 
 INSERT INTO enduser VALUES
-(NULL,'David','Baeza Castillo', 'davidbc_98@hotmail.com', 'M@icol89',"https://randomuser.me/api/portraits/men/64.jpg",'Bezoya S.L'),
-(NULL,'Thirza','Visser', 'thirzavisser95@gmail.com', 'D@vid8765', "https://randomuser.me/api/portraits/women/10.jpg",'Grupo Castilla S.L'),
-(NULL,'Sara','Didouh', 'saradidouh22@gmail.com', 'M@llorca2024',"https://randomuser.me/api/portraits/women/45.jpg",'TSystems S.L'),
-(NULL,'Alex','Marco Mesa', 'alexeitor@gmail.com', 'Se@at2987',"https://randomuser.me/api/portraits/men/50.jpg",'Fundacion Esplai S.L'),
-(NULL,'Sheerezade','Gomez Roig', 'Sheerezita@gmail.com', 'Gominolita87', "https://randomuser.me/api/portraits/women/40.jpg",'Wingardium S.L'),
-(NULL,'Albert','Fernandez Morata', 'Albertitu@hotmail.com', 'Pyth@onMolaM@s',"https://randomuser.me/api/portraits/men/30.jpg",'Amazon S.L'),
-(NULL,'Adrian','Milan', 'adrimilan@hotmail.com', 'Viv@J@v@', "https://randomuser.me/api/portraits/men/60.jpg",'Sony S.L'),
-(NULL,'Moha','Kebdani Ghazi', 'Mohammito@gmail.com', 'M@handoC@fe',"https://randomuser.me/api/portraits/men/70.jpg",'Genetic UI S.L'),
-(NULL,'Sergio','Robla', 'SergioFrontend@hotmail.com', 'Fr@ntendM@la', "https://randomuser.me/api/portraits/men/80.jpg",'Architects World S.L'),
-(NULL,'Sergi','Florensa Montagut', 'Segiflorensa@hotmail.com', 'S@yM@delo', "https://randomuser.me/api/portraits/men/17.jpg",'Future Tecnologies IA S.L'),
-(NULL,'Dani','Uribe', 'Danimetal@hotmail.com', 'Viv@elmetal98767', "https://randomuser.me/api/portraits/men/15.jpg",'OpenAI S.L'),
-(NULL,'Eric','Alcantara Valenzuela', 'ericalcantaravalen@hotmail.com', 'P@kerF@ace', "https://randomuser.me/api/portraits/men/14.jpg",'Meta S.L'),
-(NULL,'Aitor','Lardin', 'Aitormenta@hotmail.com', 'InL0veBBD', "https://randomuser.me/api/portraits/men/10.jpg",'Microsoft S.L');
+(NULL,'David','Baeza Castillo', 'davidbc_98@hotmail.com', 'M@icol89',"https://randomuser.me/api/portraits/men/64.jpg", true,'Bezoya S.L'),
+(NULL,'Thirza','Visser', 'thirzavisser95@gmail.com', 'D@vid8765', "https://randomuser.me/api/portraits/women/10.jpg", true, 'Grupo Castilla S.L'),
+(NULL,'Sara','Didouh', 'saradidouh22@gmail.com', 'M@llorca2024',"https://randomuser.me/api/portraits/women/45.jpg", true, 'TSystems S.L'),
+(NULL,'Alex','Marco Mesa', 'alexeitor@gmail.com', 'Se@at2987',"https://randomuser.me/api/portraits/men/50.jpg", true, 'Fundacion Esplai S.L'),
+(NULL,'Sheerezade','Gomez Roig', 'Sheerezita@gmail.com', 'Gominolita87', "https://randomuser.me/api/portraits/women/40.jpg", true, 'Wingardium S.L'),
+(NULL,'Albert','Fernandez Morata', 'Albertitu@hotmail.com', 'Pyth@onMolaM@s',"https://randomuser.me/api/portraits/men/30.jpg", true, 'Amazon S.L'),
+(NULL,'Adrian','Milan', 'adrimilan@hotmail.com', 'Viv@J@v@', "https://randomuser.me/api/portraits/men/60.jpg", true, 'Sony S.L'),
+(NULL,'Moha','Kebdani Ghazi', 'Mohammito@gmail.com', 'M@handoC@fe',"https://randomuser.me/api/portraits/men/70.jpg", true, 'Genetic UI S.L'),
+(NULL,'Sergio','Robla', 'SergioFrontend@hotmail.com', 'Fr@ntendM@la', "https://randomuser.me/api/portraits/men/80.jpg", true, 'Architects World S.L'),
+(NULL,'Sergi','Florensa Montagut', 'Segiflorensa@hotmail.com', 'S@yM@delo', "https://randomuser.me/api/portraits/men/17.jpg", true, 'Future Tecnologies IA S.L'),
+(NULL,'Dani','Uribe', 'Danimetal@hotmail.com', 'Viv@elmetal98767', "https://randomuser.me/api/portraits/men/15.jpg", true, 'OpenAI S.L'),
+(NULL,'Eric','Alcantara Valenzuela', 'ericalcantaravalen@hotmail.com', 'P@kerF@ace', "https://randomuser.me/api/portraits/men/14.jpg", true, 'Meta S.L'),
+(NULL,'Aitor','Lardin', 'Aitormenta@hotmail.com', 'InL0veBBD', "https://randomuser.me/api/portraits/men/10.jpg",true, 'Microsoft S.L');
 
 
 INSERT INTO activity VALUES 
@@ -72,4 +73,6 @@ INSERT INTO UserHasEvents VALUES
 (7,5),
 (8,3),
 (9,2);
+
+SELECT * FROM enduser;
 

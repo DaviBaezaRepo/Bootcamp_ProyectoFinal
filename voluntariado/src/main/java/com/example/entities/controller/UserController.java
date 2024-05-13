@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.entities.CreateUserDTO;
 import com.example.entities.UserDTO;
 import com.example.entities.UserEntity;
+import com.example.repository.CreateUserDtoRepository;
 import com.example.repository.UserDtoRepository;
 import com.example.service.UserService;
 
@@ -30,6 +34,9 @@ public class UserController {
 	
 	@Autowired
 	private UserDtoRepository userDtoRepository;
+	
+    @Autowired
+    private CreateUserDtoRepository createUserDtoRepository;
 
 	@GetMapping(path = "/{id}")
 	public Optional<UserEntity> getUserById(@PathVariable Long id) {
@@ -51,10 +58,30 @@ public class UserController {
 		return userDtoRepository.findById(id);
 	}
 
-	@PostMapping
-	public UserEntity saveUser(@RequestBody UserEntity user) {
-		return this.userService.saveUser(user);
-	}
+	
+    @PostMapping("/crearUsuario")
+    public ResponseEntity<String> createUser(@RequestBody CreateUserDTO request) {
+        try {
+            createUserDtoRepository.save(request);
+            return ResponseEntity.status(HttpStatus.CREATED).body("Usuario creado exitosamente");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al crear usuario");
+        }
+    }
+//    @PostMapping("/crearUsuario")
+//    public ResponseEntity<String> createUser(@RequestBody CreateUserDTO request) {
+//        try {
+//            userService.createUser(request);
+//            return ResponseEntity.status(HttpStatus.CREATED).body("Usuario creado exitosamente");
+//        } catch (Exception e) {
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al crear usuario");
+//        }
+//    }
+
+//	@PostMapping
+//	public UserEntity saveUser(@RequestBody UserEntity user) {
+//		return this.userService.saveUser(user);
+//	}
 
 	@PutMapping("/{id}")
 	public UserEntity updateUserById(@RequestBody UserEntity request, Long id) {
