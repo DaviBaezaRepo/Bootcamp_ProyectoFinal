@@ -45,9 +45,8 @@ function Home() {
 
             {/* Collab. section */}
             <section>
-            <div className="md:px-8 py-10 bg-green">
-                    <p className="font-semibold text-sm text-slate-100 text-center">NUESTROS PRINCIPALES COLABORADORES</p>
-                    <div className="flex justify-center items-center flex-wrap gap-x-12 gap-y-6 mt-6">
+            <div className="md:px-8 py-10 bg-white">
+                    <p className="font-semibold text-sm text-gray-600 text-center">NUESTROS PRINCIPALES COLABORADORES</p>      <div className="flex justify-center items-center flex-wrap gap-x-12 gap-y-6 mt-6">
                     <svg width="150" height="50" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <image xlinkHref="src/assets/fundacion-rosa-maria-vivar.png" width="190" height="50" />
                     </svg>       
@@ -55,7 +54,7 @@ function Home() {
                         <image xlinkHref="src/assets/xplora-logo.png" width="190" height="50" />
                     </svg>                  
                     <svg width="150" height="50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <image xlinkHref="src/assets/asnet-logo-white.png" width="190" height="50" />
+                        <image xlinkHref="src/assets/asnet-logo-color.jpeg" width="190" height="50" />
                     </svg>   
                     <svg width="150" height="50" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <image xlinkHref="src/assets/nou-refugi-baix-camp-logo.png" width="190" height="50" />

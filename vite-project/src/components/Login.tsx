@@ -1,7 +1,5 @@
 import { useState } from "react"
 
-
-
 function Login() {
     let alert;
         const [email, setEmail] = useState('');
@@ -81,7 +79,7 @@ function Login() {
                         Entrar
                     </button>
                     <div className="text-center">
-                        <a href="#" className="green-hover">¿Has olvidado tu conraseña?</a>
+                        <a href="/ResetPassword" className="green-hover">¿Has olvidado tu conraseña?</a>
                     </div>
                 </form>
             </div>
