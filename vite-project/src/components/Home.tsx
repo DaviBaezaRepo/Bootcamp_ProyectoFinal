@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link } from 'react-router-dom';
 import Events from "./EventsCards"
 import { isLogged} from "./authUtils";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api"
 
 function Home() {
     const numberOfEventsToShow = 3; // Define the number of events to show
@@ -112,6 +113,38 @@ function Home() {
                         </div>
                     </div>
                 </div>
+            </section>
+            <section className="margin-b-14">
+            <LoadScript
+      googleMapsApiKey="AIzaSyCYoMq2PBZJ7yvJ_Ju-H1pTUwd3dVIZOvQ"
+    >
+      <GoogleMap
+        mapContainerStyle={{
+  width: '100vw',
+  height: '60vh'
+}}
+        center={{
+            lat: 40.718907009799686,
+            lng: 0.6870887624447395
+}}
+        zoom={10}
+      >
+        <Marker
+          position={{
+            lat: -34.397,
+            lng: 150.644
+          }}
+          onClick={() => alert('Marker clicked!')}
+        />
+        <Marker
+          position={{
+            lat: 40.718907009799686,
+            lng: 0.6870887624447395
+          }}
+          onClick={() => alert('Marker clicked!')}
+        />
+      </GoogleMap>
+    </LoadScript>
             </section>
         </>
 
