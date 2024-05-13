@@ -84,6 +84,10 @@ h3 {
   color: #ffffff;
 }
 
+.border-bn {
+  border: 1px solid #969696;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
