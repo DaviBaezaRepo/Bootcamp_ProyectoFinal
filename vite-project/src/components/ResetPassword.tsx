@@ -50,7 +50,7 @@ function ResetPassword() {
                         />
                     </div>
                     {error && <p className="text-red-500">{error}</p>}
-                    <p className="my-4">Enviaremos un código de verificación a este email o número de teléfono si coincide con una cuenta de LinkedIn existente.</p>
+                    <p className="my-4">Enviaremos un código de verificación a este email o número de teléfono si coincide con una cuenta de BetterWorld existente.</p>
                     <button type="submit" className="w-full px-4 pt-2 text-white button2 rounded-lg duration-150">Enviar</button>
                 </form>
                 <a href="/Login" className="w-full flex mt-0 items-center justify-center gap-x-3 py-2.5 border-bn rounded-lg text-sm duration-150 hover:bg-gray-100">Volver</a>
