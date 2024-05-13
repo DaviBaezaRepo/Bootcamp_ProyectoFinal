@@ -1,20 +1,83 @@
 import React, {useState} from "react";
 
-
 function SignUp () {
 
-    const [isCompany, setIsCompany] = useState(false); // Estado inicial: no es de una empresa
-    const [companyName, setCompanyName] = useState('');
+
+    const [firstname, setFirstname] = useState('');
+    const [surname, setSurname] = useState('');
+    const [email, setEmail] = useState('');
+    const [newpassword, setNewPassword] = useState('');
+    const [isentity, setIsentity] = useState(false); // Estado inicial: no es de una empresa
+    const [entity, setEntity] = useState('');
+  
+
+    const handleFirstnameChange = (e:any) => {
+        setFirstname(e.target.value);
+    };
     
+    const handleSurnameChange = (e:any) => {
+        setSurname(e.target.value);
+    };
+    
+    const handleEmailChange = (e:any) => {
+        setEmail(e.target.value);
+    };
+    
+    const handleNewPasswordChange = (e:any) => {
+        setNewPassword(e.target.value);
+    };
+
 
     const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsCompany(event.target.checked); // Cambiar el estado basado en si el checkbox está marcado o no
-    }; 
-
-    const handleCompanyNameChange = (e) => {
-        setCompanyName(e.target.value);
-      };
-
+            setIsentity(event.target.checked); // Cambiar el estado basado en si el checkbox está marcado o no
+            if (!event.target.checked) {
+                setEntity(''); // Reiniciar el estado de la empresa si el checkbox está desmarcado
+            }
+    };
+        
+    const handleCompanyNameChange = (e:any) => {
+            setEntity(e.target.value);
+    };
+    
+      const handleSubmit = (e:any) => {
+        e.preventDefault();
+        // Aquí puedes enviar los datos al servidor utilizando fetch, axios, u otra biblioteca
+        const userData = {
+          firstname,
+          surname,
+          email,
+          newpassword,
+          isentity,
+          entity: isentity ? entity : null, // Solo enviar companyName si es una empresa
+        };
+        console.log('Datos del usuario:', userData);
+        // Aquí puedes enviar userData al servidor
+      
+        setTimeout(() => {
+        fetch('http://localhost:8080/users/crearUsuario', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(userData),
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error al enviar los datos al servidor');
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Manejar la respuesta del servidor si es necesario
+          console.log('Respuesta del servidor:', data);
+        })
+        .catch(error => {
+          // Manejar errores de la solicitud
+          console.error('Error:', error);
+        });
+        }, 1000);
+      };    
+    
 
     return (
         <main className="w-full h-screen flex flex-col items-center justify-center px-4 pt-3">
@@ -28,16 +91,15 @@ function SignUp () {
                 </div>
                 <div className="p-4 py-6 sm:p-6">
                     <form
-                        onSubmit={(e) => e.preventDefault()}
+                        onSubmit={handleSubmit}
                         className="space-y-5"
-
                     >
                         <div>
                             <label className="font-medium">
                                 Nombre
                             </label>
                             <input  
-                                type="text"
+                                type="text" value={firstname} onChange={handleFirstnameChange} 
                                 required
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                             />
@@ -47,7 +109,7 @@ function SignUp () {
                                 Apellidos
                             </label>
                             <input  
-                                type="text"
+                                type="text" value={surname} onChange={handleSurnameChange} 
                                 required
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                             />
@@ -57,7 +119,7 @@ function SignUp () {
                                 Email
                             </label>
                             <input
-                                type="email"
+                                type="email" value={email} onChange={handleEmailChange}
                                 required
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-color shadow-sm rounded-lg"
                             />
@@ -67,7 +129,7 @@ function SignUp () {
                                 Contraseña
                             </label>
                             <input
-                                type="password"
+                                type="password" value={newpassword} onChange={handleNewPasswordChange} 
                                 required
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                             />
@@ -86,18 +148,18 @@ function SignUp () {
                             <label className="font-medium">
                                 <input
                                 type="checkbox"
-                                checked={isCompany}
+                                checked={isentity}
                                 onChange={handleCheckboxChange}
                                 />
                                 ¿Eres de una empresa?
                             </label>
-                            {isCompany && (
+                            {isentity && (
                                 <div>
                                 <label className="font-medium">
                                     Nombre de la empresa:
                                     <input
                                     type="text"
-                                    value={companyName}
+                                    value={entity}
                                     className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                                     onChange={handleCompanyNameChange}
                                     />
@@ -106,6 +168,7 @@ function SignUp () {
                             )}
                         </div>
                         <button
+                            type="submit"
                             className="w-full px-4 py-2 text-white button2 rounded-lg duration-150">
                             Crear cuenta
                         </button>
