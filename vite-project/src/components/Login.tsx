@@ -1,14 +1,12 @@
 
 import { useState } from "react"
-import { useCookies } from "react-cookie";
-import { Navigate } from 'react-router-dom';
+
 
 function Login() {
     const [alert, setAlert] = useState('');
     const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
-const [cookies, setCookie] = useCookies(['token']);
-const [redirects, setredirects] = useState(false);
+
 
     const handleSubmit = async (e:any) => {
         e.preventDefault();
@@ -24,12 +22,9 @@ const [redirects, setredirects] = useState(false);
         }).then(r => r.json());
             
         if (response.status == "success") {
-            const expirationDate = new Date();
-            expirationDate.setTime(expirationDate.getTime() + (30 * 60  * 1000));
-            // Manejar la respuesta exitosa, por ejemplo, redirigir a otra página
-            setCookie('token', response.token, { path: '/' });
+            localStorage.setItem("token", response.token);
             console.log(response);
-            setredirects(true);
+            document.location.href="/";
         } else {
             // Manejar la respuesta de error
             setAlert(response.message);
@@ -40,9 +35,7 @@ const [redirects, setredirects] = useState(false);
     };
 
 
-    if (redirects) {
-        return <Navigate replace to="/home" />
-}
+
 
 
     return (

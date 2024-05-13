@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link } from 'react-router-dom';
 import Events from "./EventsCards"
-import { isLogged} from "./authUtils";
+import { isLogged} from "../lib/authUtils";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api"
 
 function Home() {
