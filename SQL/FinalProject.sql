@@ -1,7 +1,12 @@
-
+DROP SCHEMA IF EXISTS FinalProject;
 CREATE SCHEMA IF NOT EXISTS FinalProject;
 USE FinalProject;
 
+CREATE TABLE IF NOT EXISTS newsletter (
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  email VARCHAR(255) UNIQUE NOT NULL
+  );
+  
 CREATE TABLE IF NOT EXISTS enduser (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     firstname VARCHAR(255) NOT NULL,
@@ -22,7 +27,9 @@ CREATE TABLE IF NOT EXISTS activity (
     duration VARCHAR(255) NOT NULL,
     dateandtime DATETIME NOT NULL,
     categories VARCHAR(255),
-    organizer VARCHAR(255)
+    organizer VARCHAR(255),
+    lat VARCHAR(255),
+    lon VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS UserHasEvents (
@@ -36,7 +43,8 @@ CREATE TABLE IF NOT EXISTS UserHasEvents (
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-INSERT INTO enduser VALUES
+
+INSERT INTO enduser VALUES 
 (NULL,'David','Baeza Castillo', 'davidbc_98@hotmail.com', 'M@icol89',"https://randomuser.me/api/portraits/men/64.jpg", true,'Bezoya S.L'),
 (NULL,'Thirza','Visser', 'thirzavisser95@gmail.com', 'D@vid8765', "https://randomuser.me/api/portraits/women/10.jpg", true, 'Grupo Castilla S.L'),
 (NULL,'Sara','Didouh', 'saradidouh22@gmail.com', 'M@llorca2024',"https://randomuser.me/api/portraits/women/45.jpg", true, 'TSystems S.L'),
@@ -53,11 +61,11 @@ INSERT INTO enduser VALUES
 
 
 INSERT INTO activity VALUES 
-(NULL, "Plantar arboles","Jornada de Reforestación en el Parque Nacional de Teide, Tenerife, donde voluntarios se unen para plantar árboles autóctonos y restaurar áreas degradadas, contribuyendo a la conservación de la biodiversidad y la protección del medio ambiente","../src/assets/planting-trees.jpg","Tarragona El Vendrell", "2-3 horas","2024-04-03 14:30:00","Animales, Medio Ambiente","2"),
-(NULL, "Actividades con ancianos","Visita al Hogar de Ancianos 'La Esperanza' en Madrid para compartir una tarde de música en vivo y juegos de mesa con los residentes, llevando alegría y compañía a nuestros mayores","../src/assets/old-people-playing.jpg","Reus", "4 horas","2024-06-30 09:30:00","Cuidados, Ciudadania","1"),
-(NULL, "Recogida de alimentos","Recogida de Alimentos en el Mercado Central de Valencia para apoyar a los comedores sociales locales y familias necesitadas durante la temporada navideña","../src/assets/food-donations.jpg","Barcelona", "5-6 horas","2024-10-05 10:30:00","Alimentos, Social","3"),
-(NULL, "Playa Limpia","Limpieza de la playa de San Sebastián para preservar la belleza natural y proteger la vida marina. ¡Únete y haz la diferencia!","../src/assets/beach-cleanup.jpg","Torredembarra", "5 horas","2024-08-15 10:30:00","VidaMarina,EcoSistema","5"),
-(NULL, "Campaña de Donación de Sangre","Campaña de donación de sangre en el Hospital General de Valencia. ¡Tu donación puede salvar vidas!","../src/assets/blood-donation.jpg","Vila Seca", "7 horas","2024-09-20 10:30:00","Donaciones","6");
+(NULL, "Plantar arboles","Jornada de Reforestación en el Parque Nacional de Teide, Tenerife, donde voluntarios se unen para plantar árboles autóctonos y restaurar áreas degradadas, contribuyendo a la conservación de la biodiversidad y la protección del medio ambiente","../src/assets/planting-trees.jpg","Tenerife Teide", "2-3 horas","2024-04-03 14:30:00","Animales, Medio Ambiente","2",28.27384424339801, -16.64156563347158),
+(NULL, "Actividades con ancianos","Visita al Hogar de Ancianos 'La Esperanza' en Madrid para compartir una tarde de música en vivo y juegos de mesa con los residentes, llevando alegría y compañía a nuestros mayores","../src/assets/old-people-playing.jpg","Reus", "4 horas","2024-06-30 09:30:00","Cuidados, Ciudadania","1", 41.14270428199402, 1.1011896387438063),
+(NULL, "Recogida de alimentos","Recogida de Alimentos en el Mercado Central de Valencia para apoyar a los comedores sociales locales y familias necesitadas durante la temporada navideña","../src/assets/food-donations.jpg","Valencia", "5-6 horas","2024-10-05 10:30:00","Alimentos, Social","3",39.47371162496371, -0.37903430367228663),
+(NULL, "Playa Limpia","Limpieza de la playa de San Sebastián para preservar la belleza natural y proteger la vida marina. ¡Únete y haz la diferencia!","../src/assets/beach-cleanup.jpg","San Sebastian", "5 horas","2024-08-15 10:30:00","VidaMarina,EcoSistema","5", 43.3182682817734, -2.1763622451659077),
+(NULL, "Campaña de Donación de Sangre","Campaña de donación de sangre en el Hospital General de Valencia. ¡Tu donación puede salvar vidas!","../src/assets/blood-donation.jpg","Valencia", "7 horas","2024-09-20 10:30:00","Donaciones","6", 39.443707088168175, -0.3760582397497932);
 
 
 INSERT INTO UserHasEvents VALUES
