@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { UserData } from '../data/UserData';
 import { Event } from '../data/EventData';
 

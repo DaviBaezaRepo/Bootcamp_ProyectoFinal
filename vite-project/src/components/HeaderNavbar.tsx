@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { logout } from '../lib/authUtils';
 
 // Componente funcional de React para el desplegable de la barra de navegación
