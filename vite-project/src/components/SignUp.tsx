@@ -1,15 +1,12 @@
 import React, {useState} from "react";
 
 function SignUp () {
-
-
     const [firstname, setFirstname] = useState('');
     const [surname, setSurname] = useState('');
     const [email, setEmail] = useState('');
     const [newpassword, setNewPassword] = useState('');
     const [isentity, setIsentity] = useState(false); // Estado inicial: no es de una empresa
     const [entity, setEntity] = useState('');
-  
 
     const handleFirstnameChange = (e:any) => {
         setFirstname(e.target.value);
@@ -27,7 +24,6 @@ function SignUp () {
         setNewPassword(e.target.value);
     };
 
-
     const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
             setIsentity(event.target.checked); // Cambiar el estado basado en si el checkbox está marcado o no
             if (!event.target.checked) {
@@ -42,24 +38,33 @@ function SignUp () {
       const handleSubmit = (e:any) => {
         e.preventDefault();
         // Aquí puedes enviar los datos al servidor utilizando fetch, axios, u otra biblioteca
-        const userData = {
-          firstname,
-          surname,
-          email,
-          newpassword,
-          isentity,
-          entity: isentity ? entity : null, // Solo enviar companyName si es una empresa
-        };
+        // const userData = {
+        //   firstname,
+        //   surname,
+        //   email,
+        //   newpassword,
+        //   isentity: Boolean(isentity),
+        //   entity: isentity ? entity : null, // Solo enviar companyName si es una empresa
+        // };
+
+        const userData = JSON.stringify({
+            "firstname": firstname,
+            "surname": surname,
+            "email": email,
+            "newpassword": newpassword,
+            "isentity": Boolean(isentity),
+            "entity": isentity ? entity : null, // Solo enviar companyName si es una empresa
+          });
         console.log('Datos del usuario:', userData);
         // Aquí puedes enviar userData al servidor
-      
-        setTimeout(() => {
+
         fetch('http://localhost:8080/users/crearUsuario', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(userData),
+          body: userData,
+          redirect: "follow"
         })
         .then(response => {
           if (!response.ok) {
@@ -70,12 +75,13 @@ function SignUp () {
         .then(data => {
           // Manejar la respuesta del servidor si es necesario
           console.log('Respuesta del servidor:', data);
+          window.location.href = "/Home"
         })
         .catch(error => {
+            debugger;
           // Manejar errores de la solicitud
           console.error('Error:', error);
         });
-        }, 1000);
       };    
     
 

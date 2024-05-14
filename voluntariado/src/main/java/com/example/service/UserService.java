@@ -42,7 +42,7 @@ public class UserService {
 //        userRepository.save(newUser);
 //    }
 	
-// @POSTmapping antiguo
+// @PostMapping
 //	public UserEntity saveUser(UserEntity user) {
 //		return userRepository.save(user);
 //	}

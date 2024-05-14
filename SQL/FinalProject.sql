@@ -1,4 +1,4 @@
-DROP SCHEMA IF EXISTS FinalProject;
+
 CREATE SCHEMA IF NOT EXISTS FinalProject;
 USE FinalProject;
 
