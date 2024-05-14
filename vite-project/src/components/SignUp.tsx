@@ -1,6 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function SignUp () {
+function SignUp() {
+    const navigate = useNavigate();
     const [firstname, setFirstname] = useState('');
     const [surname, setSurname] = useState('');
     const [email, setEmail] = useState('');
@@ -8,34 +10,34 @@ function SignUp () {
     const [isentity, setIsentity] = useState(false); // Estado inicial: no es de una empresa
     const [entity, setEntity] = useState('');
 
-    const handleFirstnameChange = (e:any) => {
+    const handleFirstnameChange = (e: any) => {
         setFirstname(e.target.value);
     };
-    
-    const handleSurnameChange = (e:any) => {
+
+    const handleSurnameChange = (e: any) => {
         setSurname(e.target.value);
     };
-    
-    const handleEmailChange = (e:any) => {
+
+    const handleEmailChange = (e: any) => {
         setEmail(e.target.value);
     };
-    
-    const handleNewPasswordChange = (e:any) => {
+
+    const handleNewPasswordChange = (e: any) => {
         setNewPassword(e.target.value);
     };
 
     const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-            setIsentity(event.target.checked); // Cambiar el estado basado en si el checkbox está marcado o no
-            if (!event.target.checked) {
-                setEntity(''); // Reiniciar el estado de la empresa si el checkbox está desmarcado
-            }
+        setIsentity(event.target.checked); // Cambiar el estado basado en si el checkbox está marcado o no
+        if (!event.target.checked) {
+            setEntity(''); // Reiniciar el estado de la empresa si el checkbox está desmarcado
+        }
     };
-        
-    const handleCompanyNameChange = (e:any) => {
-            setEntity(e.target.value);
+
+    const handleCompanyNameChange = (e: any) => {
+        setEntity(e.target.value);
     };
-    
-      const handleSubmit = (e:any) => {
+
+    const handleSubmit = (e: any) => {
         e.preventDefault();
         // Aquí puedes enviar los datos al servidor utilizando fetch, axios, u otra biblioteca
         // const userData = {
@@ -46,44 +48,52 @@ function SignUp () {
         //   isentity: Boolean(isentity),
         //   entity: isentity ? entity : null, // Solo enviar companyName si es una empresa
         // };
+        const myHeaders: HeadersInit = new Headers();
+        myHeaders.append("Content-Type", "application/json");
 
-        const userData = JSON.stringify({
-            "firstname": firstname,
-            "surname": surname,
-            "email": email,
-            "newpassword": newpassword,
-            "isentity": Boolean(isentity),
-            "entity": isentity ? entity : null, // Solo enviar companyName si es una empresa
-          });
-        console.log('Datos del usuario:', userData);
-        // Aquí puedes enviar userData al servidor
-
-        fetch('http://localhost:8080/users/crearUsuario', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: userData,
-          redirect: "follow"
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Error al enviar los datos al servidor');
-          }
-          return response.json();
-        })
-        .then(data => {
-          // Manejar la respuesta del servidor si es necesario
-          console.log('Respuesta del servidor:', data);
-          window.location.href = "/Home"
-        })
-        .catch(error => {
-            debugger;
-          // Manejar errores de la solicitud
-          console.error('Error:', error);
+        const raw: string = JSON.stringify({
+            firstname: firstname,
+            surname: surname,
+            email: email,
+            newpassword: newpassword,
+            isentity: Boolean(isentity),
+            entity: isentity ? entity : null
         });
-      };    
-    
+
+        const requestOptions: RequestInit = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow"
+        };
+
+        // fetch("http://localhost:8080/users/crearUsuario", requestOptions)
+        //   .then((response: Response) => response.text())
+        //   .then((result: string) => {console.log(result); debugger;})
+        //   .catch((error: any) => {console.error(error); alert("NO OK!")});
+        fetch("http://localhost:8080/users/crearUsuario", requestOptions)
+            .then((response: Response) => {
+                if (response.status >= 500 && response.status < 600) {
+                    // Si el código de estado es de la familia 500
+                    console.error("Error del servidor:", response.status);
+                    alert("No se ha podido crear la cuenta");
+                    // Aquí puedes manejar el error como desees
+                } else {
+                    // Si no es un error del servidor, maneja la respuesta normalmente
+                    return response.text();
+                }
+            })
+            .then((result: string | undefined) => {
+                if (result) {
+                    console.log(result);
+                    alert("La cuenta se ha creada exitosamente");
+                    navigate('/Login');
+                }
+            })
+            .catch((error: any) => console.error(error));
+
+    };
+
 
     return (
         <main className="w-full h-screen flex flex-col items-center justify-center px-4 pt-3">
@@ -104,8 +114,9 @@ function SignUp () {
                             <label className="font-medium">
                                 Nombre
                             </label>
-                            <input  
-                                type="text" value={firstname} onChange={handleFirstnameChange} 
+                            <input
+                                type="text" value={firstname} onChange={handleFirstnameChange}
+                                pattern="[A-Za-z]+"
                                 required
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                             />
@@ -114,8 +125,9 @@ function SignUp () {
                             <label className="font-medium">
                                 Apellidos
                             </label>
-                            <input  
-                                type="text" value={surname} onChange={handleSurnameChange} 
+                            <input
+                                type="text" value={surname} onChange={handleSurnameChange}
+                                pattern="[A-Za-z]+"
                                 required
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                             />
@@ -135,7 +147,7 @@ function SignUp () {
                                 Contraseña
                             </label>
                             <input
-                                type="password" value={newpassword} onChange={handleNewPasswordChange} 
+                                type="password" value={newpassword} onChange={handleNewPasswordChange}
                                 required
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                             />
@@ -153,23 +165,23 @@ function SignUp () {
                         <div>
                             <label className="font-medium">
                                 <input
-                                type="checkbox"
-                                checked={isentity}
-                                onChange={handleCheckboxChange}
+                                    type="checkbox"
+                                    checked={isentity}
+                                    onChange={handleCheckboxChange}
                                 />
                                 ¿Eres de una empresa?
                             </label>
                             {isentity && (
                                 <div>
-                                <label className="font-medium">
-                                    Nombre de la empresa:
-                                    <input
-                                    type="text"
-                                    value={entity}
-                                    className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
-                                    onChange={handleCompanyNameChange}
-                                    />
-                                </label>
+                                    <label className="font-medium">
+                                        Nombre de la empresa:
+                                        <input
+                                            type="text"
+                                            value={entity}
+                                            className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                                            onChange={handleCompanyNameChange}
+                                        />
+                                    </label>
                                 </div>
                             )}
                         </div>

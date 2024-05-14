@@ -5,7 +5,7 @@ import { useState } from "react"
 function Login() {
     const [alert, setAlert] = useState('');
     const [email, setEmail] = useState('');
-const [password, setPassword] = useState('');
+    const [password, setPassword] = useState('');
 
 
     const handleSubmit = async (e:any) => {
@@ -84,7 +84,7 @@ const [password, setPassword] = useState('');
                         Entrar
                     </button>
                     <div className="text-center">
-                        <a href="/ResetPassword" className="green-hover">¿Has olvidado tu conraseña?</a>
+                        <a href="/ResetPassword" className="green-hover">¿Has olvidado tu contraseña?</a>
                     </div>
                 </form>
             </div>
