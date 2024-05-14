@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import SuccessAlert from "./SuccesAlert";
 
 function SignUp() {
     const navigate = useNavigate();
@@ -9,6 +10,7 @@ function SignUp() {
     const [newpassword, setNewPassword] = useState('');
     const [isentity, setIsentity] = useState(false); // Estado inicial: no es de una empresa
     const [entity, setEntity] = useState('');
+    const [alert, setAlert] = useState('');
 
     const handleFirstnameChange = (e: any) => {
         setFirstname(e.target.value);
@@ -76,7 +78,7 @@ function SignUp() {
                 if (response.status >= 500 && response.status < 600) {
                     // Si el código de estado es de la familia 500
                     console.error("Error del servidor:", response.status);
-                    alert("No se ha podido crear la cuenta");
+                    setAlert("No se ha podido crear la cuenta");
                     // Aquí puedes manejar el error como desees
                 } else {
                     // Si no es un error del servidor, maneja la respuesta normalmente
@@ -86,8 +88,7 @@ function SignUp() {
             .then((result: string | undefined) => {
                 if (result) {
                     console.log(result);
-                    alert("La cuenta se ha creada exitosamente");
-                    navigate('/Login');
+                    setAlert("La cuenta se ha creada exitosamente");
                 }
             })
             .catch((error: any) => console.error(error));
@@ -127,7 +128,7 @@ function SignUp() {
                             </label>
                             <input
                                 type="text" value={surname} onChange={handleSurnameChange}
-                                pattern="[A-Za-z]+"
+                                pattern="[A-Za-z ]+"
                                 required
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                             />
@@ -185,6 +186,7 @@ function SignUp() {
                                 </div>
                             )}
                         </div>
+                        {alert ? <SuccessAlert>{alert}  <button onClick={()=>navigate("/login")}> OK </button>  </SuccessAlert> : ""}
                         <button
                             type="submit"
                             className="w-full px-4 py-2 text-white button2 rounded-lg duration-150">

@@ -1,30 +1,42 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { logout } from '../lib/authUtils';
 
-// Componente funcional de React para el desplegable de la barra de navegación
 function HeaderNavbar(props: any) {
     const [isOpen, setIsOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
-    // Función para alternar la visibilidad del desplegable
+    useEffect(() => {
+        // Función para cerrar el menú cuando se hace clic fuera de él
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !(dropdownRef.current as any).contains(event.target as Node)) {
+                setIsOpen(false);
+            }
+        };
+
+        // Agregar event listener al documento
+        document.addEventListener('mousedown', handleClickOutside);
+
+        // Limpiar event listener al desmontar el componente
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
 
     return (
-        <div className="relative">
-            {/* Botón del desplegable */}
+        <div className="relative" ref={dropdownRef}>
             <button
                 className="flex items-center justify-center px-3 py-2 text-gray-700 hover:text-gray-900 focus:outline-none"
                 onClick={toggleDropdown}
             >
                 {props.children}
             </button>
-            {/* Contenido del desplegable */}
             {isOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg">
                     <div className="py-1 flex flex-col">
-
-                        {/* Elementos del desplegable */}
                         <a
                             href="/Profile"
                             className="block px-4 py-2 text-gray-800 hover:bg-gray-200"

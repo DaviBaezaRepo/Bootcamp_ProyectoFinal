@@ -34,7 +34,7 @@ public class AuthController {
 		HashMap<Object, Object> response = new HashMap<>();
 		if (user == null) { 
 			response.put("status","error");
-			response.put("message","Contrasenya o email invalidos");
+			response.put("message","Contraseña o email invalidos");
 			return response;
 		}
 		if (user.getNewpassword() .equals(userData.get("password")) ) {
@@ -48,7 +48,7 @@ public class AuthController {
 			return response;
 		}else {
 			response.put("status","error");
-			response.put("message","Contrasenya o email invalidos");
+			response.put("message","Contraseña o email invalidos");
 			return response;
 		}
 		
