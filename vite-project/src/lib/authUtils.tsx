@@ -17,5 +17,5 @@ export function isLogged(): boolean {
 
 export function logout() {
     localStorage.removeItem('token');
-    document.location.href = "/login";
+    
 }

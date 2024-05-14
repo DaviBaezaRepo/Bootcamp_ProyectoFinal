@@ -26,24 +26,30 @@ function HeaderNavbar(props: any) {
 
                         {/* Elementos del desplegable */}
                         <a
-                            href="#"
+                            href="/Profile"
                             className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                         >
-                            Opción 1
+                            Mi Perfil
                         </a>
                         <a
-                            href="#"
+                            href="/userevents"
                             className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                         >
-                            Opción 2
+                            Mis Eventos
                         </a>
-                        <button
-                            type="button"
+                        <a
+                            href="/userfavorites"
+                            className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                        >
+                            Eventos Favoritos
+                        </a>
+                        <a
+                            href="/login"
                             className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                             onClick={logout}
                         >
-                            Log out
-                        </button>
+                            Cerrar Sesion
+                        </a>
                     </div>
                 </div>
             )}
