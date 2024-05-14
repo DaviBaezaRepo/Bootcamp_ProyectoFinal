@@ -2,7 +2,6 @@
 
 Proyecto Voluntariado "www.BetterWorld.com"
 
-https://prod.liveshare.vsengsaas.visualstudio.com/join?6257A5E11828069ACAC748AA90AE4E470BC3
 # Descripción 👀
 El proyecto de voluntariado _BetterWorld_ tiene como objetivo principal proporcionar apoyo y asistencia a todas las necesidades de asosiaciones. Este proyecto surge de la necesidad de [explicar el problema o la situación que motiva el proyecto] y busca [objetivo general del proyecto].
 
