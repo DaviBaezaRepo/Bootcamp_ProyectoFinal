@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../App.css';
 import '../index.css';
-import { isLogged, getUserData} from "../lib/authUtils";
+import { isLogged, getUserAvatar} from "../lib/authUtils";
 import HeaderNavbar from './HeaderNavbar';
 
 
@@ -74,7 +74,7 @@ export default () => {
                         {(isLogged()) ? (
                             <div className="flex items-center gap-3">
 
-                                <HeaderNavbar>  <img src={getUserData().image} className="rounded-full w-10 h-10" /> </HeaderNavbar>
+                                <HeaderNavbar>  <img src={getUserAvatar()} className="rounded-full w-10 h-10" /> </HeaderNavbar>
 
                             </div>
 
