@@ -54,7 +54,6 @@ function Home() {
             </section>
 
             {/* Collab. section */}
-
             <section>
             <div className="md:px-8 py-10 bg-white">
                     <p className="font-semibold text-sm text-gray-600 text-center">NUESTROS PRINCIPALES COLABORADORES</p>      <div className="flex justify-center items-center flex-wrap gap-x-12 gap-y-6 mt-6">
