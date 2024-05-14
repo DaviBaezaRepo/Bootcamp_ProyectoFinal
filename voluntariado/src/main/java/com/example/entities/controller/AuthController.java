@@ -42,6 +42,7 @@ public class AuthController {
 			Algorithm algorithm = Algorithm.HMAC256(this.encryptionkey);
 			String token = JWT.create().withSubject(user.getId().toString())
 					.withClaim("name", user.getFirstname())
+					.withClaim("image", user.getImage())
 					.sign(algorithm);
 			response.put("token", token);
 			return response;
