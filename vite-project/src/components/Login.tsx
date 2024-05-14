@@ -42,7 +42,7 @@ function Login() {
         <main className="w-full flex flex-col items-center px-4 pt-3">
             <div className="max-w-sm w-full mb-3 text-gray-600">
                 <div className="text-center">
-                    <img src="../src/assets/better-world-logo1.png" width={200} className="mx-auto" />
+                    <img src="/assets/better-world-logo1.png" width={200} className="mx-auto" />
                     <div className="space-y-2">
                         <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">Iniciar sesión</h3>
                         <p className="">¿Aún no tienes una cuenta? <a href="/Signup" className="font-medium text-indigo-600 hover:text-indigo-500">Regístrate</a></p>

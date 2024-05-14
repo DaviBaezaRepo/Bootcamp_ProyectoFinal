@@ -99,7 +99,7 @@ function SignUp() {
         <main className="w-full h-screen flex flex-col items-center justify-center px-4 pt-3">
             <div className="w-full text-gray-600 sm:max-w-md">
                 <div className="text-center">
-                    <img src="../src/assets/better-world-logo1.png" width={200} className="mx-auto" />
+                    <img src="/assets/better-world-logo1.png" width={200} className="mx-auto" />
                     <div className="mt-5 space-y-2">
                         <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">Regístrate</h3>
                         <p className="">¿Ya tienes una cuenta? <a href="/Login" className="font-medium text-indigo-600 hover:text-indigo-500">Iniciar sesión</a></p>

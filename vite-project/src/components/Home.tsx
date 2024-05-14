@@ -43,7 +43,7 @@ function Home() {
                     </div>
                     <div className="flex-none mt-14 md:mt-0 md:max-w-xl">
                         <img
-                            src="../src/assets/recogida-basura.jpg"
+                            src="/assets/recogida-basura.jpg"
                             className=" md:rounded-tl-[108px]"
                             alt=""
                         />
@@ -89,7 +89,7 @@ function Home() {
                 <div className="max-w-screen-xl mx-auto md:px-8">
                     <div className="items-center gap-x-12 sm:px-4 md:px-0 lg:flex">
                         <div className="flex-1 sm:hidden lg:block">
-                            <img src="../src/assets/beachcleanups.jpg" className="md:max-w-lg sm:rounded-lg" alt="" />
+                            <img src="/assets/beachcleanups.jpg" className="md:max-w-lg sm:rounded-lg" alt="" />
                         </div>
                         <div className="max-w-xl px-4 space-y-3 mt-6 sm:px-0 md:mt-0 lg:max-w-2xl">
                             <h3 className="font-semibold">

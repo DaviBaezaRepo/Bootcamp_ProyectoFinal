@@ -2,7 +2,7 @@ export default () => {
 
     const team = [
         {
-            avatar: "../src/assets/team-member3.jpeg",
+            avatar: "/assets/team-member3.jpeg",
             name: "Thirza Visser",
             title: "Back-end Developer",
             desc: "Lorem Ipsum is simply dummy text of the printing and typesettin industry.",
@@ -10,7 +10,7 @@ export default () => {
             twitter: "#",
         },
         {
-            avatar: "../src/assets/team-member1.jpeg",
+            avatar: "/assets/team-member1.jpeg",
             name: "Sara Didouh",
             title: "Front-end Developer",
             desc: "Lorem Ipsum is simply dummy text of the printing and typesettin industry.",
@@ -18,7 +18,7 @@ export default () => {
             twitter: "#",
         },
         {
-            avatar: "../src/assets/team-member2.jpeg",
+            avatar: "/assets/team-member2.jpeg",
             name: "David Baeza",
             title: "Full-stack Developer & DDBB Expert",
             desc: "Lorem Ipsum is simply dummy text of the printing and typesettin industry.",

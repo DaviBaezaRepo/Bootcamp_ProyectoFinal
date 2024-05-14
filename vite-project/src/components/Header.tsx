@@ -34,7 +34,7 @@ export default () => {
                 <div className="flex items-center justify-between md:block">
                     <a href="/">
                         <img
-                            src="../src/assets/better-world-logo1.png"
+                            src="/assets/better-world-logo1.png"
                             width={80}
                             height={50}
                             alt="App-logo"
