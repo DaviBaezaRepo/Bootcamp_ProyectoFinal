@@ -31,6 +31,8 @@ public class EventDTO {
 	private LocalDateTime dateandtime;
 	private String categories;
 	private String organizer;
+	private String lat;
+	private String lon;
 
 	@ManyToMany(mappedBy = "eventList")
 	@JsonManagedReference

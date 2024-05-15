@@ -54,6 +54,9 @@ public class EventService {
 		event.setDuration(request.getDuration());
 		event.setDateandtime(request.getDateandtime());
 		event.setCategories(request.getCategories());
+		event.setOrganizer(request.getOrganizer());
+		event.setLat(request.getLat());
+		event.setLon(request.getLon());;
 		return event;
 	}
 

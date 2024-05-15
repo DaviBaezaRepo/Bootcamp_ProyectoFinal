@@ -84,3 +84,4 @@ INSERT INTO UserHasEvents VALUES
 
 SELECT * FROM enduser;
 
+

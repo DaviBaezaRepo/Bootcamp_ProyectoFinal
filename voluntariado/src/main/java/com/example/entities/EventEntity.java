@@ -26,4 +26,6 @@ public class EventEntity {
     private LocalDateTime dateandtime;
     private String categories;
     private String organizer;
+    private String lat;
+    private String lon;
 }
