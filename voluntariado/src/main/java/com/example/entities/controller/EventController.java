@@ -21,7 +21,7 @@ import com.example.service.EventService;
 
 @RestController
 @RequestMapping("/events")
-@CrossOrigin("*") 
+@CrossOrigin(origins = "*", allowedHeaders = "*") 
 
 public class EventController {
 
@@ -45,8 +45,9 @@ public class EventController {
 	public Optional<EventDTO> getEventsByIdDTO(@PathVariable Long id) {
 		return eventDtoRepository.findById(id);
 	}
-
+	
 	@GetMapping(path = "/{id}")
+	@CrossOrigin(origins = "*", allowedHeaders = "*") 
 	public Optional<EventEntity> getEventById(@PathVariable Long id) {
 		return eventService.getById(id);
 	}
@@ -57,11 +58,13 @@ public class EventController {
 	}
 
 	@PutMapping("/{id}")
+	@CrossOrigin(origins = "*", allowedHeaders = "*") 
 	public EventEntity updateEventById(@RequestBody EventEntity request, Long id) {
 		return this.eventService.updateById(request, id);
 	}
 
 	@DeleteMapping("/{id}")
+	@CrossOrigin(origins = "*", allowedHeaders = "*") 
 	public String deleteEventById(@PathVariable Long id) {
 		return this.eventService.deleteEvent(id) ? "Event with id " + id + " deleted."
 				: "Event with id " + id + " not deleted.";

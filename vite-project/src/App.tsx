@@ -30,7 +30,7 @@ function App() {
           <Route path="/PrivacyPolicy" element={ < PrivacyPolicy /> } />
           <Route path="/ResetPassword" element={ < ResetPassword /> } />
           <Route path="/ResetCode" element={ < ResetCode /> } />
-          <Route path="/Event" element={ <EventDetails event={{title: "", desc: ""}} /> } />
+          <Route path="/Events/:id" element={ < EventDetails /> } />
         </Routes>
       </main>
       <Footer />
