@@ -28,7 +28,7 @@ function SignUp() {
         setNewPassword(e.target.value);
     };
 
-    const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+/*    const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setIsentity(event.target.checked); // Cambiar el estado basado en si el checkbox está marcado o no
         if (!event.target.checked) {
             setEntity(''); // Reiniciar el estado de la empresa si el checkbox está desmarcado
@@ -38,18 +38,10 @@ function SignUp() {
     const handleCompanyNameChange = (e: any) => {
         setEntity(e.target.value);
     };
-
+*/
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        // Aquí puedes enviar los datos al servidor utilizando fetch, axios, u otra biblioteca
-        // const userData = {
-        //   firstname,
-        //   surname,
-        //   email,
-        //   newpassword,
-        //   isentity: Boolean(isentity),
-        //   entity: isentity ? entity : null, // Solo enviar companyName si es una empresa
-        // };
+
         const myHeaders: HeadersInit = new Headers();
         myHeaders.append("Content-Type", "application/json");
 

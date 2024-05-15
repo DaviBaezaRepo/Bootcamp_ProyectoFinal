@@ -10,9 +10,9 @@ interface Event {
   duration: string;
   dateandtime: string;
   categories: string;
-  organizer: string;
+/*  organizer: string;
   lat: string;
-  lon: string;
+  lon: string; */
 }
 
 function EventDetails() {
@@ -51,21 +51,44 @@ function EventDetails() {
     return <div className='my-32'>No se ha podido encontrar este evento</div>;
   }
 
+
+
   return (
-        <>
-        <div>
-          <h2>{event.title}</h2>
-          <p>{event.explanation}</p>
-          <img src={event.image} alt={event.title} />
-          <p>Location: {event.location}</p>
-          <p>Duration: {event.duration}</p>
-          <p>Date and Time: {new Date(event.dateandtime).toLocaleString()}</p>
-          <p>Categories: {event.categories}</p>
-          <p>Organizer: {event.organizer}</p>
-          {/* You can add more details as needed */}
-      </div>
-      <div>
-    </div> 
+    <>
+    <section className="py-14">
+        <div className="max-w-screen-xl mx-auto px-4 text-gray-600 gap-x-12 justify-between md:px-8 lg:flex">
+            <div className="max-w-2xl mx-auto text-center lg:text-left lg:mx-0">
+                <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
+                    {event.title}
+                </h3>
+
+
+
+                <p className="mt-3 max-w-xl mx-auto lg:mx-0">
+                    {event.explanation}                
+                </p>
+                <img src={event.image} alt={event.title} />
+            </div>
+            <div className="mt-12 lg:mt-0">
+                <ul className="flex flex-col items-start gap-x-12 justify-center divide-y sm:divide-y-0 sm:flex-row lg:grid lg:grid-cols-2">
+                        <li className="text-center w-full px-4 py-6 sm:w-auto lg:py-4">
+                            <h4 className="text-4xl text-indigo-600 font-semibold">{event.location}</h4>
+                            <p className="mt-3 font-medium">Location</p>
+                        </li>
+                        <li className="text-center w-full px-4 py-6 sm:w-auto lg:py-4">
+                            <h4 className="text-4xl text-indigo-600 font-semibold">{event.duration}</h4>
+                            <p className="mt-3 font-medium">Duration</p>
+                        </li>
+                        <li className="text-center w-full px-4 py-6 sm:w-auto lg:py-4">
+                            <h4 className="text-4xl text-indigo-600 font-semibold">{new Date(event.dateandtime).toLocaleString()}</h4>
+                            <p className="mt-3 font-medium">Date and Time</p>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
     </>
   );
 }
