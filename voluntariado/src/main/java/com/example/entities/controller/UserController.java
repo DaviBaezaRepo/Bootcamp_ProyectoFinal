@@ -84,10 +84,13 @@ public class UserController {
 //	}
 
 	@PutMapping("/{id}")
-	public UserEntity updateUserById(@RequestBody UserEntity request, Long id) {
+	public UserEntity updateUserById(@RequestBody UserEntity request, @PathVariable Long id) {
 		return this.userService.updateById(request, id);
 	}
+	
 
+	
+	
 	@DeleteMapping("/{id}")
 	public String deleteUserById(@PathVariable Long id) {
 		boolean ok = this.userService.deleteUser(id);

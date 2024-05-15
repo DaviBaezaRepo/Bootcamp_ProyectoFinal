@@ -27,9 +27,12 @@ CREATE TABLE IF NOT EXISTS activity (
     duration VARCHAR(255) NOT NULL,
     dateandtime DATETIME NOT NULL,
     categories VARCHAR(255),
-    organizer VARCHAR(255),
+    organizer INT unsigned,
     lat VARCHAR(255),
-    lon VARCHAR(255)
+    lon VARCHAR(255),
+    constraint fk_organizer_user_id FOREIGN KEY(organizer)
+		REFERENCES enduser(id)
+         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS UserHasEvents (
@@ -83,5 +86,6 @@ INSERT INTO UserHasEvents VALUES
 (9,2);
 
 SELECT * FROM enduser;
+select * From activity;
 
 

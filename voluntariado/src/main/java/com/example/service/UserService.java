@@ -49,11 +49,22 @@ public class UserService {
 
 	public UserEntity updateById(UserEntity request, Long id) {
 		UserEntity user = userRepository.findById(id).get();
-		user.setFirstname(request.getFirstname());
-		user.setSurname(request.getSurname());
-		user.setEmail(request.getEmail());
-		user.setNewpassword(request.getNewpassword());
-    	user.setImage(request.getImage());
+		if(request.getFirstname() != null) {
+			user.setFirstname(request.getFirstname());
+		}
+		if(request.getSurname() != null) {
+			user.setSurname(request.getSurname());
+		}
+		if(request.getEmail() != null) {
+			user.setEmail(request.getEmail());
+		}
+		if(request.getNewpassword() != null) {
+			user.setNewpassword(request.getNewpassword());
+		}
+		if(request.getImage() != null) {
+			user.setImage(request.getImage());
+		}
+    	userRepository.save(user);
 		return user;
 	}
 
