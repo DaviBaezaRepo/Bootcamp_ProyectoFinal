@@ -119,7 +119,7 @@ function SignUp() {
                                 type="text" value={firstname} onChange={handleFirstnameChange}
                                 pattern="[A-Za-z]+"
                                 required
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-color shadow-sm rounded-lg"
                             />
                         </div>
                         <div>
@@ -130,7 +130,7 @@ function SignUp() {
                                 type="text" value={surname} onChange={handleSurnameChange}
                                 pattern="[A-Za-z ]+"
                                 required
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-color shadow-sm rounded-lg"
                             />
                         </div>
                         <div>
@@ -150,7 +150,7 @@ function SignUp() {
                             <input
                                 type="password" value={newpassword} onChange={handleNewPasswordChange}
                                 required
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-color shadow-sm rounded-lg"
                             />
                         </div>
                         <div>
@@ -160,7 +160,7 @@ function SignUp() {
                             <input
                                 type="password"
                                 required
-                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-color shadow-sm rounded-lg"
                             />
                         </div>
                         <div>
@@ -179,7 +179,7 @@ function SignUp() {
                                         <input
                                             type="text"
                                             value={entity}
-                                            className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                                            className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-color shadow-sm rounded-lg"
                                             onChange={handleCompanyNameChange}
                                         />
                                     </label>
