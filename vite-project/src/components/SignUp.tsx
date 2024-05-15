@@ -95,23 +95,23 @@ function SignUp() {
 
     };
 
-
     return (
-        <main className="w-full h-screen flex flex-col items-center justify-center px-4 pt-3">
-            <div className="w-full text-gray-600 sm:max-w-md">
+        <main className="w-full flex flex-col items-center px-4 pt-3">
+            <div className="sm:max-w-md w-full mb-3 text-gray-600">
                 <div className="text-center">
                     <img src="/assets/better-world-logo1.png" width={200} className="mx-auto" />
-                    <div className="mt-5 space-y-2">
+                    <div className="space-y-2">
                         <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">Regístrate</h3>
                         <p className="">¿Ya tienes una cuenta? <a href="/Login" className="font-medium text-indigo-600 hover:text-indigo-500">Iniciar sesión</a></p>
                     </div>
                 </div>
-                <div className="p-4 py-6 sm:p-6">
+                <div>
                     <form
                         onSubmit={handleSubmit}
-                        className="space-y-5"
+                        className="mt-8 space-y-5"
                     >
-                        <div>
+                    <div className="flex flex-wrap -mx-3 mb-6">
+                        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                             <label className="font-medium">
                                 Nombre
                             </label>
@@ -122,7 +122,7 @@ function SignUp() {
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-color shadow-sm rounded-lg"
                             />
                         </div>
-                        <div>
+                        <div className="w-full md:w-1/2 px-3">
                             <label className="font-medium">
                                 Apellidos
                             </label>
@@ -133,6 +133,7 @@ function SignUp() {
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-color shadow-sm rounded-lg"
                             />
                         </div>
+                    </div>
                         <div>
                             <label className="font-medium">
                                 Email
@@ -163,7 +164,7 @@ function SignUp() {
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-color shadow-sm rounded-lg"
                             />
                         </div>
-                        <div>
+                        {/*<div>
                             <label className="font-medium">
                                 <input
                                     type="checkbox"
@@ -185,7 +186,7 @@ function SignUp() {
                                     </label>
                                 </div>
                             )}
-                        </div>
+                        </div>*/}
                         {alert ? <SuccessAlert>{alert}  <button onClick={()=>navigate("/login")}> OK </button>  </SuccessAlert> : ""}
                         <button
                             type="submit"

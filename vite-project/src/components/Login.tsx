@@ -35,10 +35,6 @@ function Login() {
         }
     };
 
-
-
-
-
     return (
         <main className="w-full flex flex-col items-center px-4 pt-3">
             <div className="max-w-sm w-full mb-3 text-gray-600">
