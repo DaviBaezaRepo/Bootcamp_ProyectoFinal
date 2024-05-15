@@ -6,4 +6,5 @@ export interface UserData {
     newpassword: string;
     image: string | null;
     entity: string;
+    isEntity: boolean;
 }

@@ -11,6 +11,7 @@ import PrivacyPolicy from "./components/PrivacyPolicy"
 import EventDetails from "./components/EventDetails"
 import ResetPassword from "./components/ResetPassword"
 import ResetCode from "./components/ResetCode"
+import Profile from "./components/Profile"
 import './index.css'
 import './App.css'
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/ResetPassword" element={ < ResetPassword /> } />
           <Route path="/ResetCode" element={ < ResetCode /> } />
           <Route path="/Events/:id" element={ < EventDetails /> } />
+          <Route path="/Profile" element={ <Profile /> } />
         </Routes>
       </main>
       <Footer />

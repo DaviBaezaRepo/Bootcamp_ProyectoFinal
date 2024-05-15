@@ -70,4 +70,6 @@ public class EventController {
 				: "Event with id " + id + " not deleted.";
 	}
 
+
+
 }
