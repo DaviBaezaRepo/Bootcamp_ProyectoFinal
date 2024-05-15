@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getUserData } from '../lib/authUtils';
+import { getUserData, logout } from '../lib/authUtils';
 import { Navigate } from 'react-router-dom';
 import { UserData } from '../data/UserData';
 
@@ -25,7 +25,7 @@ const Profile = () => {
             }
 
             try {
-                const response = await fetch('http://localhost:8080/users/dto/' + userData!.sub, {
+                const response = await fetch('http://localhost:8080/users/' + userData!.sub, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -70,7 +70,7 @@ const Profile = () => {
         };
 
         try {
-            const response = await fetch(`http://localhost:8080/users/dto/${userData?.id}`, {
+            const response = await fetch(`http://localhost:8080/users/${userData?.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -84,7 +84,9 @@ const Profile = () => {
             }
 
             const data: UserData = await response.json();
+            console.log(data);
             setUserData(data);
+            
         } catch (error: unknown) {
             if (error instanceof Error) {
                 setError(error.message);
@@ -93,6 +95,26 @@ const Profile = () => {
             }
         }
     };
+    async function deleteAccount () {
+        const userData = getUserData();
+        const response = await fetch(`http://localhost:8080/users/${userData?.sub}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Error deleting user data');
+        }
+        logout()
+        Navigate ({to : "/"})
+
+    }
+
+    
+
+
 
     if (loading) {
         return <p>Loading...</p>;
@@ -158,11 +180,16 @@ const Profile = () => {
                                 />
                             </div>
                         )}
-                        <div className="text-center">
+                        <div className=" flex gap-6 justify-center">
                             <button
                                 onClick={handleSaveChanges}
-                                className="mt-4 px-4 py-2 text-white bg-blue-500 rounded-lg">
+                                className="w-full mt-4 px-4 py-2 text-white bg-blue-500 rounded-lg">
                                 Guardar cambios
+                            </button>
+                            <button
+                                onClick={deleteAccount}
+                                className="w-full mt-4 px-4 py-2 text-white bg-red-500 rounded-lg">
+                                Borrar cuenta
                             </button>
                         </div>
                     </div>
