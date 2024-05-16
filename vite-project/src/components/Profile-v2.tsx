@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getUserData, logout } from '../lib/authUtils';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Navigate } from 'react-router-dom';
 import { UserData } from '../data/UserData';
 
@@ -92,6 +94,7 @@ const ProfilePage: React.FC = () => {
             const data: UserData = await response.json();
             console.log(data);
             setUserData(data);
+            toast.success('Cambios guardados con éxito');
             
         } catch (error: unknown) {
             if (error instanceof Error) {
@@ -152,6 +155,7 @@ const ProfilePage: React.FC = () => {
                     </div>
                 </aside>
                 <main className="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4">
+                    <ToastContainer />
                     <div className="p-2 md:p-4">
                         <div className="w-full px-6 pb-8 mt-8 sm:max-w-xl sm:rounded-lg">
                             <h2 className="pl-6 text-2xl font-bold sm:text-xl">{firstname} {surname}</h2>

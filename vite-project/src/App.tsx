@@ -33,8 +33,8 @@ function App() {
           <Route path="/ResetPassword" element={ < ResetPassword /> } />
           <Route path="/ResetCode" element={ < ResetCode /> } />
           <Route path="/Events/:id" element={ < EventDetails /> } />
-          <Route path="/Profile" element={ <Profile /> } />
-          <Route path="/Profile-v2" element={ <ProfilePage /> } />
+          <Route path="/Profile" element={ <ProfilePage /> } />
+          <Route path="/Profile-v2" element={ <Profile /> } />
         </Routes>
       </main>
       <Footer />
