@@ -2,16 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { getUserData, logout } from '../lib/authUtils';
 import { Navigate } from 'react-router-dom';
 import { UserData } from '../data/UserData';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FaPencilAlt } from 'react-icons/fa'; // Importar el icono de lápiz
 
 const Profile = () => {
     const [userData, setUserData] = useState<UserData | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-
     const [firstname, setFirstname] = useState('');
     const [surname, setSurname] = useState('');
     const [email, setEmail] = useState('');
     const [entity, setEntity] = useState('');
+    const [isEditing, setIsEditing] = useState(false); // Estado para el modo de edición
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -37,9 +40,9 @@ const Profile = () => {
 
                 const data: UserData = await response.json();
                 setUserData(data);
-                setSurname(data.surname)
-                setEmail(data.email)
-                setFirstname(data.firstname)
+                setSurname(data.surname);
+                setEmail(data.email);
+                setFirstname(data.firstname);
                 setLoading(false);
             } catch (error: unknown) {
                 if (error instanceof Error) {
@@ -53,6 +56,7 @@ const Profile = () => {
 
         fetchUserData();
     }, []);
+
     const handleSaveChanges = async () => {
         const token = localStorage.getItem('token');
         if (!token) {
@@ -86,7 +90,9 @@ const Profile = () => {
             const data: UserData = await response.json();
             console.log(data);
             setUserData(data);
-            
+            toast.success('Cambios guardados con éxito');
+            setIsEditing(false); // Salir del modo de edición
+
         } catch (error: unknown) {
             if (error instanceof Error) {
                 setError(error.message);
@@ -95,7 +101,8 @@ const Profile = () => {
             }
         }
     };
-    async function deleteAccount () {
+
+    async function deleteAccount() {
         const userData = getUserData();
         const response = await fetch(`http://localhost:8080/users/${userData?.sub}`, {
             method: 'DELETE',
@@ -107,14 +114,9 @@ const Profile = () => {
         if (!response.ok) {
             throw new Error('Error deleting user data');
         }
-        logout()
-        Navigate ({to : "/"})
-
+        logout();
+        Navigate({ to: '/' });
     }
-
-    
-
-
 
     if (loading) {
         return <p>Loading...</p>;
@@ -139,7 +141,13 @@ const Profile = () => {
 
                 <div className="p-4 py-6 sm:p-6">
                     <div className="space-y-5">
+                        <ToastContainer />
                         <img src={userData.image} alt="" className='rounded-full mx-auto w-55' />
+                        <div className="text-right">
+                            <button onClick={() => setIsEditing(!isEditing)} className="text-blue-500">
+                                <FaPencilAlt />
+                            </button>
+                        </div>
                         <div className="flex flex-wrap -mx-3 mb-6">
                             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label className="font-medium">Nombre</label>
@@ -148,6 +156,7 @@ const Profile = () => {
                                     value={firstname}
                                     onChange={(e) => setFirstname(e.target.value)}
                                     className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-color shadow-sm rounded-lg"
+                                    readOnly={!isEditing} // Campo editable solo en modo de edición
                                 />
                             </div>
                             <div className="w-full md:w-1/2 px-3">
@@ -157,6 +166,7 @@ const Profile = () => {
                                     value={surname}
                                     onChange={(e) => setSurname(e.target.value)}
                                     className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-color shadow-sm rounded-lg"
+                                    readOnly={!isEditing} // Campo editable solo en modo de edición
                                 />
                             </div>
                         </div>
@@ -167,6 +177,7 @@ const Profile = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-color shadow-sm rounded-lg"
+                                readOnly={!isEditing} // Campo editable solo en modo de edición
                             />
                         </div>
                         {userData.isEntity && (
@@ -177,15 +188,18 @@ const Profile = () => {
                                     value={entity}
                                     onChange={(e) => setEntity(e.target.value)}
                                     className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-color shadow-sm rounded-lg"
+                                    readOnly={!isEditing} // Campo editable solo en modo de edición
                                 />
                             </div>
                         )}
-                        <div className=" flex gap-6 justify-center">
-                            <button
-                                onClick={handleSaveChanges}
-                                className="w-full mt-4 px-4 py-2 text-white bg-blue-500 rounded-lg">
-                                Guardar cambios
-                            </button>
+                        <div className="flex gap-6 justify-center">
+                            {isEditing && (
+                                <button
+                                    onClick={handleSaveChanges}
+                                    className="w-full mt-4 px-4 py-2 text-white bg-blue-500 rounded-lg">
+                                    Guardar cambios
+                                </button>
+                            )}
                             <button
                                 onClick={deleteAccount}
                                 className="w-full mt-4 px-4 py-2 text-white bg-red-500 rounded-lg">
