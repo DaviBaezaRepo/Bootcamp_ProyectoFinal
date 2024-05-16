@@ -41,19 +41,19 @@ function HeaderNavbar(props: any) {
                             href="/Profile"
                             className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                         >
-                            Mi Perfil
+                            Perfil
                         </a>
                         <a
                             href="/userevents"
                             className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                         >
-                            Mis Eventos
+                            Mis eventos
                         </a>
                         <a
                             href="/userfavorites"
                             className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                         >
-                            Eventos Favoritos
+                            Eventos guardados
                         </a>
                         <a
                             href="/login"

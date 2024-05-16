@@ -26,6 +26,10 @@ a:hover {
   color: #009E60;
 }
 
+a:active {
+  color: #009E60;
+}
+
 body {
   margin: 0;
   place-items: center;
