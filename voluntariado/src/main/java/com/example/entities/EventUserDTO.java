@@ -32,7 +32,7 @@ public class EventUserDTO {
 
 	@ManyToMany
 	@JsonIgnore
-	@JoinTable(name = "userhasevents", 
+	@JoinTable(name = "user_has_events", 
 		joinColumns = @JoinColumn(name = "id_enduser"), 
 		inverseJoinColumns = @JoinColumn(name = "id_activity"))
 	List<EventDTO> eventList = new ArrayList<>();
