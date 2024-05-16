@@ -24,7 +24,7 @@ function Map() {
       <LoadScript googleMapsApiKey="AIzaSyCYoMq2PBZJ7yvJ_Ju-H1pTUwd3dVIZOvQ">
         <GoogleMap
           mapContainerStyle={{
-            width: "100vw",
+            width: "98.9vw",
             height: "60vh",
           }}
           center={{
