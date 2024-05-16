@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS enduser (
 CREATE TABLE IF NOT EXISTS activity (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
-    explanation VARCHAR(255) NOT NULL,
+    explanation TEXT NOT NULL,
     image VARCHAR(255),
     location VARCHAR(255) NOT NULL,
     duration VARCHAR(255) NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS activity (
          ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS UserHasEvents (
+CREATE TABLE IF NOT EXISTS user_has_events (
     id_enduser INT UNSIGNED,
     id_activity INT UNSIGNED,
     CONSTRAINT fk_id_enduser FOREIGN KEY (id_enduser)
@@ -64,14 +64,14 @@ INSERT INTO enduser VALUES
 
 
 INSERT INTO activity VALUES 
-(NULL, "Plantar arboles","Jornada de Reforestación en el Parque Nacional de Teide, Tenerife, donde voluntarios se unen para plantar árboles autóctonos y restaurar áreas degradadas, contribuyendo a la conservación de la biodiversidad y la protección del medio ambiente","/assets/planting-trees.jpg","Tenerife Teide", "2-3 horas","2024-04-03 14:30:00","Animales, Medio Ambiente","2",28.27384424339801, -16.64156563347158),
+(NULL, "Jornada de Reforestación","La Fundación Raíces Verdes se compromete a liderar un movimiento global hacia un futuro más verde y sostenible mediante la plantación masiva de árboles. Nuestra visión es un mundo donde los bosques florezcan, la biodiversidad prospere y las comunidades prosperen en armonía con la naturaleza. Con un enfoque en la reforestación a gran escala y la educación ambiental, buscamos inspirar y capacitar a individuos y comunidades para que se conviertan en guardianes activos de nuestro preciado planeta. Juntos, estamos sembrando las semillas para un mañana más prometedor y lleno de vida. \n\n En nuestros eventos de plantación de árboles, reunimos a voluntarios apasionados y comunidades locales para llevar a cabo una jornada de acción ambiental significativa. Proporcionamos orientación experta sobre cómo plantar y cuidar los árboles, asegurando que cada participante se sienta capacitado y comprometido con el proceso. Además de sembrar árboles, ofrecemos actividades educativas y de sensibilización ambiental, promoviendo la comprensión de la importancia de los bosques para el equilibrio ecológico y el bienestar humano. Estos eventos no solo son una oportunidad para hacer una diferencia tangible en el medio ambiente, sino también para construir conexiones significativas entre las personas y la naturaleza, inspirando un sentido de comunidad y responsabilidad compartida hacia la protección de nuestro planeta.","/assets/planting-trees.jpg","Prades", "2-3 horas","2024-04-03 09:30:00","Medio Ambiente","2",41.311623, 0.988119),
 (NULL, "Actividades con ancianos","Visita al Hogar de Ancianos 'La Esperanza' en Madrid para compartir una tarde de música en vivo y juegos de mesa con los residentes, llevando alegría y compañía a nuestros mayores","/assets/old-people-playing.jpg","Reus", "4 horas","2024-06-30 09:30:00","Cuidados, Ciudadania","1", 41.14270428199402, 1.1011896387438063),
 (NULL, "Recogida de alimentos","Recogida de Alimentos en el Mercado Central de Valencia para apoyar a los comedores sociales locales y familias necesitadas durante la temporada navideña","/assets/food-donations.jpg","Valencia", "5-6 horas","2024-10-05 10:30:00","Alimentos, Social","3",39.47371162496371, -0.37903430367228663),
 (NULL, "Playa Limpia","Limpieza de la playa de San Sebastián para preservar la belleza natural y proteger la vida marina. ¡Únete y haz la diferencia!","/assets/beach-cleanup.jpg","San Sebastian", "5 horas","2024-08-15 10:30:00","VidaMarina,EcoSistema","5", 43.3182682817734, -2.1763622451659077),
 (NULL, "Campaña de Donación de Sangre","Campaña de donación de sangre en el Hospital General de Valencia. ¡Tu donación puede salvar vidas!","/assets/blood-donation.jpg","Valencia", "7 horas","2024-09-20 10:30:00","Donaciones","6", 39.443707088168175, -0.3760582397497932);
 
 
-INSERT INTO UserHasEvents VALUES
+INSERT INTO user_has_events VALUES
 (1,1),
 (1,2),
 (1,4),
@@ -87,5 +87,5 @@ INSERT INTO UserHasEvents VALUES
 
 SELECT * FROM enduser;
 select * From activity;
-
+SELECT * FROM user_has_events;
 
