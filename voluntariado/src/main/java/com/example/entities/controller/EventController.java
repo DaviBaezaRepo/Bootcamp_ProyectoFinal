@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.entities.CreateEventDTO;
 import com.example.entities.EventDTO;
 import com.example.entities.EventEntity;
+import com.example.repository.CreateEventDtoRepository;
 import com.example.repository.EventDtoRepository;
 import com.example.service.EventService;
 
@@ -30,6 +34,9 @@ public class EventController {
 	
 	@Autowired
 	private EventDtoRepository eventDtoRepository;
+	
+	@Autowired
+	private CreateEventDtoRepository createEventDtoRepository;
 
 	@GetMapping
 	public List<EventEntity> getEvents() {
@@ -56,6 +63,16 @@ public class EventController {
 	public EventEntity saveEvent(@RequestBody EventEntity event) {
 		return this.eventService.saveEvent(event);
 	}
+	
+    @PostMapping("/crearEvento")
+    public ResponseEntity<String> createUser(@RequestBody CreateEventDTO request) {
+        try {
+            createEventDtoRepository.save(request);
+            return ResponseEntity.status(HttpStatus.CREATED).body("Evento creado exitosamente");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al crear evento");
+        }
+    }
 
 	@PutMapping("/{id}")
 	@CrossOrigin(origins = "*", allowedHeaders = "*") 

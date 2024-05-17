@@ -90,8 +90,6 @@ public class UserController {
 		return assignedEventsDtoRepository.findById(id);
 	}
 	
-	// fin
-	
 	@PostMapping("/{userId}/subscribe-event/{eventId}")
 	public ResponseEntity<?> assignEvent(@PathVariable Long userId, @PathVariable Long eventId){
 		UserEntity user = userRepository.findById(userId).orElse(null);
@@ -105,8 +103,6 @@ public class UserController {
 		return ResponseEntity.ok().build();
 	}
 	
-	// código nuevo
-	
 	@PostMapping("/save-event/{id}/{eventId}")
 	public ResponseEntity<?> saveEvent(@PathVariable Long id, @PathVariable Long eventId){
 		UserEntity user = userRepository.findById(id).orElse(null);
@@ -119,8 +115,6 @@ public class UserController {
 		userService.saveEvent(user, event);
 		return ResponseEntity.ok().build();
 	}
-
-	// fin
 
 	
     @PostMapping("/crearUsuario")
