@@ -71,7 +71,8 @@ INSERT INTO enduser VALUES
 (NULL,'Sergi','Florensa Montagut', 'Segiflorensa@hotmail.com', 'S@yM@delo', "https://randomuser.me/api/portraits/men/17.jpg", true, 'Future Tecnologies IA S.L'),
 (NULL,'Dani','Uribe', 'Danimetal@hotmail.com', 'Viv@elmetal98767', "https://randomuser.me/api/portraits/men/15.jpg", true, 'OpenAI S.L'),
 (NULL,'Eric','Alcantara Valenzuela', 'ericalcantaravalen@hotmail.com', 'P@kerF@ace', "https://randomuser.me/api/portraits/men/14.jpg", true, 'Meta S.L'),
-(NULL,'Aitor','Lardin', 'Aitormenta@hotmail.com', 'InL0veBBD', "https://randomuser.me/api/portraits/men/10.jpg",true, 'Microsoft S.L');
+(NULL,'Aitor','Lardin', 'Aitormenta@hotmail.com', 'InL0veBBD', "https://randomuser.me/api/portraits/men/10.jpg",true, 'Microsoft S.L'),
+(NULL,'Admin','Admin', 'admin@admin.com', 'admin', "https://randomuser.me/api/portraits/men/10.jpg",true, 'admin');
 
 
 INSERT INTO activity VALUES 
