@@ -64,8 +64,10 @@ public class EventController {
 		return this.eventService.saveEvent(event);
 	}
 	
+	
+	
     @PostMapping("/crearEvento")
-    public ResponseEntity<String> createUser(@RequestBody CreateEventDTO request) {
+    public ResponseEntity<String> createEvent(@RequestBody CreateEventDTO request) {
         try {
             createEventDtoRepository.save(request);
             return ResponseEntity.status(HttpStatus.CREATED).body("Evento creado exitosamente");

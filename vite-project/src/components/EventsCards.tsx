@@ -96,7 +96,7 @@ function EventsCards({ numberOfEvents }: { numberOfEvents: number }) {
                 {events.map((item, index) => (
                     <article className="transform transition duration-300 hover:scale-105 max-w-md mx-auto mt-4 border rounded-md cursor-pointer" key={index} onClick={() => handleEventClick(item.id)}>
                         {/*<a href={item.href}>*/}
-                            <img src={item.image} loading="lazy" alt={item.title} className="w-full h-48 rounded-t-md" />
+                            <img src={item.image || '/assets/better-world-logo1.png'} loading="lazy" alt={item.title} className="w-full h-48 rounded-t-md" />
                             <div className="flex items-center mt-2 pt-3 ml-4 mr-2">
                                 <div className="flex-none w-10 h-10 rounded-full">
                                     <img src={item.organizerData.image || ''} className="w-full h-full rounded-full" alt={item.organizerData.firstname} />

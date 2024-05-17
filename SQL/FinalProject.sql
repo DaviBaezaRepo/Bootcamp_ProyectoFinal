@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS activity (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     explanation TEXT NOT NULL,
-    image VARCHAR(255),
+    image TEXT,
     location VARCHAR(255) NOT NULL,
     duration VARCHAR(255) NOT NULL,
     dateandtime DATETIME NOT NULL,

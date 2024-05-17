@@ -1,3 +1,6 @@
+import { useState } from "react";
+import Modal from "./Modal"
+
 export default () => {
 
     const tableItems = [
@@ -21,7 +24,7 @@ export default () => {
             avatar: "https://images.unsplash.com/photo-1439911767590-c724b615299d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ",
             name: "Amelia Elijah",
         },
-    ]
+    ];
 
     return (
         <div className="max-w-screen-xl mx-auto mt-8 px-4 md:px-8">
@@ -32,12 +35,7 @@ export default () => {
                     </h2>
                 </div>
                 <div className="mt-3 md:mt-0">
-                    <a
-                        href="javascript:void(0)"
-                        className="inline-block px-4 py-2 text-white duration-150 font-medium rounded-lg button2 md:text-sm"
-                    >
-                        Crear
-                    </a>
+                <Modal title="Crear nuevo evento"></Modal>
                 </div>
             </div>
             <div className="mt-12 shadow-sm border rounded-lg overflow-x-auto">

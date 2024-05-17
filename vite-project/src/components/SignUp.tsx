@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SuccessAlert from "./SuccesAlert";
+import { toast } from "react-toastify";
 
 function SignUp() {
     const navigate = useNavigate();
@@ -71,6 +72,7 @@ function SignUp() {
                     // Si el código de estado es de la familia 500
                     console.error("Error del servidor:", response.status);
                     setAlert("No se ha podido crear la cuenta");
+                    toast.error("No se ha podido crear la cuenta");
                     // Aquí puedes manejar el error como desees
                 } else {
                     // Si no es un error del servidor, maneja la respuesta normalmente
@@ -81,6 +83,8 @@ function SignUp() {
                 if (result) {
                     console.log(result);
                     setAlert("La cuenta se ha creada exitosamente");
+                    toast.success("La cuenta se ha creado exitosamente"); // Mostrar notificación de éxito
+                    setTimeout(() => navigate("/login"), 2000);
                 }
             })
             .catch((error: any) => console.error(error));
