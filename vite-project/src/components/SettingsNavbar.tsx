@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
     return (
         <>
             <aside className="hidden py-4 md:w-1/3 lg:w-1/4 md:block">
-            <div className="sticky flex flex-col gap-2 p-4 text-sm border-r border-indigo-100 top-12">
+            <div className="sticky flex flex-col gap-2 p-4 text-sm border-r border-gray-200 top-12">
                 <h2 className="pl-3 mb-4 text-2xl font-semibold">Settings</h2>
                 <Link to="/settings/profile" className={`flex items-center px-3 py-2.5 font-semibold hover:border hover:rounded-full ${activeLink === 'profile' ? 'font-bold border rounded-full green-text' : ''}`}>
                     Perfil
