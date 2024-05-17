@@ -49,10 +49,10 @@ CREATE TABLE IF NOT EXISTS user_has_events (
 CREATE TABLE IF NOT EXISTS saved_events (
     id_enduser INT UNSIGNED,
     id_activity INT UNSIGNED,
-    CONSTRAINT fk_saved_events_enduser FOREIGN KEY (id_enduser)
+    CONSTRAINT fk_id_enduser_save FOREIGN KEY (id_enduser)
         REFERENCES enduser (id)
         ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT fk_saved_events_activity FOREIGN KEY (id_activity)
+    CONSTRAINT fk_id_activity_save FOREIGN KEY (id_activity)
         REFERENCES activity (id)
         ON DELETE CASCADE ON UPDATE CASCADE
 );

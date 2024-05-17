@@ -107,7 +107,7 @@ public class UserController {
 	public ResponseEntity<?> saveEvent(@PathVariable Long id, @PathVariable Long eventId){
 		UserEntity user = userRepository.findById(id).orElse(null);
 		EventEntity event = eventRepository.findById(eventId).orElse(null);
-		
+				
 		if (user == null || event == null) {
 			return ResponseEntity.badRequest().build();
 		}

@@ -76,7 +76,7 @@ public class EventController {
 
 	@PutMapping("/{id}")
 	@CrossOrigin(origins = "*", allowedHeaders = "*") 
-	public EventEntity updateEventById(@RequestBody EventEntity request, Long id) {
+	public EventEntity updateEventById(@RequestBody EventEntity request, @PathVariable Long id) {
 		return this.eventService.updateById(request, id);
 	}
 

@@ -65,7 +65,7 @@ public class UserService {
 		
 	// para guardar un evento con un usuario
 	public void saveEvent(UserEntity user,  EventEntity event) {
-		user.getEvents().add(event);
+		user.getSavedEvents().add(event);
 		userRepository.save(user);
 		
 	}
