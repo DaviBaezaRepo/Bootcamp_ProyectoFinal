@@ -57,18 +57,14 @@ export default () => {
                                         <img src={item.avatar} className="w-10 h-10 rounded-full" />
                                         <div>
                                             <span className="block text-gray-700 text-sm font-medium">{item.name}</span>
-                                            <span className="block text-gray-700 text-xs">{item.email}</span>
                                         </div>
                                     </td>
-                                    <td className="px-6 py-4 whitespace-nowrap">{item.phone_nimber}</td>
-                                    <td className="px-6 py-4 whitespace-nowrap">{item.position}</td>
-                                    <td className="px-6 py-4 whitespace-nowrap">{item.salary}</td>
                                     <td className="text-right px-6 whitespace-nowrap">
-                                        <a href="javascript:void()" className="py-2 px-3 font-medium text-indigo-600 hover:text-indigo-500 duration-150 hover:bg-gray-50 rounded-lg">
-                                            Edit
+                                        <a href="#" className="py-2 px-3 font-medium text-indigo-600 hover:text-indigo-500 duration-150 hover:bg-gray-50 rounded-lg">
+                                            Editar
                                         </a>
-                                        <button href="javascript:void()" className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg">
-                                            Delete
+                                        <button href="#" className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg">
+                                            Eliminar
                                         </button>
                                     </td>
                                 </tr>
