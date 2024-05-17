@@ -11,8 +11,8 @@ import PrivacyPolicy from "./components/PrivacyPolicy"
 import EventDetails from "./components/EventDetails"
 import ResetPassword from "./components/ResetPassword"
 import ResetCode from "./components/ResetCode"
-import ProfilePage from "./components/Profile-v2"
-import Profile from "./components/Profile"
+import Settings from "./components/Settings"
+import Profile2 from "./components/Profile-v2"
 import './index.css'
 import './App.css'
 
@@ -33,8 +33,8 @@ function App() {
           <Route path="/ResetPassword" element={ < ResetPassword /> } />
           <Route path="/ResetCode" element={ < ResetCode /> } />
           <Route path="/Events/:id" element={ < EventDetails /> } />
-          <Route path="/Profile" element={ <ProfilePage /> } />
-          <Route path="/Profile-v2" element={ <Profile /> } />
+          <Route path="/Settings" element={ <Settings /> } />
+          <Route path="/Profile-v2" element={ <Profile2 /> } />
         </Routes>
       </main>
       <Footer />
