@@ -79,7 +79,7 @@ const Navbar: React.FC = () => {
                 <Link to="profile" className="flex items-center px-3 py-2.5 font-bold border rounded-full">
                     Perfil
                 </Link>
-                <Link to="events" className="flex items-center px-3 py-2.5 font-semibold hover:border hover:rounded-full">
+                <Link to="my-events" className="flex items-center px-3 py-2.5 font-semibold hover:border hover:rounded-full">
                     Mis eventos
                 </Link>
                 <Link to="saved-events" className="flex items-center px-3 py-2.5 font-semibold hover:border hover:rounded-full">
