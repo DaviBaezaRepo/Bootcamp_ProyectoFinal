@@ -46,6 +46,17 @@ CREATE TABLE IF NOT EXISTS user_has_events (
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+CREATE TABLE IF NOT EXISTS saved_events (
+    id_enduser INT UNSIGNED,
+    id_activity INT UNSIGNED,
+    CONSTRAINT fk_saved_events_enduser FOREIGN KEY (id_enduser)
+        REFERENCES enduser (id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_saved_events_activity FOREIGN KEY (id_activity)
+        REFERENCES activity (id)
+        ON DELETE CASCADE ON UPDATE CASCADE
+);
+
 
 INSERT INTO enduser VALUES 
 (NULL,'David','Baeza Castillo', 'davidbc_98@hotmail.com', 'M@icol89',"https://randomuser.me/api/portraits/men/64.jpg", true,'Bezoya S.L'),
@@ -85,7 +96,22 @@ INSERT INTO user_has_events VALUES
 (8,3),
 (9,2);
 
+INSERT INTO saved_events VALUES
+(1,2),
+(1,3),
+(1,5),
+(2,2),
+(3,1),
+(4,5),
+(5,1),
+(5,5),
+(6,1),
+(7,2),
+(8,1),
+(9,1);
+
 SELECT * FROM enduser;
 select * From activity;
 SELECT * FROM user_has_events;
+SELECT * FROM saved_events;
 

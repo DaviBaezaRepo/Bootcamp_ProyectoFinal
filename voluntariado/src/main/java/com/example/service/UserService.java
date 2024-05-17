@@ -6,11 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.entities.EventDTO;
 import com.example.entities.EventEntity;
-import com.example.entities.UserDTO;
 import com.example.entities.UserEntity;
-import com.example.entities.UserEventDTO;
 import com.example.repository.UserDtoRepository;
 import com.example.repository.UserRepository;
 
@@ -60,8 +57,14 @@ public class UserService {
 		}
 	}
 	
-	// para guardar evento con usuario
+	// para subscribir un usuario a un evento
 	public void assignEvent(UserEntity user,  EventEntity event) {
+		user.getEvents().add(event);
+		userRepository.save(user);
+	}
+		
+	// para guardar un evento con un usuario
+	public void saveEvent(UserEntity user,  EventEntity event) {
 		user.getEvents().add(event);
 		userRepository.save(user);
 		

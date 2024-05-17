@@ -16,12 +16,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.entities.AssignedEventsDTO;
 import com.example.entities.CreateUserDTO;
 import com.example.entities.EventEntity;
+import com.example.entities.SavedEventsDTO;
 import com.example.entities.UserDTO;
 import com.example.entities.UserEntity;
+import com.example.repository.AssignedEventsDtoRepository;
 import com.example.repository.CreateUserDtoRepository;
 import com.example.repository.EventRepository;
+import com.example.repository.SavedEventsDtoRepository;
 import com.example.repository.UserDtoRepository;
 import com.example.repository.UserRepository;
 import com.example.service.UserService;
@@ -46,6 +50,12 @@ public class UserController {
 	
     @Autowired
     private CreateUserDtoRepository createUserDtoRepository;
+    
+    @Autowired
+    private SavedEventsDtoRepository savedEventsDtoRepository;
+    
+    @Autowired
+    private AssignedEventsDtoRepository assignedEventsDtoRepository;
 
 	@GetMapping(path = "/{id}")
 	public Optional<UserEntity> getUserById(@PathVariable Long id) {
@@ -67,7 +77,20 @@ public class UserController {
 		return userDtoRepository.findById(id);
 	}
 	
-	@PostMapping("/{userId}/save-event/{eventId}")
+	// Código nuevo
+	
+	@GetMapping("/saved-events/{id}")
+	public Optional<SavedEventsDTO> getSavedEvents(@PathVariable Long id) {
+		return savedEventsDtoRepository.findById(id);
+	}
+	
+
+	@GetMapping("/assigned-events/{id}")
+	public Optional<AssignedEventsDTO> getAssignedEvents (@PathVariable Long id) {
+		return assignedEventsDtoRepository.findById(id);
+	}
+	
+	@PostMapping("/{userId}/subscribe-event/{eventId}")
 	public ResponseEntity<?> assignEvent(@PathVariable Long userId, @PathVariable Long eventId){
 		UserEntity user = userRepository.findById(userId).orElse(null);
 		EventEntity event = eventRepository.findById(eventId).orElse(null);
@@ -77,6 +100,19 @@ public class UserController {
 		}
 		
 		userService.assignEvent(user, event);
+		return ResponseEntity.ok().build();
+	}
+	
+	@PostMapping("/save-event/{id}/{eventId}")
+	public ResponseEntity<?> saveEvent(@PathVariable Long id, @PathVariable Long eventId){
+		UserEntity user = userRepository.findById(id).orElse(null);
+		EventEntity event = eventRepository.findById(eventId).orElse(null);
+		
+		if (user == null || event == null) {
+			return ResponseEntity.badRequest().build();
+		}
+		
+		userService.saveEvent(user, event);
 		return ResponseEntity.ok().build();
 	}
 
