@@ -33,7 +33,7 @@ function App() {
           <Route path="/ResetPassword" element={ < ResetPassword /> } />
           <Route path="/ResetCode" element={ < ResetCode /> } />
           <Route path="/Events/:id" element={ < EventDetails /> } />
-          <Route path="/Settings" element={ <Settings /> } />
+          <Route path="/Settings/*" element={ <Settings /> } />
           <Route path="/Profile-v2" element={ <Profile2 /> } />
         </Routes>
       </main>

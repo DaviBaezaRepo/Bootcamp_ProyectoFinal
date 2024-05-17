@@ -115,7 +115,9 @@ const Profile: React.FC = () => {
 
     if (!userData) {
         return <p>No user data available</p>;
-    }    return (
+    }    
+    
+    return (
         <div className="w-full px-6 pb-8 mt-8 sm:max-w-xl sm:rounded-lg">
         <h2 className="pl-6 text-2xl font-bold sm:text-xl">{firstname} {surname}</h2>
         <div className="grid max-w-2xl mx-auto mt-8">
