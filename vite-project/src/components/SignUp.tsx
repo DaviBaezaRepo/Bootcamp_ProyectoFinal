@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SuccessAlert from "./SuccesAlert";
 import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function SignUp() {
     const navigate = useNavigate();
@@ -82,9 +83,8 @@ function SignUp() {
             .then((result: string | undefined) => {
                 if (result) {
                     console.log(result);
-                    setAlert("La cuenta se ha creada exitosamente");
-                    toast.success("La cuenta se ha creado exitosamente"); // Mostrar notificación de éxito
-                    setTimeout(() => navigate("/login"), 2000);
+                    toast.success("La cuenta se ha creado exitosamente", { autoClose: 2000 , onClose: () => navigate("/login")} );
+                    
                 }
             })
             .catch((error: any) => console.error(error));
@@ -183,7 +183,7 @@ function SignUp() {
                                 </div>
                             )}
                         </div>*/}
-                        {alert ? <SuccessAlert>{alert}  <button onClick={()=>navigate("/login")}> OK </button>  </SuccessAlert> : ""}
+                        
                         <button
                             type="submit"
                             className="w-full px-4 py-2 text-white button2 rounded-lg duration-150">

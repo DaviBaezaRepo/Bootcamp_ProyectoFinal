@@ -90,7 +90,7 @@ const Profile2 = () => {
             const data: UserData = await response.json();
             console.log(data);
             setUserData(data);
-            toast.success('Cambios guardados con éxito');
+            toast.success('Cambios guardados con éxito', { autoClose: 2000});
             setIsEditing(false); // Salir del modo de edición
 
         } catch (error: unknown) {

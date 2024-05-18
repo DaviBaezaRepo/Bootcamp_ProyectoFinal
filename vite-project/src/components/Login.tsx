@@ -1,6 +1,7 @@
 
 import { useState } from "react"
 import  DangerAlert  from "./DangerAlert";
+import { toast } from "react-toastify";
 
 
 function Login() {
@@ -25,10 +26,10 @@ function Login() {
         if (response.status == "success") {
             localStorage.setItem("token", response.token);
             console.log(response);
-            document.location.href="/";
+            toast.success("Se ha iniciado sesion correctamente", { autoClose: 2000 , onClose: () =>  document.location.href="/"} );
         } else {
             // Manejar la respuesta de error
-            setAlert(response.message);
+            toast.error("El email o la contraseña son incorrectos", { autoClose: 2000 } );
         }
         } catch (error) {
         console.error('Error en la solicitud:', error);

@@ -15,6 +15,7 @@ import Settings from "./components/Settings"
 import Profile2 from "./components/Profile-v2"
 import './index.css'
 import './App.css'
+import { ToastContainer } from "react-toastify"
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <ToastContainer />
     </div>
   )
 }
