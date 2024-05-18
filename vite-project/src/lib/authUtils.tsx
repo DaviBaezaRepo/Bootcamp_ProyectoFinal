@@ -16,8 +16,6 @@ export function getUserData(): null | User {
     if (!token) return null;
     // Decode JWT token and extract user data
     const jwt = jwtDecode<User>(token);
-    // Log decoded JWT token (for debugging purposes)
-    console.log(jwt);
     // If decoded JWT is empty, return null
     if (!jwt) return null;
     // Return decoded user data

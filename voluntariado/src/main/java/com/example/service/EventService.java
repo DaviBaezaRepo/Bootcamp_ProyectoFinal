@@ -9,15 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.entities.EventEntity;
+import com.example.repository.EventDtoRepository;
 import com.example.repository.EventRepository;
 
 @Service
 public class EventService {
 	@Autowired
 	EventRepository eventRepository;
+	
 	@Autowired
 	RestTemplate restTemplate;
 
@@ -45,21 +48,45 @@ public class EventService {
 		return eventRepository.save(event);
 	}
 
-	public EventEntity updateById(EventEntity request, Long id) {
+	
+	public EventEntity updateById(EventEntity request,Long id) {
 		EventEntity event = eventRepository.findById(id).get();
-		event.setTitle(request.getTitle());
-		event.setExplanation(request.getExplanation());
+		if(request.getTitle() !=null) {
+			event.setTitle(request.getTitle());
+		}
+		if(request.getExplanation() !=null) { 
+			event.setExplanation(request.getExplanation());
+		}
+		if(request.getImage() !=null) {
 		event.setImage(request.getImage());
-		event.setLocation(request.getLocation());
-		event.setDuration(request.getDuration());
-		event.setDateandtime(request.getDateandtime());
-		event.setCategories(request.getCategories());
-		event.setOrganizer(request.getOrganizer());
-		event.setLat(request.getLat());
-		event.setLon(request.getLon());;
+		}
+		if (request.getLocation() !=null ) {
+			event.setLocation(request.getLocation());
+		}
+		if(request.getDuration() !=null ) {
+			event.setDuration(request.getDuration());
+		}
+		if(request.getDateandtime() !=null) {
+			event.setDateandtime(request.getDateandtime());
+		}
+		if(request.getCategories() !=null) {
+			event.setCategories(request.getCategories());
+		}
+		if(request.getOrganizer() !=null) {
+			event.setOrganizer(request.getOrganizer());
+		}
+		if (request.getLat() !=null) {
+			event.setLat(request.getLat());
+		}
+		if (request.getLon() !=null) {
+			event.setLon(request.getLon());;
+		}
+		eventRepository.save(event);
 		return event;
 	}
 
+
+	
 	public Boolean deleteEvent(Long id) {
 		try {
 			eventRepository.deleteById(id);

@@ -1,6 +1,7 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { useEffect, useState } from "react";
 import { getUserData } from "../lib/authUtils";
+import { toast } from "react-toastify";
 
 const URLLink = "https://example.lorem/shortlink";
 
@@ -10,7 +11,7 @@ export default (props: any) => {
     const createEventInputsNames = ["title", "explanation", "image", "location", "duration", "dateandtime", "imageString"];
     const createEventInputs: any = {};
     for (let i = 0; i < createEventInputsNames.length; i++) {
-        const [value, set] = useState('');
+        const [value, set] = useState(props[createEventInputsNames[i]] || '');
         createEventInputs[createEventInputsNames[i]] = { value, set }
     }
 
@@ -50,34 +51,63 @@ export default (props: any) => {
         const raw: string = JSON.stringify(inputs);
 
         const requestOptions: RequestInit = {
-            method: "POST",
-            headers: myHeaders,
-            body: raw,
-            redirect: "follow"
-        };
+          method: props.type && props.type == 'update' ? "PUT" : "POST",
+          headers: myHeaders,
+          body: raw,
+          redirect: "follow"
+      };
 
-        fetch("http://localhost:8080/events/crearEvento", requestOptions)
-            .then((response: Response) => {
-                if (response.status >= 500 && response.status < 600) {
-                    // Si el código de estado es de la familia 500
-                    console.error("Error del servidor:", response.status);
-                    //setAlert("No se ha podido crear la cuenta");
-                    //toast.error("No se ha podido crear la cuenta");
-                    // Aquí puedes manejar el error como desees
-                } else {
-                    // Si no es un error del servidor, maneja la respuesta normalmente
-                    return response.text();
-                }
-            })
-            .then((result: string | undefined) => {
-                if (result) {
-                    console.log(result);
-                    //setAlert("La cuenta se ha creada exitosamente");
-                    //toast.success("La cuenta se ha creado exitosamente"); // Mostrar notificación de éxito
-                    //setTimeout(() => navigate("/login"), 2000);
-                }
-            })
-            .catch((error: any) => console.error(error));
+      if (props.type && props.type == 'update') {
+          fetch("http://localhost:8080/events/" + props.id, requestOptions)
+          .then((response: Response) => {
+              if (response.status >= 500 && response.status < 600) {
+                  // Si el código de estado es de la familia 500
+                  console.error("Error del servidor:", response.status);
+                  //setAlert("No se ha podido crear la cuenta");
+                  //toast.error("No se ha podido crear la cuenta");
+                  // Aquí puedes manejar el error como desees
+              } else {
+                  // Si no es un error del servidor, maneja la respuesta normalmente
+                  return response.text();
+              }
+          })
+          .then((result: string | undefined) => {
+              if (result) {
+                  console.log(result);
+                  //setAlert("La cuenta se ha creada exitosamente");
+                  toast.success("El evento se ha creado exitosamente", {
+                    onClose: () => document.location.reload()
+                }); // Mostrar notificación de éxito
+                  //setTimeout(() => navigate("/login"), 2000);
+              }
+          })
+          .catch((error: any) => console.error(error));
+      } else {
+          fetch("http://localhost:8080/events/crearEvento", requestOptions)
+          .then((response: Response) => {
+              if (response.status >= 500 && response.status < 600) {
+                  // Si el código de estado es de la familia 500
+                  console.error("Error del servidor:", response.status);
+                  //setAlert("No se ha podido crear la cuenta");
+                  //toast.error("No se ha podido crear la cuenta");
+                  // Aquí puedes manejar el error como desees
+              } else {
+                  // Si no es un error del servidor, maneja la respuesta normalmente
+                  return response.text();
+              }
+          })
+          .then((result: string | undefined) => {
+              if (result) {
+                  console.log(result);
+                  //setAlert("La cuenta se ha creada exitosamente");
+                  toast.success("El evento se ha creado exitosamente", {
+                    onClose: () => document.location.reload()
+                }); // Mostrar notificación de éxito
+                  //setTimeout(() => navigate("/login"), 2000);
+              }
+          })
+          .catch((error: any) => console.error(error));
+      }
 
     };
 
@@ -102,7 +132,7 @@ export default (props: any) => {
   return (
     <Dialog.Root>
       <Dialog.Trigger className="inline-block px-4 py-2 text-white duration-150 font-medium rounded-lg button2 md:text-sm">
-        Crear
+        {props.buttonText}
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 w-full h-full bg-black opacity-40" />
@@ -110,7 +140,7 @@ export default (props: any) => {
           <div className="bg-white rounded-md shadow-lg px-4 py-6">
             <div className="flex items-center justify-between">
               <Dialog.Title className="text-lg font-medium text-gray-800 ">
-                {props.title}
+                {props.modalTitle}
               </Dialog.Title>
               <Dialog.Close className="p-2 text-gray-400 rounded-md hover:bg-gray-100">
                 <svg
@@ -136,7 +166,7 @@ export default (props: any) => {
                     <textarea id="explanation" required value={createEventInputs.explanation.value} onChange={handleInputUpdate} aria-describedby="helper-text-explanation" className="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Descripcion del evento" ></textarea>
 
                     <label htmlFor="image" className="block mb-2 text-sm font-medium text-gray-900 mt-5">Imagen</label>
-                    <input type="file" accept="image/*" required value={createEventInputs.image.value} onChange={handleInputUpdate} id="image" aria-describedby="helper-text-explanation" className="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Imagen del evento" />
+                    <input type="file" accept="image/*" required={typeof props.type == 'undefined' || props.type != 'update'} value={createEventInputs.image.value} onChange={handleInputUpdate} id="image" aria-describedby="helper-text-explanation" className="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Imagen del evento" />
                     <input type="hidden" id="imageString"  value={createEventInputs.imageString.value} />
 
                     <label htmlFor="location" className="block mb-2 text-sm font-medium text-gray-900 mt-5">Ubicacion</label>
@@ -152,7 +182,7 @@ export default (props: any) => {
                 </form>
             </div>
             <button type="submit" form="eventForm" className="text-sm mt-3 py-2.5 px-8 button2 flex-1 text-white bg-indigo-600 rounded-md outline-none ring-offset-2 ring-indigo-600 focus:ring-2">
-                Crear
+                {props.submitText}
             </button>
           </div>
         </Dialog.Content>

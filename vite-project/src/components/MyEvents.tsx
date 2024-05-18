@@ -1,46 +1,42 @@
 import { useEffect, useState } from "react";
-import Modal from "./Modal"
+import Modal from "./CreateEventModal"
 import { getUserData } from "../lib/authUtils";
+import { toast } from "react-toastify";
 
 export default () => {
 
     const [events, setEvents] = useState([]);
     const userData = getUserData();
 
-    let tableItems = [
-        {
-            avatar: "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ",
-            name: "Liam James",
-        },
-        {
-            avatar: "https://randomuser.me/api/portraits/men/86.jpg",
-            name: "Olivia Emma",
-        },
-        {
-            avatar: "https://randomuser.me/api/portraits/women/79.jpg",
-            name: "William Benjamin",
-        },
-        {
-            avatar: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
-            name: "Henry Theodore",
-        },
-        {
-            avatar: "https://images.unsplash.com/photo-1439911767590-c724b615299d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ",
-            name: "Amelia Elijah",
-        },
-    ];
+    useEffect(() => {
+        if (userData?.sub) {
+            fetch('http://localhost:8080/users/organized-events/' + userData.sub)
+                .then(r => r.json())
+                .then((response) => {
+                    setEvents(response);
+                })
+                .catch((error) => console.error('Error fetching events:', error));
+        }
+    }, [userData?.sub]); // This dependency array ensures fetch runs only when userData.sub changes
 
-    fetch('http://localhost:8080/users/organized-events/' + userData?.sub).then(r => r.json()).then((response: any) => {
-        console.log(response.eventList);
-        const tmpEvents: any = [];
-        response.map((event:any) => {
-            tmpEvents.push({
-                name: event.title,
-                avatar: event.image
-            })
-        })
-        setEvents(tmpEvents);
-    });
+
+    async function deleteEvent(id: any) {
+        const response = await fetch(`http://localhost:8080/events/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Error deleting user data');
+        } else {
+            toast.success('Evento eliminado correctamente', {
+                autoClose: 5000 ,
+                onClose: () => document.location.reload()
+            });
+        }
+    }
 
     return (
         <div className="max-w-screen-xl mx-auto mt-8 px-4 md:px-8">
@@ -51,7 +47,7 @@ export default () => {
                     </h2>
                 </div>
                 <div className="mt-3 md:mt-0">
-                <Modal title="Crear nuevo evento"></Modal>
+                <Modal modalTitle="Crear nuevo evento" buttonText="Crear" submitText="Crear"></Modal>
                 </div>
             </div>
             <div className="mt-12 shadow-sm border rounded-lg overflow-x-auto">
@@ -65,19 +61,21 @@ export default () => {
                     </thead>
                     <tbody className="text-gray-600 divide-y">
                         {
-                            events.map((item, idx) => (
+                            (events as any).map((item: any, idx: any) => (
                                 <tr key={idx}>
                                     <td className="flex items-center gap-x-3 py-3 px-6 whitespace-nowrap">
-                                        <img src={item.avatar} className="w-10 h-10 rounded-full" />
+                                        <img src={item.image} className="w-10 h-10 rounded-full" />
                                         <div>
-                                            <span className="block text-gray-700 text-sm font-medium">{item.name}</span>
+                                            <span className="block text-gray-700 text-sm font-medium">{item.title}</span>
                                         </div>
                                     </td>
                                     <td className="text-right px-6 whitespace-nowrap">
                                         <a href="#" className="py-2 px-3 font-medium text-indigo-600 hover:text-indigo-500 duration-150 hover:bg-gray-50 rounded-lg">
-                                            Editar
+                                            <Modal type="update" id={item.id} submitText="Editar" modalTitle="Editar evento" buttonText="Editar" title={item.title} explanation={item.explanation} imageString={item.image} location={item.location} duration={item.duration} dateandtime={item.dateandtime}></Modal>
                                         </a>
-                                        <button href="#" className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg">
+                                        <button href="#" onClick={(e) => {
+                                            deleteEvent(item.id);
+                                        }} className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg">
                                             Eliminar
                                         </button>
                                     </td>

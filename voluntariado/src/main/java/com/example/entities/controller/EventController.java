@@ -60,13 +60,14 @@ public class EventController {
 	}
 
 	@PostMapping
+	@CrossOrigin(origins = "*", allowedHeaders = "*") 
 	public EventEntity saveEvent(@RequestBody EventEntity event) {
 		return this.eventService.saveEvent(event);
 	}
 	
 
-	
     @PostMapping("/crearEvento")
+    @CrossOrigin(origins = "*", allowedHeaders = "*") 
     public ResponseEntity<String> createEvent(@RequestBody CreateEventDTO request) {
         try {
             createEventDtoRepository.save(request);
@@ -77,7 +78,7 @@ public class EventController {
     }
 
 	@PutMapping("/{id}")
-	@CrossOrigin(origins = "*", allowedHeaders = "*") 
+	@CrossOrigin("*") 
 	public EventEntity updateEventById(@RequestBody EventEntity request, @PathVariable Long id) {
 		return this.eventService.updateById(request, id);
 	}
