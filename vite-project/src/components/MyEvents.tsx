@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "./Modal"
+import { getUserData } from "../lib/authUtils";
 
 export default () => {
 
-    const tableItems = [
+    const [events, setEvents] = useState([]);
+    const userData = getUserData();
+
+    let tableItems = [
         {
             avatar: "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ",
             name: "Liam James",
@@ -25,6 +29,18 @@ export default () => {
             name: "Amelia Elijah",
         },
     ];
+
+    fetch('http://localhost:8080/users/organized-events/' + userData?.sub).then(r => r.json()).then((response: any) => {
+        console.log(response.eventList);
+        const tmpEvents: any = [];
+        response.map((event:any) => {
+            tmpEvents.push({
+                name: event.title,
+                avatar: event.image
+            })
+        })
+        setEvents(tmpEvents);
+    });
 
     return (
         <div className="max-w-screen-xl mx-auto mt-8 px-4 md:px-8">
@@ -49,7 +65,7 @@ export default () => {
                     </thead>
                     <tbody className="text-gray-600 divide-y">
                         {
-                            tableItems.map((item, idx) => (
+                            events.map((item, idx) => (
                                 <tr key={idx}>
                                     <td className="flex items-center gap-x-3 py-3 px-6 whitespace-nowrap">
                                         <img src={item.avatar} className="w-10 h-10 rounded-full" />

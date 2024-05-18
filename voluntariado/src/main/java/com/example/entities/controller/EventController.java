@@ -64,7 +64,7 @@ public class EventController {
 		return this.eventService.saveEvent(event);
 	}
 	
-	
+
 	
     @PostMapping("/crearEvento")
     public ResponseEntity<String> createEvent(@RequestBody CreateEventDTO request) {
