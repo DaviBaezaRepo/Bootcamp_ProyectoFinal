@@ -16,6 +16,7 @@ import Profile2 from "./components/Profile-v2"
 import './index.css'
 import './App.css'
 import { ToastContainer } from "react-toastify"
+import Article from "./components/Article"
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
           <Route path="/Events/:id" element={ < EventDetails /> } />
           <Route path="/Settings/*" element={ <Settings /> } />
           <Route path="/Profile-v2" element={ <Profile2 /> } />
+          <Route path="/Article" element={ < Article /> } />
+          <Route path="/AboutProject" element={ < AboutProject /> } />
+          <Route path="/PrivacyPolicy" element={ < PrivacyPolicy /> } />
         </Routes>
       </main>
       <Footer />

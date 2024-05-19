@@ -98,7 +98,17 @@ function SavedEvents({ numberOfEvents }: { numberOfEvents: number }) {
     };
 
     return (
+
         <section className="mt-12 mx-auto px-4 max-w-screen-xl md:px-8">
+            <div className="max-w-screen-xl mx-auto mt-8 px-4 md:px-8">
+                <div className="items-start justify-between md:flex">
+                    <div className="max-w-lg">
+                        <h2 className="text-gray-800 font-medium sm:text-2xl">
+                            Eventos guardados
+                        </h2>
+                    </div>
+                </div>
+            </div>
             <div className="mt-12 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
                 {events.map((item, index) => (
                     <article className="transform transition duration-300 hover:scale-105 max-w-md mx-auto mt-4 border rounded-md cursor-pointer" key={index} onClick={() => handleEventClick(item.id)}>

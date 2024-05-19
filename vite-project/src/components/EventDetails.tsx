@@ -1,5 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import Map from "./Map";
+
+interface User {
+  id: number;
+  firstname: string;
+  surname: string;
+  image: string;
+}
 
 interface Event {
   id: number;
@@ -10,30 +18,42 @@ interface Event {
   duration: string;
   dateandtime: string;
   categories: string;
-/*  organizer: string;
+  organizer: string;
   lat: string;
-  lon: string; */
+  lon: string;
+  userList: User[];
 }
 
-function EventDetails() {
+const EventDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [event, setEvent] = useState<Event | null>(null);
+  const [organizer, setOrganizer] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetch(`http://localhost:8080/events/dto/${id}`)
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
-          throw new Error('Failed to fetch event data');
+          throw new Error("Failed to fetch event data");
         }
         return response.json();
       })
       .then((data: Event) => {
         setEvent(data);
         setLoading(false);
+        return fetch(`http://localhost:8080/users/${data.organizer}`);
       })
-      .catch(error => {
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch organizer data");
+        }
+        return response.json();
+      })
+      .then((organizerData: User) => {
+        setOrganizer(organizerData);
+      })
+      .catch((error) => {
         setError(error.message);
         setLoading(false);
       });
@@ -48,74 +68,123 @@ function EventDetails() {
   }
 
   if (!event) {
-    return <div className='my-32'>No se ha podido encontrar este evento</div>;
+    return <div className="my-32">No se ha podido encontrar este evento</div>;
   }
 
+  const formattedDate = new Date(event.dateandtime).toLocaleString("es-ES", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 
+  const handleAttendClick = () => {
+    // Add logic to handle attending the event
+    alert('You have clicked Attend!');
+  };
 
   return (
     <>
-    <section className="py-14">
-        <div className="max-w-screen-xl mx-auto px-4 text-gray-600 gap-x-12 justify-between md:px-8 lg:flex">
-            <div className="max-w-2xl mx-auto text-center lg:text-left lg:mx-0">
-                
-                <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
-                    {event.title}
-                </h3>
-
-
-
-                <p className="mt-3 max-w-xl mx-auto lg:mx-0">
-                    {event.explanation}                
-                </p>
-                <img src={event.image} alt={event.title} />
-            </div>
-            <div className="mt-12 lg:mt-0">
-                <div className="flex flex-col items-start gap-x-12 justify-center divide-y sm:divide-y-0 sm:flex-row lg:grid lg:grid-cols-2">
-                    
-
-<div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <div className="flex justify-end px-4 pt-4">
-        <button id="dropdownButton" data-dropdown-toggle="dropdown" className="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5" type="button">
-            <span className="sr-only">Open dropdown</span>
-            <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
-                <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
-            </svg>
-        </button>
-        {/* Dropdown menu */}
-        <div id="dropdown" className="z-10 hidden text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-            <ul className="py-2" aria-labelledby="dropdownButton">
-            <li>
-                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Edit</a>
-            </li>
-            <li>
-                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Export Data</a>
-            </li>
-            <li>
-                <a href="#" className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
-            </li>
-            </ul>
-        </div>
-    </div>
-    <div className="flex flex-col items-center pb-10">
-        <img className="w-24 h-24 mb-3 rounded-full shadow-lg" src="/docs/images/people/profile-picture-3.jpg" alt="Bonnie image"/>
-        <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">Bonnie Green</h5>
-        <span className="text-sm text-gray-500 dark:text-gray-400">Visual Designer</span>
-        <div className="flex mt-4 md:mt-6">
-            <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add friend</a>
-            <a href="#" className="py-2 px-4 ms-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Message</a>
-        </div>
-    </div>
-</div>
-
+      <section className="py-14 px-14">
+        <div className="mx-auto px-4 text-gray-600 gap-x-16 justify-around md:px-8 lg:flex">
+          {/* Body */}
+          <div className="mx-auto text-center lg:text-left lg:mx-0">
+            <h3 className="text-gray-600 text-3xl font-bold sm:text-4xl">
+              {event.title}
+            </h3>
+            <p className="mt-3 font-light">
+              {formattedDate}, organizado por <span className="italic"> {organizer?.firstname} {organizer?.surname} </span>
+            </p>
+            <p className="mt-8 text-gray-700 text-justify mx-auto lg:mx-0 text-lg">{event.explanation}</p>
+            <img src={event.image} alt={event.title} className="mt-4 rounded-md" />
+          </div>
+          <section>
+          {/* Event info */}
+          <div className="mb-4 mt-8 lg:mt-0">
+            <div className="flex flex-col items-start justify-center divide-y sm:divide-y-0">
+              <div className="w-full min-w-max max-w-lg p-4 border border-gray-200 rounded-lg shadow sm:p-8">
+                <div className="flow-root">
+                  <ul role="list" className="divide-y divide-gray-200">
+                      <div className="sm:py-4" >
+                        <div className="flex items-center">
+                          <div className="flex-shrink-0">
+                            <img
+                              className="w-10 h-10 rounded-full"
+                              src={organizer?.image}
+                            />
+                          </div>
+                          <div className="min-w-0 ms-4">
+                            <p className="text-sm font-bold text-gray-900 truncate">
+                              {`${organizer?.firstname} ${organizer?.surname}`}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-1 mt-5 items-start">
+                          <p className="text-sm text-black font-semibold">UBICACIÓN</p>
+                          <p className="text-sm text-gray-500">{event.location}</p>
+                          <p className="text-sm text-black font-semibold mt-3">FECHA</p>
+                          <p className="text-sm text-gray-500">{formattedDate}</p>
+                          <button
+                            className="mt-3 w-full button2 text-white py-2 rounded"
+                            onClick={handleAttendClick}
+                          >
+                            Praticipar
+                          </button>
+                        </div>
+                      </div>
+                  </ul>
                 </div>
+              </div>
             </div>
+          </div>
+            {/* Attendees */}
+            <div className="my-8 lg:mt-0">
+              <div className="flex flex-col items-start justify-center divide-y sm:divide-y-0">
+                <div className="w-full min-w-max max-w-lg p-4 border border-gray-200 rounded-lg shadow sm:p-8">
+                  <div className="flex items-center justify-between mb-4">
+                    <h5 className="text-xl font-medium leading-none text-gray-900 pr-6">
+                      Participantes
+                    </h5>
+                    <a
+                      href="#"
+                      className="text-sm font-medium green-text hover:underline"
+                    >
+                      Ver todo
+                    </a>
+                  </div>
+                  <div className="flow-root">
+                    <ul role="list" className="divide-y divide-gray-200">
+                      {event.userList.map((user) => (
+                        <li key={user.id} className="py-3 sm:py-4">
+                          <div className="flex items-center">
+                            <div className="flex-shrink-0">
+                              <img
+                                className="w-8 h-8 rounded-full"
+                                src={user.image}
+                                alt={`${user.firstname} ${user.surname}`}
+                              />
+                            </div>
+                            <div className="min-w-0 ms-4">
+                              <p className="text-sm font-semibold text-gray-900 truncate">
+                                {user.firstname} {user.surname}
+                              </p>
+                            </div>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>  
         </div>
-    </section>
-
-
+      </section>
+      {/*Map section*/}
+      <Map latitude={event.lat} longitude={event.lon} />
     </>
   );
-}
+};
 
 export default EventDetails;

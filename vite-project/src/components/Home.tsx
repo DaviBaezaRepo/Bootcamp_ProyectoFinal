@@ -112,11 +112,15 @@ function Home() {
                 </div>
             </section>
 
+            {/* Map */}
+            <Map/>
+
+            
             {/* Newsletter section */}
-            <section className="py-28 relative">
-                <div className="relative z-10 max-w-screen-xl mx-auto px-4 justify-between items-center gap-12 md:px-8 md:flex">
+            <section className="mt-14 margin-b-14 bg-home py-28 relative">
+                <div className="relative z-10 max-w-screen-xl layer mx-auto px-4 justify-between items-center gap-12 md:px-8 md:flex">
                     <div className="flex-1 max-w-lg">
-                        <h3 className="text-3xl font-bold text-white">
+                        <h3 className="text-3xl font-bold white-text text-white">
                         Suscríbete a nuestro newsletter
                         </h3>
                     </div>
@@ -129,21 +133,18 @@ function Home() {
                                 <input
                                     type="email"
                                     required
-                                    placeholder="Enter your email"
-                                    className="w-full pl-12 pr-3 py-2 text-gray-500 bg-white outline-none border shadow-sm rounded-lg"
+                                    placeholder="Escribe tu email"
+                                    className="w-full  border-solid border-green-800  pl-12 pr-3 py-2 text-gray-500 bg-white outline-none shadow-sm rounded-lg"
                                 />
                             </div>
-                            <button className="block w-auto py-3 px-4 font-medium text-sm text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow">
-                                Subscribe
+                            <button className="block w-auto py-3 px-4 font-medium text-sm text-center text-white button2 border-solid border-green-800 active:shadow-none rounded-lg shadow">
+                                Suscribirse
                             </button>
                         </form>
                     </div>
                 </div>
                 <div className="absolute inset-0 w-full h-full" style={{ background: "linear-gradient(137.92deg, rgba(192, 132, 252, 0) 20.43%, rgba(232, 121, 249, 0.26) 49.66%, rgba(204, 171, 238, 0) 92.38%)" }}></div>
             </section>
-
-            {/* Map */}
-            <Map/>
         </>
     )
 }
