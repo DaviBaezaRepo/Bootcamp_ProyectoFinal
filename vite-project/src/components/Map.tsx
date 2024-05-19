@@ -74,7 +74,7 @@ const Map: React.FC<MapProps> = ({ latitude, longitude }) => {
             >
               <div>
                 <h2
-                  className="cursor-pointer text-blue-600"
+                  className="cursor-pointer green-text"
                   onClick={() => handleTitleClick(selectedEvent.id)}
                 >
                   {selectedEvent.title}

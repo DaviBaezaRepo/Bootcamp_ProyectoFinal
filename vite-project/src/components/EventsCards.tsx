@@ -93,8 +93,8 @@ function EventsCards({ numberOfEvents }: { numberOfEvents: number }) {
                             alt={item.title}
                             className="w-full h-48 rounded-t-md"
                         />
-                        <div className="flex items-center mt-2 pt-3 ml-4 mr-2">
-                            <div className="flex-none w-10 h-10 rounded-full">
+                        <div className="flex mt-2 pt-3 ml-4 mr-2">
+                            <div className=" w-10 h-10 rounded-full">
                                 <img
                                     src={item.organizerData.image || ''}
                                     className="w-full h-full rounded-full"
@@ -102,17 +102,17 @@ function EventsCards({ numberOfEvents }: { numberOfEvents: number }) {
                                 />
                             </div>
                             <div className="ml-3">
-                                <span className="block text-gray-900">
+                                <span className="block text-gray-900 text-left">
                                     {item.organizerData.firstname} {item.organizerData.surname}
                                 </span>
-                                <span className="block text-gray-400 text-sm">
+                                <span className="block text-gray-400 text-xs">
                                     {item.dateandtime}
                                 </span>
                             </div>
                         </div>
-                        <div className="pt-3 ml-4 mr-2 mb-3">
-                            <h3 className="text-xl text-gray-900">{item.title}</h3>
-                            <p className="text-gray-400 text-sm mt-1 font-normal description">
+                        <div className="px-6 py-4 flex flex-col items-start mb-3">
+                            <h3 className="text-base text-gray-900">{item.title}</h3>
+                            <p className="text-gray-400 text-sm mt-1 font-normal text-justify">
                                 {truncateDescription(item.explanation, 130)}
                             </p>
                         </div>
