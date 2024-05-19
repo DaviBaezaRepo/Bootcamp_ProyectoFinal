@@ -78,7 +78,7 @@ export default () => {
                                         </div>
                                     </td>
                                     <td className="text-right px-6 whitespace-nowrap">
-                                        <a href="#" className="py-2 px-3 font-medium text-indigo-600 hover:text-indigo-500 duration-150 hover:bg-gray-50 rounded-lg">
+                                        <a className="py-2 px-3 blue-button font-medium text-indigo-600 hover:text-indigo-500 duration-150 hover:bg-gray-50 rounded-lg">
                                             <Modal type="update" id={item.id} submitText="Editar" modalTitle="Editar evento" buttonText="Editar" title={item.title} explanation={item.explanation} imageString={item.image} location={item.location} duration={item.duration} dateandtime={item.dateandtime}></Modal>
                                         </a>
                                         <button onClick={(e) => {

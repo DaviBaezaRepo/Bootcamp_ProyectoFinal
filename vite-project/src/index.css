@@ -137,6 +137,18 @@ button:focus-visible {
   -webkit-text-stroke: 0.4px #3a6c3d;
 }
 
+.blue-button {
+  --tw-text-opacity: 1 !important;
+  color: rgb(79 70 229 / var(--tw-text-opacity)) !important;
+
+}
+
+.blue-button:hover {
+  --tw-text-opacity: 1 !important;
+  color: rgb(99 102 241 / var(--tw-text-opacity)) !important;
+
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

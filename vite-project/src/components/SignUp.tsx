@@ -98,7 +98,7 @@ function SignUp() {
                     <img src="/assets/better-world-logo1.png" width={200} className="mx-auto" />
                     <div className="space-y-2">
                         <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">Regístrate</h3>
-                        <p className="">¿Ya tienes una cuenta? <a href="/Login" className="font-medium text-indigo-600 hover:text-indigo-500">Iniciar sesión</a></p>
+                        <p className="text-sm">¿Ya tienes una cuenta? <a href="/Login" className="font-medium text-indigo-600 hover:text-indigo-500">Iniciar sesión</a></p>
                     </div>
                 </div>
                 <div>

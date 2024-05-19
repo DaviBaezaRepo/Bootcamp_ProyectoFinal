@@ -1,15 +1,15 @@
 export default () => {
     const footerNavs = [
         {
-            href: 'AboutUs',
+            href: '/AboutUs',
             name: 'Sobre nosotros'
         },
         {
-            href: 'AboutProject',
+            href: '/AboutProject',
             name: 'Acerca del proyecto'
         },
         {
-            href: 'PrivacyPolicy',
+            href: '/PrivacyPolicy',
             name: 'Política de privacidad'
         }
     ]

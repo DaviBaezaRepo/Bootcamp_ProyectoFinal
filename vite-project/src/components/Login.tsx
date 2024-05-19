@@ -43,7 +43,7 @@ function Login() {
                     <img src="/assets/better-world-logo1.png" width={200} className="mx-auto" />
                     <div className="space-y-2">
                         <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">Iniciar sesión</h3>
-                        <p className="">¿Aún no tienes una cuenta? <a href="/Signup" className="font-medium text-indigo-600 hover:text-indigo-500">Regístrate</a></p>
+                        <p className="text-sm">¿Aún no tienes una cuenta? <a href="/Signup" className="font-medium text-indigo-600 hover:text-indigo-500">Regístrate</a></p>
                     </div>
                 </div>
                 <form 
@@ -82,7 +82,7 @@ function Login() {
                         Entrar
                     </button>
                     <div className="text-center">
-                        <a href="/ResetPassword" className="green-hover">¿Has olvidado tu contraseña?</a>
+                        <a href="/ResetPassword" className="green-hover text-sm">¿Has olvidado tu contraseña?</a>
                     </div>
                 </form>
             </div>
