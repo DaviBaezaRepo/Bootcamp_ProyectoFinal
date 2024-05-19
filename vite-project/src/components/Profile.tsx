@@ -118,29 +118,15 @@ const Profile: React.FC = () => {
     }    
     
     return (
-        <div className="w-full px-6 pb-8 mt-8 sm:max-w-xl sm:rounded-lg">
+        <div className="w-full px-6 mt-8 sm:max-w-xl sm:rounded-lg">
         <h2 className="pl-6 text-2xl font-bold sm:text-xl">{firstname} {surname}</h2>
         <div className="grid max-w-2xl mx-auto mt-8">
-            <div className="flex flex-col items-center space-y-5 sm:flex-row sm:space-y-0">
+            <div className="flex justify-center space-y-5 sm:flex-row sm:space-y-0">
                 <img
                     className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-green-300 dark:ring-green-600"
                     src={userData.image}
                     alt="Bordered avatar"
                 />
-                <div className="flex flex-col space-y-5 sm:ml-8">
-                    <button
-                        type="button"
-                        className="py-3.5 px-7 text-base font-medium focus:outline-none focus:ring-none rounded-lg border focus:z-10 focus:ring-4 text-white button2 focus:ring-transparent"
-                    >
-                        Cambiar avatar
-                    </button>
-                    <button
-                        type="button"
-                        className="py-3.5 px-7 text-base font-medium focus:outline-none rounded-lg border border-bn hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-transparent"
-                    >
-                        Eliminar avatar
-                    </button>
-                </div>
             </div>
             <div className="items-center mt-8 sm:mt-14 text-[#202142]">
                 <div className="flex flex-col items-center w-full mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0 sm:mb-6">
@@ -191,7 +177,7 @@ const Profile: React.FC = () => {
                     <button
                         type="submit"
                         onClick={handleSaveChanges}
-                        className="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center button2 focus:ring-transparent"
+                        className="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 pt-2.5 text-center button2 focus:ring-transparent"
                     >
                         Guardar
                     </button>

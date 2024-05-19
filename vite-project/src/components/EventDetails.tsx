@@ -118,7 +118,6 @@ const EventDetails: React.FC = () => {
                             <p className="text-sm font-bold text-gray-900 truncate">
                               {`${organizer?.firstname} ${organizer?.surname}`}
                             </p>
-            
                           </div>
                         </div>
                         <div className="flex flex-col gap-1 mt-5 items-start">
