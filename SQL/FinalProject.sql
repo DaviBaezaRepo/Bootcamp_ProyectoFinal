@@ -95,7 +95,10 @@ INSERT INTO user_has_events VALUES
 (6,4),
 (7,5),
 (8,3),
-(9,2);
+(9,2),
+(14,1),
+(14,2),
+(14,3);
 
 INSERT INTO saved_events VALUES
 (1,2),
@@ -109,7 +112,10 @@ INSERT INTO saved_events VALUES
 (6,1),
 (7,2),
 (8,1),
-(9,1);
+(9,1),
+(14,2),
+(14,4),
+(14,5);
 
 SELECT * FROM enduser;
 select * From activity;
