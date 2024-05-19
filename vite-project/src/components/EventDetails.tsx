@@ -94,19 +94,19 @@ const EventDetails: React.FC = () => {
               {event.title}
             </h3>
             <p className="mt-3 font-light">
-              {formattedDate}, organizado por {organizer?.firstname} {organizer?.surname}
+              {formattedDate}, organizado por <span className="italic"> {organizer?.firstname} {organizer?.surname} </span>
             </p>
             <p className="mt-8 text-gray-700 text-justify mx-auto lg:mx-0 text-lg">{event.explanation}</p>
             <img src={event.image} alt={event.title} className="mt-4 rounded-md" />
           </div>
           <section>
           {/* Event info */}
-          <div className="my-3 lg:mt-0">
+          <div className="mb-4 mt-8 lg:mt-0">
             <div className="flex flex-col items-start justify-center divide-y sm:divide-y-0">
-              <div className="w-full min-w-max max-w-lg p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
+              <div className="w-full min-w-max max-w-lg p-4 border border-gray-200 rounded-lg shadow sm:p-8">
                 <div className="flow-root">
                   <ul role="list" className="divide-y divide-gray-200">
-                      <div className="py-3 sm:py-4" >
+                      <div className="sm:py-4" >
                         <div className="flex items-center">
                           <div className="flex-shrink-0">
                             <img
@@ -124,7 +124,7 @@ const EventDetails: React.FC = () => {
                         <div className="flex flex-col gap-1 mt-5 items-start">
                           <p className="text-sm text-black font-semibold">UBICACIÓN</p>
                           <p className="text-sm text-gray-500">{event.location}</p>
-                          <p className="text-sm text-black font-semibold">FECHA</p>
+                          <p className="text-sm text-black font-semibold mt-3">FECHA</p>
                           <p className="text-sm text-gray-500">{formattedDate}</p>
                           <button
                             className="mt-3 w-full button2 text-white py-2 rounded"
@@ -142,7 +142,7 @@ const EventDetails: React.FC = () => {
             {/* Attendees */}
             <div className="my-8 lg:mt-0">
               <div className="flex flex-col items-start justify-center divide-y sm:divide-y-0">
-                <div className="w-full min-w-max max-w-lg p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
+                <div className="w-full min-w-max max-w-lg p-4 border border-gray-200 rounded-lg shadow sm:p-8">
                   <div className="flex items-center justify-between mb-4">
                     <h5 className="text-xl font-medium leading-none text-gray-900 pr-6">
                       Participantes

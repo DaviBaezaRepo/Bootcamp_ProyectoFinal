@@ -48,7 +48,7 @@ export default () => {
         <div className="max-w-screen-xl mx-auto mt-8 px-4 md:px-8">
             <div className="items-start justify-between md:flex">
                 <div className="max-w-lg">
-                    <h2 className="text-gray-800 font-medium font-bold sm:text-2xl">
+                    <h2 className="text-gray-800 font-medium sm:text-2xl">
                         Eventos creados
                     </h2>
                 </div>
@@ -81,7 +81,7 @@ export default () => {
                                         <a href="#" className="py-2 px-3 font-medium text-indigo-600 hover:text-indigo-500 duration-150 hover:bg-gray-50 rounded-lg">
                                             <Modal type="update" id={item.id} submitText="Editar" modalTitle="Editar evento" buttonText="Editar" title={item.title} explanation={item.explanation} imageString={item.image} location={item.location} duration={item.duration} dateandtime={item.dateandtime}></Modal>
                                         </a>
-                                        <button href="#" onClick={(e) => {
+                                        <button onClick={(e) => {
                                             handleDeleteEventClick(item.id);
                                         }} className="py-2 leading-none px-3 font-medium text-red-600 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg">
                                             Eliminar
@@ -120,7 +120,7 @@ export default () => {
 
             <div className="items-start mt-12 justify-between md:flex">
                 <div className="max-w-lg">
-                    <h2 className="text-gray-800 font-medium font-bold sm:text-2xl">
+                    <h2 className="text-gray-800 font-medium sm:text-2xl">
                         Eventos a los que asisto
                     </h2>
                 </div>

@@ -115,6 +115,19 @@ button:focus-visible {
   margin-bottom: -3.5rem;
 }
 
+.bg-home {
+  background-image: url(/public/assets/bg-nature.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.white-text {
+  color: #ffffff !important;
+  -webkit-text-stroke: 0.5px #3a6c3d;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
