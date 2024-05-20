@@ -99,8 +99,8 @@ function MyEventsCards() {
 
     return (
 
-        <section className="mt-12 mx-auto px-4 max-w-screen-xl md:px-8">
-            <div className="mt-12 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="mt-6 mx-auto">
+            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
                 {events.map((item, index) => (
                     <article className="transform transition duration-300 hover:scale-105 max-w-md mx-auto mt-4 border rounded-md cursor-pointer" key={index} onClick={() => handleEventClick(item.id)}>
                         {/*<a href={item.href}>*/}
@@ -110,13 +110,13 @@ function MyEventsCards() {
                                     <img src={item.organizerData.image || ''} className="w-full h-full rounded-full" alt={item.organizerData.firstname} />
                                 </div>
                                 <div className="ml-3">
-                                    <span className="block text-gray-900">{item.organizerData.firstname} {item.organizerData.surname}</span>
-                                    <span className="block text-gray-400 text-sm">{item.dateandtime}</span>
+                                    <span className="block text-gray-900 text-left">{item.organizerData.firstname} {item.organizerData.surname}</span>
+                                    <span className="block text-gray-400 text-left text-xs">{item.dateandtime}</span>
                                 </div>
                             </div>
-                            <div className="pt-3 ml-4 mr-2 mb-3">
-                                <h3 className="text-xl text-gray-900">{item.title}</h3>
-                                <p className="text-gray-400 text-sm mt-1 font-normal description">
+                            <div className="px-6 py-4 flex flex-col items-start mb-3">
+                                <h3 className="text-base text-gray-900">{item.title}</h3>
+                                <p className="text-gray-400 text-sm mt-1 font-normal text-justify">
                                     {truncateDescription(item.explanation, 130)}
                                 </p>
                             </div>
