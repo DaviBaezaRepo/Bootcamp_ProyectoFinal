@@ -176,20 +176,25 @@ const EventDetails: React.FC = () => {
                           <p className="text-sm text-gray-500">{event.location}</p>
                           <p className="text-sm text-black font-semibold mt-3">FECHA</p>
                           <p className="text-sm text-gray-500">{formattedDate}</p>
+                          {userData && event.userList?.find((user)=> {
+                            return user.id == parseInt( userData!.sub) 
+                          })?
+                          
                           <button
-                              className="mt-3 w-full button2 text-white py-2 rounded"
-                              onClick={subscribe}
-                            >
-                              Participar
-                            </button>
+                          className="mt-3 w-full button2 text-white py-2 rounded"
+                          onClick={unsubscribe}
+                        >
+                          Dejar de participar
+                        </button>
+                          :
 
-                            <button
-                              className="mt-3 w-full button2 text-white py-2 rounded"
-                              onClick={unsubscribe}
-                            >
-                              Dejar de participar
-                            </button>
-                      
+                        <button
+                        className="mt-3 w-full button2 text-white py-2 rounded"
+                        onClick={subscribe}
+                      >
+                        Participar
+                      </button>
+}
                             
                         
                         </div>

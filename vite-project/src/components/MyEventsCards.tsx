@@ -68,7 +68,7 @@ function MyEventsCards() {
     // Fetch events from the API
     useEffect(() => {
         fetchEvents();
-    });
+    }, []);
 
     // Handle clicking on an event
     const handleEventClick = (eventId: number) => {

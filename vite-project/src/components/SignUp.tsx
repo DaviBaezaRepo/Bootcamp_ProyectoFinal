@@ -2,6 +2,7 @@ import  { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import DangerAlert from "./DangerAlert";
 
 function SignUp() {
     const navigate = useNavigate();
@@ -71,8 +72,7 @@ function SignUp() {
                 if (response.status >= 500 && response.status < 600) {
                     // Si el código de estado es de la familia 500
                     console.error("Error del servidor:", response.status);
-                    setAlert("No se ha podido crear la cuenta");
-                    toast.error("No se ha podido crear la cuenta", { autoClose: 1000} );
+                    setAlert("Este email ya ha sido registrado");
                     // Aquí puedes manejar el error como desees
                 } else {
                     // Si no es un error del servidor, maneja la respuesta normalmente
@@ -182,7 +182,7 @@ function SignUp() {
                                 </div>
                             )}
                         </div>*/}
-                        
+                         {alert ? <DangerAlert>{alert}</DangerAlert> : ""}
                         <button
                             type="submit"
                             className="w-full px-4 py-2 text-white button2 rounded-lg duration-150">
