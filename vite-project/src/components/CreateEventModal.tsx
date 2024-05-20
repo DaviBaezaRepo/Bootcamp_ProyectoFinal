@@ -142,20 +142,20 @@ export default (props: any) => {
             </div>
             <div className="text-black">
                 <form className="my-2" id="eventForm" onSubmit={handleSubmit}> 
-                    <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900">Titulo</label>
+                    <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900">Título</label>
                     <input type="text" required value={createEventInputs.title.value} onChange={handleInputUpdate} id="title" aria-describedby="helper-text-explanation" className="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Titulo del evento" />
 
-                    <label htmlFor="explanation" className="block mb-2 text-sm font-medium text-gray-900 mt-5">Descripcion</label>
+                    <label htmlFor="explanation" className="block mb-2 text-sm font-medium text-gray-900 mt-5">Descripción</label>
                     <textarea id="explanation" required value={createEventInputs.explanation.value} onChange={handleInputUpdate} aria-describedby="helper-text-explanation" className="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Descripcion del evento" ></textarea>
 
                     <label htmlFor="image" className="block mb-2 text-sm font-medium text-gray-900 mt-5">Imagen</label>
                     <input type="file" accept="image/*" required={typeof props.type == 'undefined' || props.type != 'update'} value={createEventInputs.image.value} onChange={handleInputUpdate} id="image" aria-describedby="helper-text-explanation" className="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Imagen del evento" />
                     <input type="hidden" id="imageString"  value={createEventInputs.imageString.value} />
 
-                    <label htmlFor="location" className="block mb-2 text-sm font-medium text-gray-900 mt-5">Ubicacion</label>
+                    <label htmlFor="location" className="block mb-2 text-sm font-medium text-gray-900 mt-5">Ubicación</label>
                     <input type="text" required value={createEventInputs.location.value} onChange={handleInputUpdate} id="location" aria-describedby="helper-text-explanation" className="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Ubicacion del evento" />
 
-                    <label htmlFor="duration" className="block mb-2 text-sm font-medium text-gray-900 mt-5">Duracion</label>
+                    <label htmlFor="duration" className="block mb-2 text-sm font-medium text-gray-900 mt-5">Duración</label>
                     <input type="text" required value={createEventInputs.duration.value} onChange={handleInputUpdate} id="duration" aria-describedby="helper-text-explanation" className="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Duracion del evento" />
                 
                     

@@ -5,7 +5,7 @@ export default () => {
             avatar: "/assets/team-member3.jpeg",
             name: "Thirza Visser",
             title: "Back-end Developer",
-            desc: "Como programadora back-end que acaba de empezar, con un gran interés en la lógica de la programación y en descubrir su funcionamiento.",
+            desc: "Como desarrolladora back-end que acaba de empezar, con un gran interés en la lógica de la programación y en descubrir su funcionamiento.",
             linkedin: "#",
             twitter: "#",
         },
