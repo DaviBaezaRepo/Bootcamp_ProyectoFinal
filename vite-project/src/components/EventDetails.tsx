@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Map from "./Map";
+import { getUserData } from '../lib/authUtils';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+import { UserData } from "../data/UserData";
+
 
 interface User {
   id: number;
@@ -30,6 +35,8 @@ const EventDetails: React.FC = () => {
   const [organizer, setOrganizer] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [user, setUserData] = useState<UserData | null>(null);
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:8080/events/dto/${id}`)
@@ -79,10 +86,50 @@ const EventDetails: React.FC = () => {
     minute: "2-digit",
   });
 
-  const handleAttendClick = () => {
-    // Add logic to handle attending the event
-    alert('You have clicked Attend!');
-  };
+  ////////////////////////////////////////////////////////
+
+  const userData = getUserData();
+  async function subscribeOrUnsubscibe() {
+    if (!user || !event) return;
+    setUserData(user);
+    if (!event.userList.includes(userData)){
+      subscribe();
+      setIsSubscribed(true);
+    }else{
+      unsubscribe();
+      setIsSubscribed(false);
+    }
+  }
+
+  async function subscribe() {
+    const response = await fetch(`http://localhost:8080/users/${userData?.sub}/subscribe-event/${id}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    if (!response.ok) {
+        throw new Error('Error al subscribirse al evento');
+    }
+    toast.success('Se ha subscrito al evento con éxito', { autoClose: 1000});
+}
+
+async function unsubscribe() {
+  const response = await fetch(`http://localhost:8080/users/${userData?.sub}/subscribe-event/delete/${id}`, {
+      method: 'PUT',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+  });
+
+  if (!response.ok) {
+      throw new Error('Error al eliminar su subscripción al evento');
+  }
+  toast.success('Se ha eliminado su subscripción al evento con éxito', { autoClose: 1000});
+}
+
+///////////////////////////////////////////////////////////////
 
   return (
     <>
@@ -127,7 +174,7 @@ const EventDetails: React.FC = () => {
                           <p className="text-sm text-gray-500">{formattedDate}</p>
                           <button
                             className="mt-3 w-full button2 text-white py-2 rounded"
-                            onClick={handleAttendClick}
+                            onClick={subscribe}
                           >
                             Praticipar
                           </button>
