@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { getUserData } from '../lib/authUtils';
+import { getUserData, logout } from '../lib/authUtils';
 import 'react-toastify/dist/ReactToastify.css';
-import { Link, useLocation, Navigate} from 'react-router-dom';
+import { Link, useLocation, Navigate, useNavigate} from 'react-router-dom';
 import { UserData } from '../data/UserData';
+import { toast } from 'react-toastify';
 
 const Navbar: React.FC = () => {
     const location = useLocation();
     const [activeLink, setActiveLink] = useState<string>('');
-
+    const navigate = useNavigate();
+    
     useEffect(() => {
         const path = location.pathname;
         setActiveLink(path.substring(path.lastIndexOf('/') + 1));
@@ -61,7 +63,7 @@ const Navbar: React.FC = () => {
         setShowDeleteModal(true); // Show the delete modal when the user clicks "eliminar usuario"
     };
 
-    async function deleteAccount () {
+    async function deleteAccount() {
         const userData = getUserData();
         const response = await fetch(`http://localhost:8080/users/${userData?.sub}`, {
             method: 'DELETE',
@@ -69,6 +71,12 @@ const Navbar: React.FC = () => {
                 'Content-Type': 'application/json',
             },
         });
+
+        if (!response.ok) {
+            throw new Error('Error deleting user data');
+        }
+        logout();
+        toast.success('Se ha eliminado la cuenta con exito', { autoClose: 1000 , onClose: () => navigate("/")});
     }
 
     if (loading) {

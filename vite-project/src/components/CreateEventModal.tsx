@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { getUserData } from "../lib/authUtils";
 import { toast } from "react-toastify";
 
-const URLLink = "https://example.lorem/shortlink";
+
 
 export default (props: any) => {
 
@@ -105,16 +105,6 @@ export default (props: any) => {
     };
 
   const [copyState, setCopyState] = useState(false);
-  const handleCopy = () => {
-    navigator.clipboard.writeText(URLLink).then(
-      function () {
-        setCopyState(true);
-      },
-      function (err) {
-        console.error("Async: Could not copy text: ", err);
-      }
-    );
-  };
 
   useEffect(() => {
     if (copyState) {

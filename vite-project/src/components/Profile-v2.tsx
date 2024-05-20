@@ -90,7 +90,7 @@ const Profile2 = () => {
             const data: UserData = await response.json();
             console.log(data);
             setUserData(data);
-            toast.success('Cambios guardados con éxito', { autoClose: 2000});
+            toast.success('Cambios guardados con éxito', { autoClose: 1000});
             setIsEditing(false); // Salir del modo de edición
 
         } catch (error: unknown) {
@@ -115,7 +115,8 @@ const Profile2 = () => {
             throw new Error('Error deleting user data');
         }
         logout();
-        Navigate({ to: '/' });
+        toast.success('Se ha eliminado la cuenta con exito', { autoClose: 1000});
+        Navigate({ to: '/home' });
     }
 
     if (loading) {
