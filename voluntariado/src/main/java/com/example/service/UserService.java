@@ -67,6 +67,18 @@ public class UserService {
 	public void saveEvent(UserEntity user,  EventEntity event) {
 		user.getSavedEvents().add(event);
 		userRepository.save(user);
-		
 	}
+		
+	// para subscribir un usuario a un evento
+	public void deleteAssignedEvent(UserEntity user,  EventEntity event) {
+		user.getEvents().remove(event);
+		userRepository.save(user);
+	}
+			
+	// para guardar un evento con un usuario
+	public void deleteSavedEvent(UserEntity user,  EventEntity event) {
+		user.getSavedEvents().remove(event);
+		userRepository.save(user);	
+	}
+	
 }

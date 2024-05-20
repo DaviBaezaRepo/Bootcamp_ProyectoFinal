@@ -59,19 +59,28 @@ CREATE TABLE IF NOT EXISTS saved_events (
 
 
 INSERT INTO enduser VALUES 
-(NULL,'David','Baeza Castillo', 'davidbc_98@hotmail.com', 'M@icol89',"https://randomuser.me/api/portraits/men/64.jpg", true,'Bezoya S.L'),
-(NULL,'Thirza','Visser', 'thirzavisser95@gmail.com', 'D@vid8765', "https://randomuser.me/api/portraits/women/10.jpg", true, 'Grupo Castilla S.L'),
-(NULL,'Sara','Didouh', 'saradidouh22@gmail.com', 'M@llorca2024',"https://randomuser.me/api/portraits/women/45.jpg", true, 'TSystems S.L'),
-(NULL,'Alex','Marco Mesa', 'alexeitor@gmail.com', 'Se@at2987',"https://randomuser.me/api/portraits/men/50.jpg", true, 'Fundacion Esplai S.L'),
-(NULL,'Sheerezade','Gomez Roig', 'Sheerezita@gmail.com', 'Gominolita87', "https://randomuser.me/api/portraits/women/40.jpg", true, 'Wingardium S.L'),
-(NULL,'Albert','Fernandez Morata', 'Albertitu@hotmail.com', 'Pyth@onMolaM@s',"https://randomuser.me/api/portraits/men/30.jpg", true, 'Amazon S.L'),
-(NULL,'Adrian','Milan', 'adrimilan@hotmail.com', 'Viv@J@v@', "https://randomuser.me/api/portraits/men/60.jpg", true, 'Sony S.L'),
-(NULL,'Moha','Kebdani Ghazi', 'Mohammito@gmail.com', 'M@handoC@fe',"https://randomuser.me/api/portraits/men/70.jpg", true, 'Genetic UI S.L'),
-(NULL,'Sergio','Robla', 'SergioFrontend@hotmail.com', 'Fr@ntendM@la', "https://randomuser.me/api/portraits/men/80.jpg", true, 'Architects World S.L'),
-(NULL,'Sergi','Florensa Montagut', 'Segiflorensa@hotmail.com', 'S@yM@delo', "https://randomuser.me/api/portraits/men/17.jpg", true, 'Future Tecnologies IA S.L'),
-(NULL,'Dani','Uribe', 'Danimetal@hotmail.com', 'Viv@elmetal98767', "https://randomuser.me/api/portraits/men/15.jpg", true, 'OpenAI S.L'),
-(NULL,'Eric','Alcantara Valenzuela', 'ericalcantaravalen@hotmail.com', 'P@kerF@ace', "https://randomuser.me/api/portraits/men/14.jpg", true, 'Meta S.L'),
-(NULL,'Aitor','Lardin', 'Aitormenta@hotmail.com', 'InL0veBBD', "https://randomuser.me/api/portraits/men/10.jpg",true, 'Microsoft S.L'),
+(NULL, 'Juan', 'López Pérez', 'juan.lopez@example.com', 'contraseña1', 'https://randomuser.me/api/portraits/men/64.jpg', false, NULL),
+(NULL, 'María', 'García Martínez', 'maria.garcia@example.com', 'contraseña2', 'https://randomuser.me/api/portraits/women/36.jpg', false, NULL),
+(NULL, 'Antonio', 'Martín Sánchez', 'antonio.martin@example.com', 'contraseña3', 'https://randomuser.me/api/portraits/men/65.jpg', false, NULL),
+(NULL, 'Carmen', 'Sánchez López', 'carmen.sanchez@example.com', 'contraseña4', 'https://randomuser.me/api/portraits/women/45.jpg', false, NULL),
+(NULL, 'José', 'Pérez González', 'jose.perez@example.com', 'contraseña5', 'https://randomuser.me/api/portraits/men/66.jpg', false, NULL),
+(NULL, 'Ana', 'Gómez Rodríguez', 'ana.gomez@example.com', 'contraseña6', 'https://randomuser.me/api/portraits/women/25.jpg', false, NULL),
+(NULL, 'Francisco', 'Hernández Martínez', 'francisco.hernandez@example.com', 'contraseña7', 'https://randomuser.me/api/portraits/men/50.jpg', false, NULL),
+(NULL, 'Isabel', 'Díaz Pérez', 'isabel.diaz@example.com', 'contraseña8', 'https://randomuser.me/api/portraits/women/67.jpg', false, NULL),
+(NULL, 'Manuel', 'Torres Sánchez', 'manuel.torres@example.com', 'contraseña9', 'https://randomuser.me/api/portraits/men/18.jpg', false, NULL),
+(NULL, 'Laura', 'Ruiz González', 'laura.ruiz@example.com', 'contraseña10', 'https://randomuser.me/api/portraits/women/68.jpg', false, NULL),
+(NULL, 'Pedro', 'Jiménez Martínez', 'pedro.jimenez@example.com', 'contraseña11', 'https://randomuser.me/api/portraits/men/39.jpg', false, NULL),
+(NULL, 'Sara', 'López Rodríguez', 'sara.lopez@example.com', 'contraseña12', 'https://randomuser.me/api/portraits/women/42.jpg', false, NULL),
+(NULL, 'Ángel', 'Gómez Sánchez', 'angel.gomez@example.com', 'contraseña13', 'https://randomuser.me/api/portraits/men/43.jpg', false, NULL),
+(NULL, 'Lucía', 'Hernández Rodríguez', 'lucia.hernandez@example.com', 'contraseña14', 'https://randomuser.me/api/portraits/women/32.jpg', false, NULL),
+(NULL, 'David', 'Martínez González', 'david.martinez@example.com', 'contraseña15', 'https://randomuser.me/api/portraits/men/27.jpg', false, NULL),
+(NULL, 'Elena', 'Pérez Martínez', 'elena.perez@example.com', 'contraseña16', 'https://randomuser.me/api/portraits/women/60.jpg', false, NULL),
+(NULL, 'Javier', 'Sánchez Sánchez', 'javier.sanchez@example.com', 'contraseña17', 'https://randomuser.me/api/portraits/men/33.jpg', false, NULL),
+(NULL, 'Marina', 'González Rodríguez', 'marina.gonzalez@example.com', 'contraseña18', 'https://randomuser.me/api/portraits/women/26.jpg', false, NULL),
+(NULL, 'Miguel', 'Rodríguez Martínez', 'miguel.rodriguez@example.com', 'contraseña19', 'https://randomuser.me/api/portraits/men/48.jpg', false, NULL),
+(NULL, 'Silvia', 'Martínez Martínez', 'silvia.martinez@example.com', 'contraseña20', 'https://randomuser.me/api/portraits/women/19.jpg', false, NULL),
+(NULL, 'Carlos', 'Pérez Sánchez', 'carlos.perez@example.com', 'contraseña21', 'https://randomuser.me/api/portraits/men/22.jpg', false, NULL),
+(NULL, 'Raquel', 'Sánchez López', 'raquel.sanchez@example.com', 'contraseña22', 'https://randomuser.me/api/portraits/women/49.jpg', false, NULL),
 (NULL,'Admin','Admin', 'admin@admin.com', 'admin', "https://randomuser.me/api/portraits/men/10.jpg",true, 'admin');
 
 
@@ -80,7 +89,18 @@ INSERT INTO activity VALUES
 (NULL, "Actividades con ancianos","Visita al Hogar de Ancianos 'La Esperanza' en Madrid para compartir una tarde de música en vivo y juegos de mesa con los residentes, llevando alegría y compañía a nuestros mayores","/assets/old-people-playing.jpg","Reus", "4 horas","2024-06-30 09:30:00","Cuidados, Ciudadania","1", 41.14270428199402, 1.1011896387438063),
 (NULL, "Recogida de alimentos","Recogida de Alimentos en el Mercado Central de Valencia para apoyar a los comedores sociales locales y familias necesitadas durante la temporada navideña","/assets/food-donations.jpg","Valencia", "5-6 horas","2024-10-05 10:30:00","Alimentos, Social","3",39.47371162496371, -0.37903430367228663),
 (NULL, "Playa Limpia","Limpieza de la playa de San Sebastián para preservar la belleza natural y proteger la vida marina. ¡Únete y haz la diferencia!","/assets/beach-cleanup.jpg","San Sebastian", "5 horas","2024-08-15 10:30:00","VidaMarina,EcoSistema","5", 43.3182682817734, -2.1763622451659077),
-(NULL, "Campaña de Donación de Sangre","Campaña de donación de sangre en el Hospital General de Valencia. ¡Tu donación puede salvar vidas!","/assets/blood-donation.jpg","Valencia", "7 horas","2024-09-20 10:30:00","Donaciones","6", 39.443707088168175, -0.3760582397497932);
+(NULL, "Campaña de Donación de Sangre","Campaña de donación de sangre en el Hospital General de Valencia. ¡Tu donación puede salvar vidas!","/assets/blood-donation.jpg","Valencia", "7 horas","2024-09-20 10:30:00","Donaciones","6", 39.443707088168175, -0.3760582397497932),
+(NULL, "Voluntariado en el parque natural", "Ayuda a limpiar senderos y mantener el entorno natural.", "/assets/beach-cleanup.jpg", "Parc Natural del Montseny", "3 horas", "2024-10-05 10:30:00", "Medio ambiente", "1", 41.754115, 2.344107),
+(NULL, "Recogida de basura en la montaña", "Participa en la recogida de residuos en zonas de montaña para preservar el ecosistema.", "/assets/beach-cleanup.jpg", "Parc Natural de la Garrotxa", "4 horas", "2024-10-06 09:00:00", "Medio ambiente", "2", 42.155067, 2.512254),
+(NULL, "Apoyo a personas mayores en residencia", "Brinda compañía y ayuda en actividades diarias a personas mayores en residencias.", "/assets/beach-cleanup.jpg", "Residència d'Avis de Girona", "2 horas", "2024-10-07 14:00:00", "Bienestar", "3", 41.983863, 2.821248),
+(NULL, "Taller de reciclaje para niños", "Enseña a los niños la importancia del reciclaje y cómo pueden contribuir al cuidado del medio ambiente.", "/assets/beach-cleanup.jpg", "Espai Ambiental Can Marfà", "1 hora", "2024-10-08 16:00:00", "Educación", "4", 41.972876, 2.809921),
+(NULL, "Visita a refugiados en centro de acogida", "Comparte tiempo y conversación con personas refugiadas para ofrecerles apoyo emocional.", "/assets/beach-cleanup.jpg", "Centre d'Acollida de Refugiats de Barcelona", "3 horas", "2024-10-09 11:00:00", "Refugiados", "5", 41.379749, 2.173305),
+(NULL, "Cuidado de animales en refugio", "Ayuda en el cuidado y alimentación de animales abandonados en un refugio.", "/assets/beach-cleanup.jpg", "Protectora d'Animals de Vic", "5 horas", "2024-10-10 10:00:00", "Animales", "6", 41.929564, 2.255749),
+(NULL, "Apoyo escolar a niños en situación vulnerable", "Brinda apoyo académico y emocional a niños en riesgo de exclusión social.", "/assets/beach-cleanup.jpg", "Centre Cívic de la Vila de Gràcia", "4 horas", "2024-10-11 15:00:00", "Educación", "7", 41.402590, 2.156721),
+(NULL, "Voluntariado en banco de alimentos", "Clasifica alimentos y colabora en la distribución a familias necesitadas.", "/assets/beach-cleanup.jpg", "Banc dels Aliments de Barcelona", "3 horas", "2024-10-12 08:00:00", "Solidaridad", "8", 41.377947, 2.166229),
+(NULL, "Actividades recreativas para personas con discapacidad", "Organiza juegos y actividades adaptadas para personas con discapacidad.", '/assets/beach-cleanup.jpg', "Fundació Catalana de l'Esplai", "2 horas", "2024-10-13 13:00:00", "Discapacidad", "9", 41.393029, 2.155832),
+(NULL, "Campaña de sensibilización sobre reciclaje", "Participa en la difusión de buenas prácticas y hábitos para el reciclaje.", "/assets/beach-cleanup.jpg", "Centre Cívic Sagrada Família", "1 hora", "2024-10-14 10:00:00", "Medio ambiente", "10", 41.404494, 2.170955),
+(NULL, "Visita a niños hospitalizados", "Lleva alegría y entretenimiento a niños hospitalizados con juegos y actividades.", "/assets/beach-cleanup.jpg", "Hospital Sant Joan de Déu", "2 horas", "2024-10-15 15:00:00", "Bienestar", "11", 41.389356, 2.118854);
 
 
 INSERT INTO user_has_events VALUES
@@ -114,6 +134,7 @@ INSERT INTO saved_events VALUES
 (8,1),
 (9,1),
 (14,2),
+(14,3),
 (14,4),
 (14,5);
 

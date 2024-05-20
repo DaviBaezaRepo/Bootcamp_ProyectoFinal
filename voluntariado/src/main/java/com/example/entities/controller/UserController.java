@@ -83,7 +83,6 @@ public class UserController {
 		return userDtoRepository.findById(id);
 	}
 
-	// Código nuevo
 
 	@GetMapping("/saved-events/{id}")
 	public Optional<SavedEventsDTO> getSavedEvents(@PathVariable Long id) {
@@ -139,6 +138,34 @@ public class UserController {
 	@PutMapping("/{id}")
 	public UserEntity updateUserById(@RequestBody UserEntity request, @PathVariable Long id) {
 		return this.userService.updateById(request, id);
+	}
+	
+// para eleminar un elemento guardado por un usuario de su lista
+	@PutMapping("/save-event/delete/{id}/{eventId}")
+	public ResponseEntity<?> deleteSavedEvent(@PathVariable Long id, @PathVariable Long eventId) {
+		UserEntity user = userRepository.findById(id).orElse(null);
+		EventEntity event = eventRepository.findById(eventId).orElse(null);
+
+		if (user == null || event == null) {
+			return ResponseEntity.badRequest().build();
+		}
+
+		userService.deleteSavedEvent(user, event);
+		return ResponseEntity.ok().build();
+	}
+
+// para eleminar un elemento al que se ha inscrito un usuario de su lista
+	@PutMapping("/{userId}/subscribe-event/delete/{eventId}")
+	public ResponseEntity<?> deleteAssignedEvent(@PathVariable Long userId, @PathVariable Long eventId) {
+		UserEntity user = userRepository.findById(userId).orElse(null);
+		EventEntity event = eventRepository.findById(eventId).orElse(null);
+
+		if (user == null || event == null) {
+			return ResponseEntity.badRequest().build();
+		}
+
+		userService.deleteAssignedEvent(user, event);
+		return ResponseEntity.ok().build();
 	}
 
 	@DeleteMapping("/{id}")
