@@ -26,7 +26,7 @@ function Login() {
         if (response.status == "success") {
             localStorage.setItem("token", response.token);
             console.log(response);
-            toast.success('Se ha inicado sesion correctamente', { autoClose: 1000, onClose: () => document.location.href="/"});
+            document.location.href="/";
             
         } else {
             // Manejar la respuesta de error
