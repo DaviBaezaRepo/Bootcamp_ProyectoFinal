@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SuccessAlert from "./SuccesAlert";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -10,9 +9,9 @@ function SignUp() {
     const [surname, setSurname] = useState('');
     const [email, setEmail] = useState('');
     const [newpassword, setNewPassword] = useState('');
-    const [isentity, setIsentity] = useState(false); // Estado inicial: no es de una empresa
-    const [entity, setEntity] = useState('');
-    const [alert, setAlert] = useState('');
+    const [isentity] = useState(false); // Estado inicial: no es de una empresa
+    const [entity] = useState('');
+    const [ alert, setAlert] = useState('');
 
     const handleFirstnameChange = (e: any) => {
         setFirstname(e.target.value);
@@ -73,7 +72,7 @@ function SignUp() {
                     // Si el código de estado es de la familia 500
                     console.error("Error del servidor:", response.status);
                     setAlert("No se ha podido crear la cuenta");
-                    toast.error("No se ha podido crear la cuenta");
+                    toast.error("No se ha podido crear la cuenta", { autoClose: 1000} );
                     // Aquí puedes manejar el error como desees
                 } else {
                     // Si no es un error del servidor, maneja la respuesta normalmente
@@ -83,7 +82,7 @@ function SignUp() {
             .then((result: string | undefined) => {
                 if (result) {
                     console.log(result);
-                    toast.success("La cuenta se ha creado exitosamente", { autoClose: 2000 , onClose: () => navigate("/login")} );
+                    toast.success("La cuenta se ha creado exitosamente", { autoClose: 1000 , onClose: () => navigate("/login")} );
                     
                 }
             })

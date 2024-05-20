@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { getUserData, logout } from '../lib/authUtils';
 import 'react-toastify/dist/ReactToastify.css';
-import { Link, useLocation, Navigate, useNavigate} from 'react-router-dom';
+import { Link, useLocation, Navigate} from 'react-router-dom';
 import { UserData } from '../data/UserData';
 import { toast } from 'react-toastify';
 
 const Navbar: React.FC = () => {
     const location = useLocation();
     const [activeLink, setActiveLink] = useState<string>('');
-    const navigate = useNavigate();
     
     useEffect(() => {
         const path = location.pathname;

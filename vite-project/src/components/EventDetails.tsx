@@ -105,7 +105,7 @@ const EventDetails: React.FC = () => {
       await subscribe();
       setIsSubscribed(true);
     }
-  };
+  }; 
 
   async function subscribe() {
     const response = await fetch(`http://localhost:8080/users/${userData?.sub}/subscribe-event/${id}`, {
@@ -182,7 +182,7 @@ const EventDetails: React.FC = () => {
                             >
                               Participar
                             </button>
-                            
+
                             <button
                               className="mt-3 w-full button2 text-white py-2 rounded"
                               onClick={unsubscribe}

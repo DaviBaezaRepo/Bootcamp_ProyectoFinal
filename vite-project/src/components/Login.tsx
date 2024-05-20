@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 
 function Login() {
-    const [alert, setAlert] = useState('');
+    const [alert] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 

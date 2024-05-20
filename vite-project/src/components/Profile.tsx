@@ -94,7 +94,7 @@ const Profile: React.FC = () => {
             const data: UserData = await response.json();
             console.log(data);
             setUserData(data);
-            toast.success('Cambios guardados con éxito', { autoClose: 2000});
+            toast.success('Cambios guardados con éxito', { autoClose: 1000});
             
         } catch (error: unknown) {
             if (error instanceof Error) {
