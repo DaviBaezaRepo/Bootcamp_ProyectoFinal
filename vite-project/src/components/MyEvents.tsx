@@ -40,7 +40,7 @@ export default () => {
         if (!response.ok) {
             throw new Error('Error deleting user data');
         } else {
-            toast.success("Se ha eliminado el evento correctamente", { autoClose: 2000 , onClose: () => document.location.reload()} );
+            toast.success("Se ha eliminado el evento correctamente", { autoClose: 1000 , onClose: () => document.location.reload()} );
 
         }
     }

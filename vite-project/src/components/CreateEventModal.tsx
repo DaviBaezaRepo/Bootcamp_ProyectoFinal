@@ -74,7 +74,7 @@ export default (props: any) => {
           .then((result: string | undefined) => {
               if (result) {
                   console.log(result);
-                  toast.success("El evento se ha actualizado exitosamente", { autoClose: 2000 , onClose: () => document.location.reload()} );
+                  toast.success("El evento se ha actualizado exitosamente", { autoClose: 1000 , onClose: () => document.location.reload()} );
                   //setTimeout(() => navigate("/login"), 2000);
               }
           })
@@ -96,7 +96,7 @@ export default (props: any) => {
           .then((result: string | undefined) => {
               if (result) {
                   console.log(result);
-                  toast.success("El evento se ha creado exitosamente", { autoClose: 2000 , onClose: () => document.location.reload()} );
+                  toast.success("El evento se ha creado exitosamente", { autoClose: 1000 , onClose: () => document.location.reload()} );
               }
           })
           .catch((error: any) => console.error(error));

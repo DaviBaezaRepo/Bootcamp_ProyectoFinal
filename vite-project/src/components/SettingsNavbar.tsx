@@ -75,8 +75,7 @@ const Navbar: React.FC = () => {
         if (!response.ok) {
             throw new Error('Error deleting user data');
         }
-        logout();
-        toast.success('Se ha eliminado la cuenta con exito', { autoClose: 1000 , onClose: () => navigate("/")});
+        toast.success('Se ha eliminado la cuenta con exito', { autoClose: 1000 , onClose: () =>  logout()});
     }
 
     if (loading) {

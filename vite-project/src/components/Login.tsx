@@ -26,11 +26,11 @@ function Login() {
         if (response.status == "success") {
             localStorage.setItem("token", response.token);
             console.log(response);
-            toast.success('Se ha inicado sesion correctamente', { autoClose: 1000});
-            document.location.href="/";
+            toast.success('Se ha inicado sesion correctamente', { autoClose: 1000, onClose: () => document.location.href="/"});
+            
         } else {
             // Manejar la respuesta de error
-            toast.error("El email o la contraseña son incorrectos", { autoClose: 2000 } );
+            toast.error("El email o la contraseña son incorrectos", { autoClose: 1000 } );
         }
         } catch (error) {
         console.error('Error en la solicitud:', error);

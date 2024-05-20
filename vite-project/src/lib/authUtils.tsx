@@ -38,4 +38,5 @@ export function getUserAvatar(): string {
 // Function to log out user by removing token from local storage
 export function logout() {
     localStorage.removeItem('token');
+    window.location.href="/";
 }
