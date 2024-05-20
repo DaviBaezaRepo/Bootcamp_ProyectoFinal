@@ -66,6 +66,14 @@ const EventDetails: React.FC = () => {
       });
   }, [id]);
 
+  useEffect(() => {
+    const userData = getUserData();
+    setUserData(userData);
+    if (event && userData) {
+      setIsSubscribed(event.userList.some(user => user.id === userData.sub));
+    }
+  }, [event]);
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -86,20 +94,18 @@ const EventDetails: React.FC = () => {
     minute: "2-digit",
   });
 
-  ////////////////////////////////////////////////////////
-
   const userData = getUserData();
-  async function subscribeOrUnsubscibe() {
+
+  const subscribeOrUnsubscribe = async () => {
     if (!user || !event) return;
-    setUserData(user);
-    if (!event.userList.includes(userData)){
-      subscribe();
-      setIsSubscribed(true);
-    }else{
-      unsubscribe();
+    if (isSubscribed) {
+      await unsubscribe();
       setIsSubscribed(false);
+    } else {
+      await subscribe();
+      setIsSubscribed(true);
     }
-  }
+  };
 
   async function subscribe() {
     const response = await fetch(`http://localhost:8080/users/${userData?.sub}/subscribe-event/${id}`, {
@@ -112,24 +118,22 @@ const EventDetails: React.FC = () => {
     if (!response.ok) {
         throw new Error('Error al subscribirse al evento');
     }
-    toast.success('Se ha subscrito al evento con éxito', { autoClose: 1000});
-}
-
-async function unsubscribe() {
-  const response = await fetch(`http://localhost:8080/users/${userData?.sub}/subscribe-event/delete/${id}`, {
-      method: 'PUT',
-      headers: {
-          'Content-Type': 'application/json',
-      },
-  });
-
-  if (!response.ok) {
-      throw new Error('Error al eliminar su subscripción al evento');
+    toast.success('Se ha subscrito al evento con éxito', { autoClose: 1000, onClose: () => document.location.reload()});
   }
-  toast.success('Se ha eliminado su subscripción al evento con éxito', { autoClose: 1000});
-}
 
-///////////////////////////////////////////////////////////////
+  async function unsubscribe() {
+    const response = await fetch(`http://localhost:8080/users/${userData?.sub}/subscribe-event/delete/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    if (!response.ok) {
+        throw new Error('Error al eliminar su subscripción al evento');
+    }
+    toast.success('Se ha eliminado su subscripción al evento con éxito', { autoClose: 1000 , onClose: () => document.location.reload()});
+  }
 
   return (
     <>
@@ -173,12 +177,21 @@ async function unsubscribe() {
                           <p className="text-sm text-black font-semibold mt-3">FECHA</p>
                           <p className="text-sm text-gray-500">{formattedDate}</p>
                           <button
-                            className="mt-3 w-full button2 text-white py-2 rounded"
-                            onClick={subscribe}
-                          >
-                            Praticipar 
-                          </button>
-                          {/*dejar de participar*/}
+                              className="mt-3 w-full button2 text-white py-2 rounded"
+                              onClick={subscribe}
+                            >
+                              Participar
+                            </button>
+                            
+                            <button
+                              className="mt-3 w-full button2 text-white py-2 rounded"
+                              onClick={unsubscribe}
+                            >
+                              Dejar de participar
+                            </button>
+                      
+                            
+                        
                         </div>
                       </div>
                   </ul>
