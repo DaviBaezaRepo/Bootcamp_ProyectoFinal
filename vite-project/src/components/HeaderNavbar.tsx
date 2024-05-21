@@ -27,7 +27,7 @@ function HeaderNavbar(props: any) {
     };
 
     return (
-        <div className="relative" ref={dropdownRef}>
+        <div className="relative z-10" ref={dropdownRef}>
             <button
                 className="flex items-center justify-center px-3 py-2 text-gray-700 hover:text-gray-900 focus:outline-none"
                 onClick={toggleDropdown}
