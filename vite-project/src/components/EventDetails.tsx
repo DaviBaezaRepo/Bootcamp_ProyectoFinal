@@ -264,23 +264,23 @@ const EventDetails: React.FC = () => {
                             </button>
                           }
 
-                          <div className="flex justify-end">
+                          
                             {isSaved ? (
                               <button
                                 className="mt-3 w-full button2 text-white py-2 rounded"
                                 onClick={handleRemoveFavorites}
                               >
-                                Eliminar de Favoritos
+                                Eliminar de Guardados
                               </button>
                             ) : (
                               <button
-                                className="mt-3 w-full button2 text-white py-2 px-4 rounded"
+                                className="mt-3 w-full button2 text-white py-2 rounded"
                                 onClick={handleSubmitFavorites}
                               >
                                 Guardar
                               </button>
                             )}
-                          </div>
+                          
 
 
                         </div>

@@ -75,7 +75,8 @@ function Login() {
                             className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-color shadow-sm rounded-lg"
                         />
                     </div>
-                    {alert ? <DangerAlert>{alert}</DangerAlert> : ""}
+                    {alert && ( <p className="text-red-500 mt-2">{alert}</p> 
+                         )}
                     <button
                         className="w-full px-4 py-2 text-white button2 rounded-lg duration-150"
                     >

@@ -206,7 +206,8 @@ function SignUp() {
                         {errorMessage && (
                             <p className="text-red-500 mt-2">{errorMessage}</p>
                         )}
-                         {alert ? <DangerAlert>{alert}</DangerAlert> : ""}
+                        {alert && ( <p className="text-red-500 mt-2">{alert}</p> 
+                        )}
                         <button
                             type="submit"
                             className="w-full px-4 py-2 text-white button2 rounded-lg duration-150">
