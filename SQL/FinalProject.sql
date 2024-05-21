@@ -80,8 +80,8 @@ INSERT INTO enduser VALUES
 (NULL, 'Miguel', 'Rodríguez Martínez', 'miguel.rodriguez@example.com', 'contraseña19', 'https://randomuser.me/api/portraits/men/48.jpg', false, NULL),
 (NULL, 'Silvia', 'Martínez Martínez', 'silvia.martinez@example.com', 'contraseña20', 'https://randomuser.me/api/portraits/women/19.jpg', false, NULL),
 (NULL, 'Carlos', 'Pérez Sánchez', 'carlos.perez@example.com', 'contraseña21', 'https://randomuser.me/api/portraits/men/22.jpg', false, NULL),
-(NULL, 'Raquel', 'Sánchez López', 'raquel.sanchez@example.com', 'contraseña22', 'https://randomuser.me/api/portraits/women/49.jpg', false, NULL),
-(NULL,'Admin','Admin', 'admin@admin.com', 'admin', "https://randomuser.me/api/portraits/men/10.jpg",true, 'admin');
+(NULL, 'Raquel', 'Sánchez López', 'raquel.sanchez@example.com', 'contraseña22', 'https://randomuser.me/api/portraits/women/49.jpg', false, NULL);
+
 
 
 INSERT INTO activity VALUES 
@@ -119,9 +119,12 @@ INSERT INTO user_has_events VALUES
 (7,5),
 (8,3),
 (9,2),
-(23,1),
-(23,2),
-(23,3);
+(10,1),
+(10,2),
+(4,3),
+(6,3),
+(9,3),
+(10,3);
 
 INSERT INTO saved_events VALUES
 (1,2),
