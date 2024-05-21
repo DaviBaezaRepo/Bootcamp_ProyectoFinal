@@ -105,7 +105,7 @@ function EventsCards({ numberOfEvents }: { numberOfEvents: number }) {
                                 <span className="block text-gray-900 text-left">
                                     {item.organizerData.firstname} {item.organizerData.surname}
                                 </span>
-                                <span className="block text-gray-400 text-xs">
+                                <span className="block text-gray-400 text-left text-xs">
                                     {item.dateandtime}
                                 </span>
                             </div>
