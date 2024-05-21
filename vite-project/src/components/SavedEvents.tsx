@@ -26,6 +26,7 @@ async function fetchUserData(organizerId: number): Promise<UserData> {
 
 function SavedEvents({ numberOfEvents }: { numberOfEvents: number }) {
     const [events, setEvents] = useState<UserWithSavedEventData[]>([]);
+    const [loading, setLoading] = useState(true); // Nuevo estado para controlar la carga
 
     // Define fetchEvents function
     const fetchEvents = async () => {
@@ -60,8 +61,10 @@ function SavedEvents({ numberOfEvents }: { numberOfEvents: number }) {
 
             // Slice the array to only include the specified number of events
             setEvents(formattedEvents.slice(0, numberOfEvents));
+            setLoading(false); // Establecer loading en false cuando la carga es exitosa
         } catch (error) {
             console.error('Error fetching events:', error);
+            setLoading(false); // Establecer loading en false en caso de error
         }
     };
 
@@ -96,6 +99,16 @@ function SavedEvents({ numberOfEvents }: { numberOfEvents: number }) {
         });
         return formattedDate.replace(/\//g, '-');
     };
+
+    // comprueba si hay eventos para mostrar
+    if (loading) {
+        return <div>Cargando eventos...</div>;
+    }
+
+    // Si no hay eventos, mostrar un mensaje
+    if (events.length === 0) {
+        return <div>Aún no has guardado ningún evento</div>;
+    }
 
     return (
 

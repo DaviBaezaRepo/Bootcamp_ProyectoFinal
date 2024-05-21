@@ -1,11 +1,10 @@
 
 import { useState } from "react"
 import  DangerAlert  from "./DangerAlert";
-import { toast } from "react-toastify";
 
 
 function Login() {
-    const [alert] = useState('');
+    const [alert, setAlert] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -30,7 +29,7 @@ function Login() {
             
         } else {
             // Manejar la respuesta de error
-            toast.error("El email o la contraseña son incorrectos", { autoClose: 1000 } );
+            setAlert("El email o la contraseña son incorrectos");
         }
         } catch (error) {
         console.error('Error en la solicitud:', error);
@@ -54,7 +53,7 @@ function Login() {
                     {/* Canviar color border!!! */}
                     <div>
                         <label className="font-medium">
-                            Correo electónico
+                            Correo electrónico
                         </label>
                         <input
                             type="email"

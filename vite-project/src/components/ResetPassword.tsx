@@ -1,8 +1,11 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import DangerAlert from './DangerAlert';
 
 function ResetPassword() {
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
+    const [ alert, setAlert] = useState('');
 
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
@@ -19,9 +22,10 @@ function ResetPassword() {
             const userWithEmail = users.find((user: { email: string; }) => user.email === email);
             if (userWithEmail) {
                 // Redirect to another route if email exists
-                window.location.href = '/ResetCode';
+                toast.success("Se ha enviado el email correctamente", { autoClose: 1000 , onClose: () => document.location.href = "/resetcode"} );
+                
             } else {
-                setError('Email no encontrado. Por favor, inténtelo de nuevo.');
+                setAlert("Email no encontrado. Por favor, inténtelo de nuevo.");
             }
         } catch (error) {
             console.error('Error fetching users:', error);
@@ -49,8 +53,10 @@ function ResetPassword() {
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
-                    {error && <p className="text-red-500">{error}</p>}
+                  
+
                     <p className="my-4 text-sm">Enviaremos un código de verificación a este email si coincide con una cuenta de BetterWorld existente.</p>
+                    {alert ? <DangerAlert>{alert}</DangerAlert> : ""}
                     <button type="submit" className="w-full px-4 pt-2 text-white button2 rounded-lg duration-150">Enviar</button>
                 </form>
                 <a href="/Login" className="w-full flex btn-margin items-center justify-center gap-x-3 py-2.5 border-bn rounded-lg text-sm duration-150 hover:bg-gray-100">Volver</a>
