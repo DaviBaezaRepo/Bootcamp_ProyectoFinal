@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Map from "./Map";
-import { getUserData } from '../lib/authUtils';
+import { getUserData, isLogged } from '../lib/authUtils';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import { UserData } from "../data/UserData";
@@ -243,46 +243,41 @@ const EventDetails: React.FC = () => {
                           <p className="text-sm text-black font-semibold mt-3">FECHA</p>
                           <p className="text-sm text-gray-500">{formattedDate}</p>
 
+                          {isLogged() && (
+                            <>
+                              {userData && event.userList?.find((user) => user.id === parseInt(userData.sub)) ? (
+                                <button
+                                  className="mt-3 w-full button2 text-white py-2 rounded"
+                                  onClick={unsubscribe}
+                                >
+                                  Dejar de participar
+                                </button>
+                              ) : (
+                                <button
+                                  className="mt-3 w-full button2 text-white py-2 rounded"
+                                  onClick={subscribe}
+                                >
+                                  Participar
+                                </button>
+                              )}
 
-                          {userData && event.userList?.find((user) => {
-                            return user.id == parseInt(userData!.sub)
-                          }) ?
-
-                            <button
-                              className="mt-3 w-full button2 text-white py-2 rounded"
-                              onClick={unsubscribe}
-                            >
-                              Dejar de participar
-                            </button>
-                            :
-
-                            <button
-                              className="mt-3 w-full button2 text-white py-2 rounded"
-                              onClick={subscribe}
-                            >
-                              Participar
-                            </button>
-                          }
-
-                          
-                            {isSaved ? (
-                              <button
-                                className="mt-3 w-full button2 text-white py-2 rounded"
-                                onClick={handleRemoveFavorites}
-                              >
-                                Eliminar de Guardados
-                              </button>
-                            ) : (
-                              <button
-                                className="mt-3 w-full button2 text-white py-2 rounded"
-                                onClick={handleSubmitFavorites}
-                              >
-                                Guardar
-                              </button>
-                            )}
-                          
-
-
+                              {isSaved ? (
+                                <button
+                                  className="mt-3 w-full button2 text-white py-2 rounded"
+                                  onClick={handleRemoveFavorites}
+                                >
+                                  Eliminar de Guardados
+                                </button>
+                              ) : (
+                                <button
+                                  className="mt-3 w-full button2 text-white py-2 px-4 rounded"
+                                  onClick={handleSubmitFavorites}
+                                >
+                                  Guardar
+                                </button>
+                              )}
+                            </>
+                          )}
                         </div>
                       </div>
                     </ul>
@@ -334,7 +329,7 @@ const EventDetails: React.FC = () => {
         </div>
       </section>
       {/*Map section*/}
-      <Map latitude={event.lat} longitude={event.lon} event={event} />
+      <Map latitude={event.lat} longitude={event.lon} />
     </>
   );
 };
