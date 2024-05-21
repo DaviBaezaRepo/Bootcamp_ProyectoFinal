@@ -37,6 +37,7 @@ const EventDetails: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [user, setUserData] = useState<UserData | null>(null);
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:8080/events/dto/${id}`)
@@ -65,6 +66,38 @@ const EventDetails: React.FC = () => {
         setLoading(false);
       });
   }, [id]);
+
+
+  const checkIfSaved = async () => {
+    if (!user) return;
+
+    try {
+      const response = await fetch(`http://localhost:8080/users/saved-events/${user.sub}`);
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch saved events');
+      }
+
+      const events = await response.json();
+      const savedEvent = events.find((e) => e.id === id);
+
+      if (savedEvent) {
+        setIsSaved(true);
+      }
+    } catch (error) {
+      console.error('Error checking if event is saved:', error);
+    }
+  };
+
+  useEffect(() => {
+    checkIfSaved();
+  }, [user, id]);
+
+
+
+
+
+
 
   useEffect(() => {
     const userData = getUserData();
@@ -105,35 +138,68 @@ const EventDetails: React.FC = () => {
       await subscribe();
       setIsSubscribed(true);
     }
-  }; 
+  };
 
   async function subscribe() {
     const response = await fetch(`http://localhost:8080/users/${userData?.sub}/subscribe-event/${id}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
 
     if (!response.ok) {
-        throw new Error('Error al subscribirse al evento');
+      throw new Error('Error al subscribirse al evento');
     }
-    toast.success('Se ha subscrito al evento con éxito', { autoClose: 1000, onClose: () => document.location.reload()});
+    toast.success('Se ha subscrito al evento con éxito', { autoClose: 1000, onClose: () => document.location.reload() });
   }
 
   async function unsubscribe() {
     const response = await fetch(`http://localhost:8080/users/${userData?.sub}/subscribe-event/delete/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
 
     if (!response.ok) {
-        throw new Error('Error al eliminar su subscripción al evento');
+      throw new Error('Error al eliminar su subscripción al evento');
     }
-    toast.success('Se ha eliminado su subscripción al evento con éxito', { autoClose: 1000 , onClose: () => document.location.reload()});
+    toast.success('Se ha eliminado su subscripción al evento con éxito', { autoClose: 1000, onClose: () => document.location.reload() });
   }
+
+
+  const handleSubmitFavorites = async (event: React.MouseEvent<SVGElement>) => {
+    try {
+      const response = await fetch(`http://localhost:8080/users/save-event/${user?.sub}/${id}`, {
+        method: "POST"
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch user data');
+      }
+      setIsSaved(true);
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  };
+
+
+  const handleRemoveFavorites = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    try {
+      const response = await fetch(`http://localhost:8080/users/save-event/delete/${user?.sub}/${id}`, {
+        method: "PUT"
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to delete user data');
+      }
+      setIsSaved(false);
+    } catch (error) {
+      console.error('Error deleting user data:', error);
+    }
+  };
+
 
   return (
     <>
@@ -151,12 +217,12 @@ const EventDetails: React.FC = () => {
             <img src={event.image} alt={event.title} className="mt-4 rounded-md" />
           </div>
           <section>
-          {/* Event info */}
-          <div className="mb-4 mt-8 lg:mt-0">
-            <div className="flex flex-col items-start justify-center divide-y sm:divide-y-0">
-              <div className="w-full min-w-max max-w-lg p-4 border border-gray-200 rounded-lg shadow sm:p-8">
-                <div className="flow-root">
-                  <ul role="list" className="divide-y divide-gray-200">
+            {/* Event info */}
+            <div className="mb-4 mt-8 lg:mt-0">
+              <div className="flex flex-col items-start justify-center divide-y sm:divide-y-0">
+                <div className="w-full min-w-max max-w-lg p-4 border border-gray-200 rounded-lg shadow sm:p-8">
+                  <div className="flow-root">
+                    <ul role="list" className="divide-y divide-gray-200">
                       <div className="sm:py-4" >
                         <div className="flex items-center">
                           <div className="flex-shrink-0">
@@ -176,34 +242,54 @@ const EventDetails: React.FC = () => {
                           <p className="text-sm text-gray-500">{event.location}</p>
                           <p className="text-sm text-black font-semibold mt-3">FECHA</p>
                           <p className="text-sm text-gray-500">{formattedDate}</p>
-                          {userData && event.userList?.find((user)=> {
-                            return user.id == parseInt( userData!.sub) 
-                          })?
-                          
-                          <button
-                          className="mt-3 w-full button2 text-white py-2 rounded"
-                          onClick={unsubscribe}
-                        >
-                          Dejar de participar
-                        </button>
-                          :
 
-                        <button
-                        className="mt-3 w-full button2 text-white py-2 rounded"
-                        onClick={subscribe}
-                      >
-                        Participar
-                      </button>
-}
-                            
-                        
+
+                          {userData && event.userList?.find((user) => {
+                            return user.id == parseInt(userData!.sub)
+                          }) ?
+
+                            <button
+                              className="mt-3 w-full button2 text-white py-2 rounded"
+                              onClick={unsubscribe}
+                            >
+                              Dejar de participar
+                            </button>
+                            :
+
+                            <button
+                              className="mt-3 w-full button2 text-white py-2 rounded"
+                              onClick={subscribe}
+                            >
+                              Participar
+                            </button>
+                          }
+
+                          <div className="flex justify-end">
+                            {isSaved ? (
+                              <button
+                                className="mt-3 w-full button2 text-white py-2 rounded"
+                                onClick={handleRemoveFavorites}
+                              >
+                                Eliminar de Favoritos
+                              </button>
+                            ) : (
+                              <button
+                                className="mt-3 w-full button2 text-white py-2 px-4 rounded"
+                                onClick={handleSubmitFavorites}
+                              >
+                                Guardar
+                              </button>
+                            )}
+                          </div>
+
+
                         </div>
                       </div>
-                  </ul>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
             {/* Attendees */}
             <div className="my-8 lg:mt-0">
               <div className="flex flex-col items-start justify-center divide-y sm:divide-y-0">
@@ -244,7 +330,7 @@ const EventDetails: React.FC = () => {
                 </div>
               </div>
             </div>
-          </section>  
+          </section>
         </div>
       </section>
       {/*Map section*/}
