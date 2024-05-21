@@ -25,7 +25,8 @@ async function fetchUserData(organizerId: number): Promise<UserData> {
 }
 
 function MyEventsCards() {
-    const [events, setEvents] = useState<UserWithSavedEventData[]>([]);
+    const [events, setEvents] = useState<UserWithSavedEventData[]>([]); 
+    const [loading, setLoading] = useState(true); // Nuevo estado para controlar la carga
 
     // Define fetchEvents function
     const fetchEvents = async () => {
@@ -60,6 +61,7 @@ function MyEventsCards() {
 
             // Slice the array to only include the specified number of events
             setEvents(formattedEvents.slice(0, 100));
+            setLoading(false); // Cuando se cargan los eventos, establecemos loading en false
         } catch (error) {
             console.error('Error fetching events:', error);
         }
@@ -96,6 +98,16 @@ function MyEventsCards() {
         });
         return formattedDate.replace(/\//g, '-');
     };
+    
+    // comprueba si hay eventos para mostrar
+    if (loading) {
+        return <div>Cargando eventos...</div>;
+    }
+
+    // Si no hay eventos, mostrar un mensaje
+    if (events.length === 0) {
+        return <div>Aún no estás apuntado a ningún evento</div>;
+    }
 
     return (
 

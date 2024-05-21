@@ -13,6 +13,8 @@ function SignUp() {
     const [isentity] = useState(false); // Estado inicial: no es de una empresa
     const [entity] = useState('');
     const [ alert, setAlert] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleFirstnameChange = (e: any) => {
         setFirstname(e.target.value);
@@ -30,6 +32,16 @@ function SignUp() {
         setNewPassword(e.target.value);
     };
 
+    const handleConfirmPasswordChange = (e: any) => {
+        setConfirmPassword(e.target.value);
+        // Si el campo de confirmación de contraseña se vacía, borra el mensaje de error
+        if (e.target.value === '') {
+            setErrorMessage('');
+        }
+    };
+
+
+
 /*    const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setIsentity(event.target.checked); // Cambiar el estado basado en si el checkbox está marcado o no
         if (!event.target.checked) {
@@ -43,6 +55,15 @@ function SignUp() {
 */
     const handleSubmit = (e: any) => {
         e.preventDefault();
+
+        if (newpassword === confirmPassword) {
+            // Las contraseñas coinciden, realizar la acción deseada
+            console.log('Passwords match. Proceed with form submission.');
+        } else {
+            // Las contraseñas no coinciden, mostrar mensaje de error
+            setErrorMessage('Las contraseñas no coinciden.');
+            return;
+        }
 
         const myHeaders: HeadersInit = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -151,10 +172,10 @@ function SignUp() {
                         </div>
                         <div>
                             <label className="font-medium">
-                                Confirmar contraseña
+                                Confirmar contraseña 
                             </label>
                             <input
-                                type="password"
+                                type="password" value={confirmPassword} onChange={handleConfirmPasswordChange}
                                 required
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-color shadow-sm rounded-lg"
                             />
@@ -182,6 +203,9 @@ function SignUp() {
                                 </div>
                             )}
                         </div>*/}
+                        {errorMessage && (
+                            <p className="text-red-500 mt-2">{errorMessage}</p>
+                        )}
                          {alert ? <DangerAlert>{alert}</DangerAlert> : ""}
                         <button
                             type="submit"
