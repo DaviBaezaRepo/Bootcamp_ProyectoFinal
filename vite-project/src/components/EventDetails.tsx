@@ -68,31 +68,6 @@ const EventDetails: React.FC = () => {
   }, [id]);
 
 
-  const checkIfSaved = async () => {
-    if (!user) return;
-
-    try {
-      const response = await fetch(`http://localhost:8080/users/saved-events/${user.sub}`);
-
-      if (!response.ok) {
-        throw new Error('Failed to fetch saved events');
-      }
-
-      const events = await response.json();
-      const savedEvent = events.find((e) => e.id === id);
-
-      if (savedEvent) {
-        setIsSaved(true);
-      }
-    } catch (error) {
-      console.error('Error checking if event is saved:', error);
-    }
-  };
-
-  useEffect(() => {
-    checkIfSaved();
-  }, [user, id]);
-
 
 
 
