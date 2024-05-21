@@ -334,7 +334,7 @@ const EventDetails: React.FC = () => {
         </div>
       </section>
       {/*Map section*/}
-      <Map latitude={event.lat} longitude={event.lon} />
+      <Map latitude={event.lat} longitude={event.lon} event={event} />
     </>
   );
 };

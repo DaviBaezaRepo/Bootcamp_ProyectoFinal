@@ -12,9 +12,10 @@ interface Event {
 interface MapProps {
   latitude?: string;
   longitude?: string;
+  event?: Event; // Add event prop
 }
 
-const Map: React.FC<MapProps> = ({ latitude, longitude }) => {
+const Map: React.FC<MapProps> = ({ latitude, longitude, event }) => {
   const [events, setEvents] = useState<Event[]>([]);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const navigate = useNavigate();
@@ -34,9 +35,11 @@ const Map: React.FC<MapProps> = ({ latitude, longitude }) => {
     lng: longitude ? parseFloat(longitude) : 1.1011896387438063,
   };
 
-  const markers = latitude && longitude
-    ? [{ id: 0, title: "Event Marker", lat: latitude, lon: longitude }]
-    : events;
+  const markers = event
+    ? [event] // Use the provided event if available
+    : latitude && longitude
+      ? [{ id: 0, title: "Event Marker", lat: latitude, lon: longitude }]
+      : events;
 
   const handleTitleClick = (eventId: number) => {
     navigate(`/events/${eventId}`);
