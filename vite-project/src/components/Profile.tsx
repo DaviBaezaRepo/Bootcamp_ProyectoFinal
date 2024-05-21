@@ -118,7 +118,7 @@ const Profile: React.FC = () => {
     }    
     
     return (
-        <div className="w-full px-6 mt-8 sm:max-w-xl sm:rounded-lg">
+        <div className="w-full px-6 mt-8 sm:max-w-xl sm:rounded-lg mx-auto"> {/* Add mx-auto */}
         <h2 className="pl-6 text-2xl font-bold sm:text-xl">{firstname} {surname}</h2>
         <div className="grid max-w-2xl mx-auto mt-8">
             <div className="flex justify-center space-y-5 sm:flex-row sm:space-y-0">
